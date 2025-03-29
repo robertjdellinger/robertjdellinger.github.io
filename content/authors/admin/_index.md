@@ -1,6 +1,6 @@
 ---
 awards:
-- awarder: Coursera
+- awarder: Sigma Xi
   date: "2023-11-25"
   icon: coursera
   summary: |
@@ -26,72 +26,66 @@ awards:
   title: Object-Oriented Programming in R
   url: https://www.datacamp.com/courses/object-oriented-programming-with-s3-and-r6-in-r
 education:
-- area: PhD Artificial Intelligence
-  button:
-    text: Read Thesis
-    url: https://example.com
-  date_end: "2020-12-31"
-  date_start: "2016-01-01"
-  institution: Stanford University
-  summary: |
-    Thesis on _Why LLMs are awesome_. Supervised by [Prof Joe Smith](https://example.com). Presented papers at 5 IEEE conferences with the contributions being published in 2 Springer journals.
-- area: MEng Artificial Intelligence
-  date_end: "2020-12-31"
-  date_start: "2016-01-01"
-  institution: Massachusetts Institute of Technology
-  summary: |
-    GPA: 3.8/4.0
+  - area: PhD Atmospheric and Oceanic Sciences
+    date_start: "2024-01-01"
+    date_end: null
+    institution: University of California, Los Angeles
+    button:
+      text: Visit Website
+      url: https://www.robdellinger.com
+    summary: |
+      Research focus on biogeochemistry and climate change impacts on marine ecosystems.
+      Advisors: Drs. Aradhna Tripati & Robert Eagle.
 
-    Courses included:
-    - lorem ipsum dolor sit amet, consectetur adipiscing elit
-    - lorem ipsum dolor sit amet, consectetur adipiscing elit
-    - lorem ipsum dolor sit amet, consectetur adipiscing elit
-- area: BSc Artificial Intelligence
-  date_end: "2020-12-31"
-  date_start: "2016-01-01"
-  institution: Massachusetts Institute of Technology
-  summary: |
-    GPA: 3.4/4.0
+  - area: MS Biological Sciences
+    date_start: "2021-09-01"
+    date_end: "2024-09-01"
+    institution: California State University, Northridge
+    summary: |
+      GPA: 3.75
 
-    Courses included:
-    - lorem ipsum dolor sit amet, consectetur adipiscing elit
-    - lorem ipsum dolor sit amet, consectetur adipiscing elit
-    - lorem ipsum dolor sit amet, consectetur adipiscing elit
-first_name: Shiung Wu
+      Thesis: *Facing Physiological Constraints: The Interactive Effects of Ocean Acidification and Warming on the Energetics of an Intertidal Gastropod, Tegula funebralis*
+
+  - area: BA & BS Marine & Coastal Science & International Relations
+    date_start: "2017-01-01"
+    date_end: "2021-01-01"
+    institution: University of California, Davis
+    summary: |
+      GPA: 3.18
+
+      Departmental Citation.
+      Emphases:
+      - Oceans & Earth System (Marine & Coastal Science)
+      - Global Environment, Health & Natural Resources (International Relations)
 highlight_name: true
 interests:
-- Artificial Intelligence
-- Computational Linguistics
-- Information Retrieval
+- Marine Ecology
+- Climate Change
+- Biogeochemistry
+- Quantitative Ecology
 languages:
 - name: English
   percent: 100
-- name: Chinese
-  percent: 75
-- name: Portuguese
-  percent: 25
-last_name: Chien
-name_pronunciation: Chien Shiung Wu
+- name: Spanish
+  percent: 100
 organizations:
-- name: OpenAI
-  url: https://openai.com/
+- name: University of California, Los Angeles
+  url: https://atmos.ucla.edu/
 profiles:
 - icon: at-symbol
   label: E-mail Me
-  url: mailto:your-email@example.com
+  url: mailto:rjdellinger@ucla.edu
 - icon: brands/x
-  url: https://twitter.com/GetResearchDev
-- icon: brands/instagram
-  url: https://www.instagram.com/
+  url: https://twitter.com/robertjdellinger
 - icon: brands/github
-  url: https://github.com/gcushen
+  url: https://github.com/robertjdellinger
 - icon: brands/linkedin
-  url: https://www.linkedin.com/
+  url: https://www.linkedin.com/robertjdellinger
 - icon: academicons/google-scholar
-  url: https://scholar.google.com/
+  url: https://scholar.google.com/robertjdellinger
 - icon: academicons/orcid
   url: https://orcid.org/
-role: Chief Scientist
+role: Ph.D. Student, Atmospheric & Oceanic Sciences
 skills:
 - items:
   - description: ""
@@ -124,9 +118,9 @@ skills:
     percent: 80
   name: Hobbies
 status:
-  icon: ☕️
+  icon: 🪸️
 superuser: true
-title: 吳健雄
+title: Robert J. Dellinger
 work:
 - company_logo: ""
   company_name: GenCoin
@@ -154,4 +148,4 @@ work:
 
 ## About Me
 
-Chien Shiung Wu is a professor of artificial intelligence at the Stanford AI Lab. Her research interests include distributed robotics, mobile computing and programmable matter. She leads the Robotic Neurobiology group, which develops self-reconfiguring robots, systems of self-organizing robots, and mobile sensor networks.
+Robert J. Dellinger is a Ph.D. student in Atmospheric and Oceanic Sciences at UCLA, specializing in biogeochemistry, under the mentorship of Dr. Aradhna Tripati. Rob previously earned a Master of Science degree in Biology from California State University, Northridge, as a researcher in the Quantitative Marine Ecology Lab. They also hold dual bachelor's degrees in, Marine and Coastal Science (B.S.) and International Relations (B.A.) from UC Davis. Rob’s research explores the interactive effects of ocean acidification and warming on marine organisms by assessing their physiological responses to projected climate change scenarios. By employing mechanistic approaches, they aim to predict how changes at the organismal level could scale up to influence broader ecosystem functions. Furthermore, by utilzing both ecological and biogeochemical techniques, they aim to understand how shifts in ecological processes will ultimately impact human society. Currently, Robert is honored to be a National Science Foundation Graduate Research Fellow, UCLA Center for Diverse leadership Fellow, and a Sustainable Oceans NSF National Research Trainee.
