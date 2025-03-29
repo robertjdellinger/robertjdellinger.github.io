@@ -6,7 +6,7 @@
 # Website name
 title: Hugo Academic CV Theme
 # Website URL
-baseURL: 'https://example.com/'
+baseURL: '/'
 
 ############################
 ## LANGUAGE
@@ -47,6 +47,9 @@ taxonomies:
   tag: tags
   publication_type: publication_types
 markup:
+  goldmark:
+    renderer:
+      unsafe: true
   _merge: deep
   highlight:
     lineNos: false
