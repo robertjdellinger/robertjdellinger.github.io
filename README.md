@@ -8,9 +8,8 @@ This repository powers the personal academic website of Robert J. Dellinger, a P
 ## Research interests
 
 - Climate change impacts on marine organisms and ecosystems
-- Ocean acidification and thermal stress
 - Scaling links from physiology to ecosystem function
-- Social drivers of environmental change (e.g., structural racism resulting in differential environmental outcomes)
+- Social drivers of environmental change (e.g., structural racism)
 - Science–art collaboration, storytelling, and public engagement
 
 
