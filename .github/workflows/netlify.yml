@@ -45,7 +45,14 @@ jobs:
           HUGO_ENVIRONMENT: production
         run: hugo --minify
 
+      # Only verify secrets when secrets would actually be used:
+      # - pushes to netlify (production)
+      # - internal PRs (head repo == base repo)
       - name: Verify Netlify secrets
+        if: >
+          github.ref == 'refs/heads/netlify' ||
+          (github.event_name == 'pull_request' &&
+           github.event.pull_request.head.repo.full_name == github.repository)
         run: |
           if [ -z "${NETLIFY_AUTH_TOKEN}" ] || [ -z "${NETLIFY_SITE_ID}" ]; then
             echo "::error::Missing secrets. Set NETLIFY_AUTH_TOKEN and NETLIFY_SITE_ID in Settings → Secrets and variables → Actions."
@@ -55,9 +62,11 @@ jobs:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
 
-      # PRs → Deploy Preview
+      # PRs → Deploy Preview (internal PRs only; forks get CI but no preview)
       - name: Deploy Preview
-        if: github.event_name == 'pull_request'
+        if: >
+          github.event_name == 'pull_request' &&
+          github.event.pull_request.head.repo.full_name == github.repository
         uses: netlify/actions/cli@v4
         with:
           args: deploy --dir=public --message="PR #${{ github.event.number }}" --json
