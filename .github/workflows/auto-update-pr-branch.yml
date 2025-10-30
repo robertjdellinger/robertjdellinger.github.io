@@ -32,12 +32,8 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
-            const number = context.payload.pull_request.number;
-            const base = context.payload.pull_request.base.ref;
-            core.info(`Updating PR #${number} from base '${base}'...`);
             await github.rest.pulls.updateBranch({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              pull_number: number
+              pull_number: context.payload.pull_request.number
             });
-            core.info('Update requested successfully.')
