@@ -17,40 +17,30 @@ permissions:
   id-token: write
 
 concurrency:
-  group: 'pages'
-  cancel-in-progress: false
+  group: pages-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
     if: github.repository_owner != 'HugoBlox'
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
-
-      - name: Setup pnpm
+      - uses: pnpm/action-setup@v4
         if: hashFiles('package.json') != ''
-        uses: pnpm/action-setup@v4
-
-      - name: Install dependencies
-        run: |
+      - run: |
           if [ -f "package.json" ]; then
             pnpm install || npm install
           fi
-
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v3
+      - uses: peaceiris/actions-hugo@v3
         with:
           hugo-version: ${{ env.WC_HUGO_VERSION }}
           extended: true
-
       - uses: actions/cache@v4
         with:
           path: |
@@ -60,33 +50,19 @@ jobs:
           key: ${{ runner.os }}-hugo-deps-${{ hashFiles('**/go.mod', '**/package-lock.json', '**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-hugo-deps-
-
       - uses: actions/cache@v4
         with:
           path: resources/
           key: ${{ runner.os }}-hugo-resources-${{ hashFiles('assets/**/*', 'config/**/*', 'hugo.yaml', 'package.json') }}
           restore-keys: |
             ${{ runner.os }}-hugo-resources-
-
-      - name: Setup Pages
+      - uses: actions/configure-pages@v5
         id: pages
-        uses: actions/configure-pages@v5
-
       - name: Build with Hugo
         env:
           HUGO_ENVIRONMENT: production
-        run: |
-          echo "Hugo Cache Dir: $(hugo config | grep cachedir)"
-          hugo --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
-
-      - name: Generate Pagefind search index (if applicable)
-        run: |
-          if [ -f "package.json" ] && grep -q "pagefind" package.json; then
-            pnpm dlx pagefind --source "public" || npx pagefind --source "public"
-          fi
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v4
+        run: hugo --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
+      - uses: actions/upload-pages-artifact@v4
         with:
           path: ./public
 
