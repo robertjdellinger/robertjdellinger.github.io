@@ -1,0 +1,35 @@
+name: Netlify (netlify branch)
+
+on:
+  push:
+    branches: [netlify]
+  pull_request:
+    branches: [netlify]
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    name: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Deploy Preview (PRs)
+        if: github.event_name == 'pull_request'
+        uses: netlify/actions/cli@v5
+        with:
+          args: deploy --dir=. --message="PR #${{ github.event.number }}" --json
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+
+      - name: Deploy Production (netlify branch)
+        if: github.ref == 'refs/heads/netlify'
+        uses: netlify/actions/cli@v5
+        with:
+          args: deploy --dir=. --prod --message="netlify @ ${{ github.sha }}" --json
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
