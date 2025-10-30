@@ -1,0 +1,61 @@
+/* Custom styles for improved accessibility and professional appearance */
+
+/* Improve link visibility for accessibility */
+a {
+  text-decoration-skip-ink: auto;
+}
+
+/* Better focus indicators for keyboard navigation */
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+/* Improve readability of publication citations */
+.citation {
+  line-height: 1.6;
+}
+
+/* Better spacing for research interests and skills */
+.interests-list,
+.skills-list {
+  line-height: 1.8;
+}
+
+/* Ensure images are responsive */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Improve print styles for CV download */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  a[href]:after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+  }
+  
+  a[href^="#"]:after,
+  a[href^="javascript:"]:after {
+    content: "";
+  }
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Better contrast for important elements */
+.highlight,
+.featured {
+  position: relative;
+}
