@@ -2,13 +2,21 @@ name: Auto-enable Auto-merge
 
 on:
   pull_request_target:
-    types: [opened, ready_for_review, reopened, edited, synchronize]
+    types: [opened, ready_for_review, reopened, edited, synchronize, labeled]
 
 permissions:
+  contents: write
   pull-requests: write
 
 jobs:
   enable:
+    if: >
+      github.event.pull_request.draft == false &&
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      (
+        contains(join(github.event.pull_request.labels.*.name, ','), 'automerge')
+        || github.actor == 'dependabot[bot]'
+      )
     runs-on: ubuntu-latest
     steps:
       - name: Enable auto-merge (squash)
