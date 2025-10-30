@@ -3,9 +3,9 @@ title: "Research at Amigos Del Lago in Lake Atitlán, Guatemala"
 summary: "Hydrilla, water quality, native macrophytes, and community interviews."
 date: 2016-07-01
 type: landing
-featured:
-  image: "/uploads/lake-atitlan.jpg"
-  alt: "Fieldwork on Lake Atitlán"
+#featured:
+  #image: "/uploads/lake-atitlan.jpg"
+  #alt: "Fieldwork on Lake Atitlán"
 design:
   spacing: "4rem"
 sections:
