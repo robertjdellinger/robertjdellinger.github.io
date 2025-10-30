@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" role="img" aria-label="Robert J. Dellinger logo with ocean waves and atmospheric currents">
+  <title>Robert J. Dellinger</title>
   <!-- Background circle -->
   <circle cx="50" cy="50" r="48" fill="#4F46E5" stroke="#312E81" stroke-width="2"/>
   
