@@ -1,0 +1,95 @@
+name: Deploy website to GitHub Pages
+
+env:
+  WC_HUGO_VERSION: '0.152.1'
+  NODE_VERSION: '20'
+
+on:
+  push:
+    branches: ['main']
+  pull_request:
+    branches: ['main']
+  workflow_dispatch:
+
+# Per-ref concurrency so PR previews don't block or get blocked by main
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    if: github.repository_owner != 'HugoBlox'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - uses: pnpm/action-setup@v4
+        if: hashFiles('package.json') != ''
+
+      - name: Install JS dependencies if applicable
+        if: hashFiles('package.json') != ''
+        run: pnpm install || npm install
+
+      # Cache deps
+      - uses: actions/cache@v4
+        with:
+          path: |
+            /tmp/hugo_cache_runner/
+            node_modules/
+            modules/*/node_modules/
+          key: ${{ runner.os }}-hugo-deps-${{ hashFiles('**/go.mod', '**/package-lock.json', '**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-hugo-deps-
+
+      # Cache Hugo resources
+      - uses: actions/cache@v4
+        with:
+          path: resources/
+          key: ${{ runner.os }}-hugo-resources-${{ hashFiles('assets/**/*', 'config/**/*', 'hugo.yaml', 'package.json') }}
+          restore-keys: |
+            ${{ runner.os }}-hugo-resources-
+
+      - uses: actions/configure-pages@v5
+        id: pages
+
+      - uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: ${{ env.WC_HUGO_VERSION }}
+          extended: true
+
+      - name: Build with Hugo
+        env:
+          HUGO_ENVIRONMENT: production
+        run: hugo --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
+
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: ./public
+          retention-days: 7
+
+  deploy:
+    if: github.repository_owner != 'HugoBlox'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+        with:
+          # PRs → preview; pushes to main → production
+          preview: ${{ github.event_name == 'pull_request' }}
