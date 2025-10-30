@@ -13,10 +13,15 @@ permissions:
 env:
   WC_HUGO_VERSION: '0.152.1'
 
+concurrency:
+  group: netlify-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   deploy:
     name: deploy
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
         with:
