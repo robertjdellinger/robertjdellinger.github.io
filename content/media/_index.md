@@ -1,6 +1,5 @@
 ---
-title: "Blog"
+title: "Media"
 type: landing
 summary: ""
-view: article-grid
 ---

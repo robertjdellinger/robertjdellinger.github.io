@@ -1,7 +1,7 @@
 ---
-title: "Research"
+title: "Research Experience"
 type: landing
-summary: "Case studies and labs I have worked with."
+summary: ""
 design:
   spacing: "5rem"
 sections:

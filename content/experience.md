@@ -1,7 +1,8 @@
 ---
-title: 'Experience'
+title: "Bio"
 date: 2025-01-01
-type: landing
+type: page
+summary: ""
 
 design:
   spacing: '5rem'
