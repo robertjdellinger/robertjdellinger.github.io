@@ -8,7 +8,7 @@ This directory contains archetypes (templates) for creating new content in Hugo.
 Template for research project pages. Use this when creating new research entries:
 
 ```bash
-hugo new content/research/my-new-project/index.md --kind research
+hugo new content/research/your-project-name/index.md --kind research
 ```
 
 This will create a new research page with the standard frontmatter structure, including:

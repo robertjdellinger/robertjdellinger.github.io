@@ -35,7 +35,7 @@ This document summarizes the refactoring work done to eliminate duplicated code 
 
 **Usage:**
 ```bash
-hugo new content/research/new-project/index.md --kind research
+hugo new content/research/your-project-name/index.md --kind research
 ```
 
 ### 3. Added Documentation
