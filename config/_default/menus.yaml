@@ -10,7 +10,7 @@ main:
   - name: Research
     url: /research/
     weight: 10
-  - name: Papers
+  - name: Publications
     url: /#papers
     weight: 11
   - name: Talks
@@ -22,9 +22,3 @@ main:
   - name: Experience
     url: /experience/
     weight: 20
-  - name: Projects
-    url: /projects/
-    weight: 30
-  - name: Courses
-    url: /courses/
-    weight: 40

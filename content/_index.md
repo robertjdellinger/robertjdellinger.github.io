@@ -35,6 +35,13 @@ sections:
       subtitle: ''
       text: |-
         Robert J. Dellinger is a Ph.D. student in Atmospheric and Oceanic Sciences at UCLA, specializing in biogeochemistry, under the mentorship of Dr. Aradhna Tripati. Rob's research explores the interactive effects of ocean acidification and warming on marine organisms by assessing their physiological responses to projected climate change scenarios. By employing mechanistic approaches, they aim to predict how changes at the organismal level could scale up to influence broader ecosystem functions.
+        
+        **Key Research Areas:**
+        - Ocean acidification and warming impacts on marine invertebrates
+        - Coral biomineralization and symbiont dynamics
+        - Physiological ecology and energetic constraints
+        - Critical ecology and environmental justice perspectives
+        - Ancient DNA (coraDNA) applications in paleoceanography
 
     design:
       columns: '1'
@@ -97,20 +104,6 @@ sections:
       # Reduce spacing
       spacing:
         padding: [0, 0, 0, 0]
-  - block: cta-card
-    demo: true # Only display this section in the Hugo Blox Builder demo site
-    content:
-      title: 👉 Build your own academic website like this
-      text: |-
-
-      button:
-        text: Get Started
-        url: https://hugoblox.com/templates/
-    design:
-      card:
-        # Card background color (CSS class)
-        css_class: 'bg-primary-300 dark:bg-primary-700'
-        css_style: ''
 
   - block: resume-experience
     content:

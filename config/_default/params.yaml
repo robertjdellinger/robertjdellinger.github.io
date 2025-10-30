@@ -13,9 +13,9 @@ marketing:
   seo:
     site_type: Person
     local_business_type: ''
-    org_name: ''
-    description: 'The highly-customizable Hugo Academic theme powered by Hugo Blox Builder. Easily create your personal academic website.'
-    twitter: 'GetResearchDev'
+    org_name: 'University of California, Los Angeles'
+    description: 'Robert J. Dellinger - PhD student in Atmospheric & Oceanic Sciences at UCLA. Research on ocean-climate interactions, marine biogeochemistry, and climate change impacts on marine ecosystems.'
+    twitter: 'RJ_Dellinger'
   analytics:
     google_analytics: ''
     baidu_tongji: ''
@@ -35,12 +35,12 @@ header:
     show_search: true
     show_theme_chooser: true
     logo:
-      text: 'Your Name'
+      text: 'Robert J. Dellinger'
 
 # Site footer
 footer:
   copyright:
-    notice: '© {year} Me. This work is licensed under {license}'
+    notice: '© {year} Robert J. Dellinger. This work is licensed under {license}'
     license:
       enable: true
       allow_derivatives: false

@@ -77,7 +77,7 @@ education:
     date_start: 2017-09-01
     date_end: 2021-06-15
     summary: |
-      Distintction: Departmental Citation for Outstanding Achievement and Contributions.
+      Distinction: Departmental Citation for Outstanding Achievement and Contributions.
       Emphases: Oceans & Earth System Science (MCS), Global Environment & Natural Resources (IR).
 
 # Work and research experience
