@@ -1,7 +1,7 @@
 ---
 title: "Public Engagement"
 type: landing
-summary: ""
+summary: "Discover upcoming public engagement events, talks, and activities designed to connect our research with the wider community."
 cms_exclude: true
 #url: talk
 
