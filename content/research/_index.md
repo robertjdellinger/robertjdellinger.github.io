@@ -1,7 +1,7 @@
 ---
 title: "Research Experience"
 type: landing
-summary: ""
+summary: "Overview of research experience, selected projects, and contributions linking organismal physiology, ecological change, and justice-oriented science."
 design:
   spacing: "5rem"
 sections:
