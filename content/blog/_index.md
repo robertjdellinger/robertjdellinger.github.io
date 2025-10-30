@@ -1,6 +1,6 @@
 ---
 title: "Blog"
 type: landing
-summary: ""
+summary: "Read the latest articles and updates on our blog."
 view: article-grid
 ---
