@@ -5,9 +5,13 @@ on:
     branches: [netlify]
   pull_request:
     branches: [netlify]
+  workflow_dispatch:
 
 permissions:
   contents: read
+
+env:
+  WC_HUGO_VERSION: '0.152.1'
 
 jobs:
   deploy:
@@ -15,21 +19,43 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - name: Deploy Preview (PRs)
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: ${{ env.WC_HUGO_VERSION }}
+          extended: true
+
+      - uses: actions/cache@v4
+        with:
+          path: /tmp/hugo_cache_runner/
+          key: ${{ runner.os }}-hugo-deps-${{ hashFiles('**/go.mod') }}
+          restore-keys: |
+            ${{ runner.os }}-hugo-deps-
+
+      - name: Build with Hugo
+        env:
+          HUGO_ENVIRONMENT: production
+        run: hugo --minify
+
+      # PRs → Deploy Preview
+      - name: Deploy Preview
         if: github.event_name == 'pull_request'
         uses: netlify/actions/cli@v5
         with:
-          args: deploy --dir=. --message="PR #${{ github.event.number }}" --json
+          args: deploy --dir=public --message="PR #${{ github.event.number }}" --json
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
 
-      - name: Deploy Production (netlify branch)
+      # Pushes to netlify → Production
+      - name: Deploy Production
         if: github.ref == 'refs/heads/netlify'
         uses: netlify/actions/cli@v5
         with:
-          args: deploy --dir=. --prod --message="netlify @ ${{ github.sha }}" --json
+          args: deploy --dir=public --prod --message="netlify @ ${{ github.sha }}" --json
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
