@@ -1,0 +1,44 @@
+name: Auto-approve trusted PRs
+
+on:
+  pull_request_target:
+    types: [opened, reopened, synchronize, ready_for_review]
+
+permissions:
+  pull-requests: write
+  contents: write
+
+jobs:
+  auto-approve:
+    runs-on: ubuntu-latest
+    if: |
+      github.event.pull_request.draft == false && (
+        github.actor == 'dependabot[bot]' ||
+        github.event.pull_request.head.ref == 'hugoblox-import-publications'
+      )
+    steps:
+      - name: Auto-approve PR
+        uses: hmarr/auto-approve-action@v4
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Add comment
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const actor = context.payload.pull_request.user.login;
+            const branch = context.payload.pull_request.head.ref;
+            let message = '✅ Auto-approved: ';
+            
+            if (actor === 'dependabot[bot]') {
+              message += 'Dependabot dependency update';
+            } else if (branch === 'hugoblox-import-publications') {
+              message += 'Automated publication import';
+            }
+            
+            github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.payload.pull_request.number,
+              body: message
+            });
