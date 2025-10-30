@@ -92,7 +92,7 @@
     "@type": "Person",
     "name": "Robert J. Dellinger"
   },
-  "description": "{{ with .Summary }}{{ . }}{{ else }}{{ .Description }}{{ end }}"
+  "description": {{ with .Summary }}{{ . | plainify }}{{ else }}{{ .Description | plainify }}{{ end | jsonify }}
 }
 </script>
 {{ end }}
