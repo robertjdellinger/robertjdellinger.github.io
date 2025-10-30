@@ -136,8 +136,7 @@ sections:
       title: "Media & Outreach"
       subtitle: "Writing, Communication, and Public Engagement"
       text: |
-        Explore features, interviews, and science communication projects highlighting ocean–climate research and collaborative storytelling.  
-        For essays and research reflections, visit the [Blog →](/post/).
+        Explore features, interviews, and science communication projects highlighting ocean–climate research and collaborative storytelling.
     design:
       columns: "1"
 ---
