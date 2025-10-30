@@ -21,6 +21,10 @@ hugo_stats.json
 # Auto-generated JS config
 **/assets/jsconfig.json
 
+# Downloaded Hugo binaries
+hugo_extended_*.tar.gz
+hugo
+
 # ============================================================================
 # Node.js & Package Managers
 # ============================================================================
@@ -78,7 +82,3 @@ Desktop.ini
 
 *.log
 npm-debug.log*
-
-# Downloaded Hugo binaries
-hugo_extended_*.tar.gz
-hugo
