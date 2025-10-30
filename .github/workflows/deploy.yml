@@ -16,6 +16,7 @@ permissions:
   pages: write
   id-token: write
 
+# Per-ref concurrency so PR previews don't block or get blocked by main
 concurrency:
   group: pages-${{ github.ref }}
   cancel-in-progress: true
@@ -24,6 +25,7 @@ jobs:
   build:
     if: github.repository_owner != 'HugoBlox'
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
         with:
@@ -41,6 +43,7 @@ jobs:
         with:
           hugo-version: ${{ env.WC_HUGO_VERSION }}
           extended: true
+      # Cache deps
       - uses: actions/cache@v4
         with:
           path: |
@@ -50,6 +53,7 @@ jobs:
           key: ${{ runner.os }}-hugo-deps-${{ hashFiles('**/go.mod', '**/package-lock.json', '**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-hugo-deps-
+      # Cache Hugo resources
       - uses: actions/cache@v4
         with:
           path: resources/
@@ -81,4 +85,5 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
         with:
+          # PRs → preview; pushes to main → production
           preview: ${{ github.event_name == 'pull_request' }}
