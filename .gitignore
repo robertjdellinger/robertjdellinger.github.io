@@ -78,3 +78,7 @@ Desktop.ini
 
 *.log
 npm-debug.log*
+
+# Downloaded Hugo binaries
+hugo_extended_*.tar.gz
+hugo
