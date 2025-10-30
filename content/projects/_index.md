@@ -2,6 +2,7 @@
 title: 'Projects'
 date: 2024-05-19
 type: landing
+summary: 'Selected projects by Robert J. Dellinger showcasing interdisciplinary research, science communication, and technical skills.'
 
 design:
   # Section spacing

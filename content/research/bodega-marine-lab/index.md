@@ -1,8 +1,9 @@
 ---
 title: "Bodega Marine Lab"
-summary: "Microplastic ingestion in marine larvae, mechanisms and implications."
+summary: "Microplastic ingestion in marine larvae: mechanisms, implications, and biomonitoring potential."
 date: 2019-06-01
 type: landing
+tags: ['microplastics', 'larvae', 'pollution', 'marine ecology']
 #featured:
   #image: "/uploads/bodega-marine-lab.jpg"
   #alt: "Working at a microscope in Bodega Marine Laboratory"

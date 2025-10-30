@@ -2,6 +2,7 @@
 title: 'Experience'
 date: 2025-01-01
 type: landing
+summary: 'Professional experience, education, skills, awards, and languages of Robert J. Dellinger, PhD student in Atmospheric and Oceanic Sciences at UCLA.'
 
 design:
   spacing: '5rem'

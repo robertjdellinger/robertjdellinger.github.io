@@ -1,0 +1,98 @@
+{{/* Enhanced SEO Meta Tags */}}
+
+{{/* Open Graph Meta Tags */}}
+<meta property="og:site_name" content="{{ site.Title }}">
+<meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}">
+<meta property="og:title" content="{{ if .Title }}{{ .Title }} | {{ site.Title }}{{ else }}{{ site.Title }}{{ end }}">
+<meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ else }}{{ with .Params.summary }}{{ . }}{{ else }}{{ site.Params.marketing.seo.description }}{{ end }}{{ end }}{{ end }}">
+<meta property="og:url" content="{{ .Permalink }}">
+{{ with site.Params.marketing.seo.image }}
+<meta property="og:image" content="{{ . | absURL }}">
+{{ end }}
+<meta property="og:locale" content="en_US">
+
+{{/* Twitter Card Meta Tags */}}
+<meta name="twitter:card" content="summary_large_image">
+{{ with site.Params.marketing.seo.twitter }}
+<meta name="twitter:site" content="@{{ . }}">
+<meta name="twitter:creator" content="@{{ . }}">
+{{ end }}
+<meta name="twitter:title" content="{{ if .Title }}{{ .Title }} | {{ site.Title }}{{ else }}{{ site.Title }}{{ end }}">
+<meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ else }}{{ with .Params.summary }}{{ . }}{{ else }}{{ site.Params.marketing.seo.description }}{{ end }}{{ end }}{{ end }}">
+{{ with site.Params.marketing.seo.image }}
+<meta name="twitter:image" content="{{ . | absURL }}">
+{{ end }}
+
+{{/* Additional Meta Tags */}}
+<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ else }}{{ with .Params.summary }}{{ . }}{{ else }}{{ site.Params.marketing.seo.description }}{{ end }}{{ end }}{{ end }}">
+<meta name="author" content="{{ site.Title }}">
+{{ with .Params.tags }}
+<meta name="keywords" content="{{ delimit . ", " }}">
+{{ end }}
+
+{{/* Canonical URL */}}
+<link rel="canonical" href="{{ .Permalink }}">
+
+{{/* Schema.org JSON-LD for Person/Researcher */}}
+{{ if .IsHome }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Robert J. Dellinger",
+  "givenName": "Robert J.",
+  "familyName": "Dellinger",
+  "url": "{{ site.BaseURL }}",
+  "image": "{{ with site.Params.marketing.seo.image }}{{ . | absURL }}{{ end }}",
+  "jobTitle": "PhD Student",
+  "worksFor": {
+    "@type": "EducationalOrganization",
+    "name": "University of California, Los Angeles",
+    "department": {
+      "@type": "Organization",
+      "name": "Department of Atmospheric and Oceanic Sciences"
+    }
+  },
+  "alumniOf": [
+    {
+      "@type": "EducationalOrganization",
+      "name": "California State University, Northridge"
+    },
+    {
+      "@type": "EducationalOrganization",
+      "name": "University of California, Davis"
+    }
+  ],
+  "knowsAbout": ["Marine Biogeochemistry", "Climate Change", "Ocean Acidification", "Coral Reef Science", "Ecology"],
+  "sameAs": [
+    "https://twitter.com/RJ_Dellinger",
+    "https://github.com/robertjdellinger",
+    "https://www.linkedin.com/in/robertjdellinger/",
+    "https://scholar.google.com/citations?user=lxtnDm4AAAAJ&hl",
+    "https://orcid.org/0009-0009-3524-4041"
+  ]
+}
+</script>
+{{ end }}
+
+{{/* Article Schema for blog posts and publications */}}
+{{ if and (not .IsHome) (or (eq .Type "blog") (eq .Type "publications")) }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "{{ .Title }}",
+  "author": {
+    "@type": "Person",
+    "name": "Robert J. Dellinger"
+  },
+  "datePublished": "{{ .Date.Format "2006-01-02" }}",
+  "dateModified": "{{ .Lastmod.Format "2006-01-02" }}",
+  "publisher": {
+    "@type": "Person",
+    "name": "Robert J. Dellinger"
+  },
+  "description": "{{ with .Summary }}{{ . }}{{ else }}{{ .Description }}{{ end }}"
+}
+</script>
+{{ end }}

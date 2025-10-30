@@ -25,6 +25,9 @@ highlight_name: true
 # Role/position/tagline
 role: PhD Student, Atmospheric & Oceanic Sciences
 
+# Short bio for index pages (SEO)
+bio: Robert J. Dellinger is a PhD student researching climate change impacts on marine ecosystems, specializing in biogeochemistry and coral reef science at UCLA.
+
 # Organizations/Affiliations to display in Biography blox
 organizations:
   - name: University of California, Los Angeles (UCLA)

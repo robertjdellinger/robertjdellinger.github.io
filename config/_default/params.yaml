@@ -13,9 +13,10 @@ marketing:
   seo:
     site_type: Person
     local_business_type: ''
-    org_name: ''
+    org_name: 'University of California, Los Angeles'
     description: 'Robert J. Dellinger - PhD Student in Atmospheric and Oceanic Sciences at UCLA researching climate change impacts on marine ecosystems and biogeochemistry.'
     twitter: 'RJ_Dellinger'
+    image: 'icon.png'  # Default Open Graph image
   analytics:
     google_analytics: ''
     baidu_tongji: ''

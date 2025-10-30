@@ -1,7 +1,7 @@
 ---
 title: "Research"
 type: landing
-summary: "Case studies and labs I have worked with."
+summary: "Research projects and lab collaborations by Robert J. Dellinger, linking organismal physiology, ecological change, and justice-oriented science."
 design:
   spacing: "5rem"
 sections:

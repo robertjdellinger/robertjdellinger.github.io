@@ -7,6 +7,9 @@
 title: Robert J. Dellinger
 # Website URL
 baseURL: 'https://robertjdellinger.github.io/'
+# Canonical URL
+canonifyURLs: false
+relativeURLs: false
 
 ############################
 ## LANGUAGE
@@ -40,6 +43,12 @@ imaging:
   quality: 90
   anchor: smart
   hint: picture
+  # Additional image processing options for better performance
+  exif:
+    disableDate: false
+    disableLatLong: true
+    includeFields: ''
+    excludeFields: ''
 timeout: 600000
 taxonomies:
   author: authors
@@ -52,4 +61,6 @@ markup:
 security:
   _merge: deep
 sitemap:
-  _merge: deep
+  changefreq: monthly
+  filename: sitemap.xml
+  priority: 0.5

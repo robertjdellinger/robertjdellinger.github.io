@@ -1,8 +1,9 @@
 ---
 title: "Research at Amigos Del Lago in Lake Atitlán, Guatemala"
-summary: "Hydrilla, water quality, native macrophytes, and community interviews."
+summary: "Invasive Hydrilla impacts on water quality, native macrophytes, and community-based research in Lake Atitlán."
 date: 2016-07-01
 type: landing
+tags: ['invasive species', 'water quality', 'community science', 'Guatemala']
 #featured:
   #image: "/uploads/lake-atitlan.jpg"
   #alt: "Fieldwork on Lake Atitlán"

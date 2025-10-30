@@ -1,8 +1,9 @@
 ---
 title: "Bay Lab"
-summary: "Climate impacts on coral genetic diversity, meta analysis and husbandry."
+summary: "Climate impacts on coral genetic diversity, meta-analysis and husbandry at UC Davis Bay Lab."
 date: 2018-09-01
 type: landing
+tags: ['coral', 'genetics', 'climate', 'meta-analysis']
 #featured:
   #image: "/uploads/bay-lab.jpg"
   #alt: "Coral husbandry and tanks"
