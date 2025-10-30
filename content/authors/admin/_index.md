@@ -77,7 +77,7 @@ education:
     date_start: 2017-09-01
     date_end: 2021-06-15
     summary: |
-      Distintction: Departmental Citation for Outstanding Achievement and Contributions.
+      Distinction: Departmental Citation for Outstanding Achievement and Contributions.
       Emphases: Oceans & Earth System Science (MCS), Global Environment & Natural Resources (IR).
 
 # Work and research experience
@@ -87,7 +87,7 @@ work:
     company_url: https://www.criticalecology.org/
     date_start: 2024-05-01
     summary: |
-      Investigating linkages between industrial activity, acid deposition, and forest biogeochemistry through interdisciplinary and critcal theory frameworks as part of the [Critical Ecology Lab](https://www.criticalecology.org/).
+      Investigating linkages between industrial activity, acid deposition, and forest biogeochemistry through interdisciplinary and critical theory frameworks as part of the [Critical Ecology Lab](https://www.criticalecology.org/).
 
   - position: NOAA Fisheries Intern
     company_name: National Oceanic and Atmospheric Administration (NOAA)
