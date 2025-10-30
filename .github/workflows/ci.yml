@@ -1,0 +1,19 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main, netlify]
+  push:
+    branches: [main, netlify]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Ensure site entry exists
+        run: test -f index.html || test -d public || test -d content || (echo "No site entry found" && exit 1)
