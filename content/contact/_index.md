@@ -1,5 +1,5 @@
 ---
 title: "Contact"
 type: page
-summary: ""
+summary: "Get in touch with us for inquiries, support, or feedback."
 ---
