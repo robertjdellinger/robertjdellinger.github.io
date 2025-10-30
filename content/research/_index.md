@@ -1,7 +1,7 @@
 ---
-title: "Research"
+title: "Research Projects"
 type: landing
-summary: "Case studies and labs I have worked with."
+summary: "Doctoral, master's, and undergraduate research exploring climate change, coral resilience, and biogeochemical processes."
 design:
   spacing: "5rem"
 sections:

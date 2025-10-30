@@ -1,7 +1,8 @@
 ---
-title: 'Experience'
+title: "Bio & Experience"
+type: page
+summary: "Professional and academic background, research experience, and technical skills."
 date: 2025-01-01
-type: landing
 
 design:
   spacing: '5rem'

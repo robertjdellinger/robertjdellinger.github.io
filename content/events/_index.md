@@ -1,7 +1,8 @@
 ---
-title: Recent & Upcoming Talks
+title: "Public Engagement"
+type: landing
+summary: "Talks, conferences, community collaborations, and climate storytelling projects connecting science and society."
 cms_exclude: true
-#url: talk
 
 # View
 view: card
