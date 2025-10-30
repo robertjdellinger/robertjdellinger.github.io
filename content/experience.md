@@ -2,7 +2,7 @@
 title: "Bio"
 date: 2025-01-01
 type: page
-summary: ""
+summary: "Professional bio, experience, skills, awards, and languages for admin user."
 
 design:
   spacing: '5rem'
