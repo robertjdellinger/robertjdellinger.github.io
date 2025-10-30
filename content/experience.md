@@ -20,7 +20,7 @@ sections:
       is_education_first: true
   - block: resume-skills
     content:
-      title: Skills & Hobbies
+      title: Skills
       username: admin
     design:
       show_skill_percentage: false
@@ -28,19 +28,6 @@ sections:
     content:
       title: Awards & Distinctions
       username: admin
-  - block: resume-skills
-    content:
-      title: "Technical & Research Skills"
-      username: admin
-    design:
-      background:
-        color: ""
-        gradient_start: "#4f46e5"
-        gradient_end: "#7c3aed"
-        text_color_light: true
-      spacing:
-        padding: ["6", "6", "6", "6"]
-      columns: "1"
   - block: resume-languages
     content:
       title: Languages
