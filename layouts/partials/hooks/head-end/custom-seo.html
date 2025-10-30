@@ -81,7 +81,7 @@
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "{{ .Title }}",
+  "headline": {{ .Title | jsonify }},
   "author": {
     "@type": "Person",
     "name": "Robert J. Dellinger"
