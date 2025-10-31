@@ -1,15 +1,15 @@
 ---
 title: "Gallery"
 type: landing
-summary: "Fieldwork and outreach moments."
+summary: "Field photography and research documentation showcasing marine ecosystems, coastal landscapes, coral reefs, and ocean-climate interactions from scientific expeditions."
 sections:
-  - block: cta-image-paragraph
+  - block: markdown
     content:
-      items:
-        - title: "Banda Islands Fieldwork"
-          text: "Coral geochemistry sampling and reef surveys."
-        - title: "Lake Atitlán Wetland Ecology"
-          text: "Wetland restoration and community science collaboration."
+      title: ""
+      text: |
+        A collection of field photography documenting marine ecosystems, research expeditions, and the natural world. Images from Banda Islands coral fieldwork, Lake Atitlán wetland ecology, and various research sites.
+    design:
+      columns: "1"
   - block: collection
     content:
       title: ""
