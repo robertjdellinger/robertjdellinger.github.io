@@ -5,7 +5,6 @@ on:
     types: [opened, reopened, synchronize, ready_for_review, labeled]
 
 permissions:
-  contents: write
   pull-requests: write
 
 concurrency:
@@ -14,6 +13,7 @@ concurrency:
 
 jobs:
   update:
+    timeout-minutes: 5
     if: >
       (github.event.pull_request.base.ref == 'main' || github.event.pull_request.base.ref == 'netlify') &&
       github.event.pull_request.head.repo.full_name == github.repository &&
