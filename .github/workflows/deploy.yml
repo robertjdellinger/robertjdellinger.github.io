@@ -28,6 +28,9 @@ jobs:
         with:
           fetch-depth: 0
 
+      - uses: pnpm/action-setup@v4
+        if: hashFiles('package.json') != ''
+
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
@@ -35,9 +38,6 @@ jobs:
           cache-dependency-path: |
             pnpm-lock.yaml
             package-lock.json
-
-      - uses: pnpm/action-setup@v4
-        if: hashFiles('package.json') != ''
 
       - name: Install JS dependencies if applicable
         if: hashFiles('package.json') != ''
