@@ -14,7 +14,7 @@ This repository powers the academic website for Robert J. Dellinger, a PhD stude
 
 ```
 ├── .github/
-│   ├── agents/                 # Custom Copilot agents
+│   ├── agents/                 # GitHub Copilot agent definitions
 │   │   └── hugo-site-guardian.md  # Site quality and accessibility agent
 │   └── workflows/              # GitHub Actions workflows
 ├── assets/                     # Static assets (images, CSS, JS)
@@ -152,7 +152,7 @@ A specialized agent that reviews and improves the Hugo/Hugo Blox website for:
 - **Build integrity**: Valid front matter, safe Mermaid/KaTeX syntax
 - **Performance**: Image optimization, asset bundling
 
-**When to use**: For content changes, template modifications, or accessibility improvements
+**When to use**: Use this agent for content changes, template modifications, or accessibility improvements.
 
 ## 🔒 Security and Privacy
 
