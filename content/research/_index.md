@@ -60,4 +60,8 @@ sections:
         For a complete list of peer-reviewed publications, manuscripts in preparation, and research outputs, visit the **[Publications page](/publications/)**.
     design:
       columns: "1"
+  - block: markdown
+    content:
+      title: "Publications"
+      text: "See the full list of publications on the [Publications](/publications/) page."
 ---

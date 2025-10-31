@@ -82,4 +82,59 @@ sections:
       username: "admin"
       title: "Skills & Languages"
       text: "R, Python, MATLAB, GIS; coral geochemistry (Sr/Ca, δ¹⁸O, δ¹¹B, Ba/Ca, Δ¹⁴C); aDNA (ITS2); ICP-MS; µCT; CEQA/NEPA/ESA; Spanish (conversational)"
+  - block: resume-biography-3
+    content:
+      username: "admin"
+      text: "This is sample text content for the section."
+      button:
+        text: "Click Here"
+        url: "https://example.com"
+    design:
+      background:
+        color: ""
+  - block: resume-experience
+    content:
+      title: "Experience"
+      items:
+        - title: "Senior Developer"
+          company: "Tech Company"
+          location: "San Francisco, CA"
+          date_start: "2020-01-01"
+          date_end: ""
+          description: |
+            * Led development of key features
+            * Mentored junior developers
+            * Improved system performance by 40%
+        - title: "Software Engineer"
+          company: "Startup Inc"
+          location: "New York, NY"
+          date_start: "2018-06-01"
+          date_end: "2019-12-31"
+          description: "Developed web applications using modern technologies"
+    design:
+      columns: "1"
+  - block: resume-skills
+    content:
+      username: "admin"
+      title: "My Section Title"
+      text: "This is sample text content for the section."
+    design:
+      background:
+        color: ""
+  - block: resume-awards
+    content:
+      username: "admin"
+      title: "My Section Title"
+      text: "This is sample text content for the section."
+    design:
+      background:
+        color: ""
+  - block: resume-languages
+    content:
+      username: "admin"
+      title: "My Section Title"
+      text: "This is sample text content for the section."
+    design:
+      background:
+        color: ""
 ---
