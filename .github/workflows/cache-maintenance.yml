@@ -1,0 +1,85 @@
+name: Cache Maintenance
+
+on:
+  schedule:
+    # Run weekly on Sundays at 00:00 UTC
+    - cron: '0 0 * * 0'
+  workflow_dispatch:
+
+permissions:
+  actions: write
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clean up old caches
+        run: |
+          # NOTE: This script uses GNU date (date -d), which requires ubuntu-latest.
+          # It will not work on macOS runners without modification.
+          
+          echo "Starting cache cleanup for old caches (30+ days)..."
+          
+          REPO="${{ github.repository }}"
+          CUTOFF_DATE=$(date -d '30 days ago' +%s)
+          
+          # Cache key prefixes to clean up
+          PREFIXES=("hugo-resources-" "hugo-deps-" "go-mod-")
+          
+          # Track failures
+          FAILED_DELETIONS=0
+          
+          for PREFIX in "${PREFIXES[@]}"; do
+            echo ""
+            echo "Processing caches with prefix: $PREFIX"
+            
+            # Get all caches for this repository
+            CACHES=$(gh api \
+              -H "Accept: application/vnd.github+json" \
+              -H "X-GitHub-Api-Version: 2022-11-28" \
+              "/repos/$REPO/actions/caches?per_page=100" \
+              --jq ".actions_caches[] | select(.key | startswith(\"$PREFIX\")) | {id: .id, key: .key, created_at: .created_at}")
+            
+            if [ -z "$CACHES" ]; then
+              echo "No caches found with prefix $PREFIX"
+              continue
+            fi
+            
+            # Process each cache - using process substitution instead of pipe to avoid subshell
+            while IFS= read -r cache; do
+              CACHE_ID=$(echo "$cache" | jq -r '.id')
+              CACHE_KEY=$(echo "$cache" | jq -r '.key')
+              CREATED_AT=$(echo "$cache" | jq -r '.created_at')
+              
+              # Convert created_at to epoch
+              CREATED_EPOCH=$(date -d "$CREATED_AT" +%s)
+              
+              # Calculate age in days
+              AGE_DAYS=$(( ($(date +%s) - CREATED_EPOCH) / 86400 ))
+              
+              echo "Cache: $CACHE_KEY (ID: $CACHE_ID, Age: $AGE_DAYS days)"
+              
+              # Delete if older than 30 days
+              if [ $CREATED_EPOCH -lt $CUTOFF_DATE ]; then
+                echo "  → Deleting (older than 30 days)"
+                if ! gh api \
+                  --method DELETE \
+                  -H "Accept: application/vnd.github+json" \
+                  -H "X-GitHub-Api-Version: 2022-11-28" \
+                  "/repos/$REPO/actions/caches/$CACHE_ID" 2>&1; then
+                  echo "  → Failed to delete cache $CACHE_ID"
+                  FAILED_DELETIONS=$((FAILED_DELETIONS + 1))
+                fi
+              else
+                echo "  → Keeping (within 30 days)"
+              fi
+            done < <(echo "$CACHES" | jq -c '.')
+          done
+          
+          echo ""
+          echo "Cache cleanup completed"
+          if [ $FAILED_DELETIONS -gt 0 ]; then
+            echo "⚠️  Warning: $FAILED_DELETIONS cache deletion(s) failed"
+          fi
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
