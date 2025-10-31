@@ -83,6 +83,22 @@
   to = "/"
   status = 301
 
+# Research content moved to early-career subfolder
+[[redirects]]
+  from = "/research/bay-lab/*"
+  to = "/research/early-career/bay-lab/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/research/bodega-marine-lab/*"
+  to = "/research/early-career/bodega-marine-lab/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/research/lake-atitlan/*"
+  to = "/research/early-career/lake-atitlan/:splat"
+  status = 301
+
 # Default 404 page
 [[redirects]]
   from = "/*"
