@@ -32,12 +32,11 @@ jobs:
         if: hashFiles('package.json') != ''
 
       - uses: actions/setup-node@v4
+        if: hashFiles('package.json') != ''
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'pnpm'
-          cache-dependency-path: |
-            pnpm-lock.yaml
-            package-lock.json
+          cache-dependency-path: pnpm-lock.yaml
 
       - name: Install JS dependencies if applicable
         if: hashFiles('package.json') != ''

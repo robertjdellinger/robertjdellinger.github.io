@@ -15,6 +15,9 @@ jobs:
     steps:
       - name: Clean up old caches
         run: |
+          # NOTE: This script uses GNU date (date -d), which requires ubuntu-latest.
+          # It will not work on macOS runners without modification.
+          
           echo "Starting cache cleanup for old caches (30+ days)..."
           
           REPO="${{ github.repository }}"
@@ -22,6 +25,9 @@ jobs:
           
           # Cache key prefixes to clean up
           PREFIXES=("hugo-resources-" "hugo-deps-" "go-mod-")
+          
+          # Track failures
+          FAILED_DELETIONS=0
           
           for PREFIX in "${PREFIXES[@]}"; do
             echo ""
@@ -39,7 +45,8 @@ jobs:
               continue
             fi
             
-            echo "$CACHES" | jq -c '.' | while IFS= read -r cache; do
+            # Process each cache - using process substitution instead of pipe to avoid subshell
+            while IFS= read -r cache; do
               CACHE_ID=$(echo "$cache" | jq -r '.id')
               CACHE_KEY=$(echo "$cache" | jq -r '.key')
               CREATED_AT=$(echo "$cache" | jq -r '.created_at')
@@ -55,18 +62,24 @@ jobs:
               # Delete if older than 30 days
               if [ $CREATED_EPOCH -lt $CUTOFF_DATE ]; then
                 echo "  → Deleting (older than 30 days)"
-                gh api \
+                if ! gh api \
                   --method DELETE \
                   -H "Accept: application/vnd.github+json" \
                   -H "X-GitHub-Api-Version: 2022-11-28" \
-                  "/repos/$REPO/actions/caches/$CACHE_ID" || echo "  → Failed to delete cache $CACHE_ID"
+                  "/repos/$REPO/actions/caches/$CACHE_ID" 2>&1; then
+                  echo "  → Failed to delete cache $CACHE_ID"
+                  FAILED_DELETIONS=$((FAILED_DELETIONS + 1))
+                fi
               else
                 echo "  → Keeping (within 30 days)"
               fi
-            done
+            done < <(echo "$CACHES" | jq -c '.')
           done
           
           echo ""
           echo "Cache cleanup completed"
+          if [ $FAILED_DELETIONS -gt 0 ]; then
+            echo "⚠️  Warning: $FAILED_DELETIONS cache deletion(s) failed"
+          fi
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
