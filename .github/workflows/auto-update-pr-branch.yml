@@ -20,12 +20,82 @@ jobs:
       github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     steps:
-      - name: Update branch from base
+      - name: Log context
         uses: actions/github-script@v7
         with:
           script: |
-            await github.rest.pulls.updateBranch({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              pull_number: context.payload.pull_request.number
+            core.info(`Run ref: dac10800f9a1797fe210b7f6cc40bd556c308ab3`);
+            core.info(`PR: #${context.payload.pull_request.number}`);
+            core.info(`Base: ${context.payload.pull_request.base.ref}`);
+            core.info(`Head: ${context.payload.pull_request.head.ref}`);
+
+      - name: Compare base vs PR branch
+        id: compare
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const base = context.payload.pull_request.base.ref;
+            const head = context.payload.pull_request.head.ref;
+
+            core.info(`Comparing base (${base}) ... head (${head})`);
+
+            // Use the compare API to determine whether the base branch is ahead of the PR branch
+            const comparison = await github.rest.repos.compareCommits({
+              owner,
+              repo,
+              base,
+              head
             });
+
+            // The API returns ahead_by (how many commits head is ahead of base)
+            // and behind_by (how many commits base is ahead of head).
+            const behindBy = comparison.data.behind_by ?? 0;
+            const aheadBy = comparison.data.ahead_by ?? 0;
+
+            core.info(`compare status: ${comparison.data.status}`);
+            core.info(`base (${base}) is ahead of head by: ${behindBy} commits`);
+            core.info(`head (${head}) is ahead of base by: ${aheadBy} commits`);
+
+            return {
+              behind_by: String(behindBy),
+              ahead_by: String(aheadBy),
+              status: comparison.data.status
+            };
+
+      - name: Update branch from base (only if base has new commits)
+        if: steps.compare.outputs.behind_by != '0'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            try {
+              core.info('Attempting to update PR branch from base...');
+              const res = await github.rest.pulls.updateBranch({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                pull_number: context.payload.pull_request.number
+              });
+              core.info(`updateBranch response status: ${res.status}`);
+              core.info('Successfully queued branch update.');
+            } catch (err) {
+              // If there are no new commits, GitHub throws an HttpError with message:
+              // "There are no new commits on the base branch."
+              // Catch and handle gracefully so the job does not fail unnecessarily.
+              const msg = err && err.message ? String(err.message) : String(err);
+              core.warning(`updateBranch failed: ${msg}`);
+
+              // If it's the specific "no new commits" message, exit successfully.
+              if (msg.includes('There are no new commits on the base branch')) {
+                core.info('No update required - base branch has no new commits.');
+                return { skipped: 'true', reason: msg };
+              }
+
+              // Re-throw other unexpected errors so they surface.
+              throw err;
+            }
+
+      - name: Skip update message
+        if: steps.compare.outputs.behind_by == '0'
+        run: |
+          echo "No update required: base branch does not have commits newer than the PR branch."
