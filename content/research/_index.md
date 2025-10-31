@@ -1,6 +1,6 @@
 ---
 title: "Research"
-summary: "PhD, Masters, and Early Career research, plus publications and active projects."
+summary: "PhD, Masters, and Early Career research, plus publications."
 date: 2025-01-01
 type: landing
 design:
@@ -20,6 +20,9 @@ sections:
       subtitle: "Current work on coral biomineralization and symbiont dynamics"
       filters:
         folders: ["research/phd"]
+      sort_by: "Date"
+      order: "desc"
+      count: 12
     design:
       view: card
       columns: 3
@@ -30,6 +33,9 @@ sections:
       subtitle: "Quantitative marine ecology and biogeochemistry"
       filters:
         folders: ["research/masters"]
+      sort_by: "Date"
+      order: "desc"
+      count: 12
     design:
       view: card
       columns: 3
@@ -40,6 +46,9 @@ sections:
       subtitle: "Undergraduate and early graduate research experiences"
       filters:
         folders: ["research/early-career"]
+      sort_by: "Date"
+      order: "desc"
+      count: 12
     design:
       view: card
       columns: 3

@@ -1,7 +1,20 @@
 ---
-title: Blog
-summary: "Selected coding tutorials and reproducible snippets in R and Python, research utilities, and small writeups."
-date: 2025-01-01
+title: "Blog"
 type: landing
-view: article-grid
+summary: "Dispatches across research, fieldwork, and public engagement."
+sections:
+  - block: markdown
+    content:
+      title: "Notes from the field and beyond"
+      text: "Short reflections on methods, data stories, and science communication."
+  - block: collection
+    content:
+      filters:
+        folders: ["blog"]
+      sort_by: "Date"
+      order: "desc"
+      count: 10
+    design:
+      view: "card"
+      columns: "2"
 ---
