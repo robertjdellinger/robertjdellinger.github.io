@@ -5,9 +5,9 @@ This repository powers the academic website for Robert J. Dellinger, a PhD stude
 ## 🏗️ Repository Overview
 
 **Framework**: Hugo v0.152.1 with HugoBlox Academic CV template  
-**Deployment**: GitHub Pages with automated builds via GitHub Actions  
+**Deployment**: Dual deployment (GitHub Pages + Netlify) with automated builds  
 **Package Manager**: pnpm v10.14.0  
-**Node Version**: 20  
+**Node Version**: 22 (Netlify) / 20 (GitHub Actions)  
 **Styling**: Tailwind CSS v4 with JIT compilation
 
 ## 📁 Project Structure
@@ -95,8 +95,9 @@ Standard menu items (defined in `config/_default/menus.yaml`):
 
 ### Tailwind CSS
 - Use utility classes following Tailwind v4 syntax
-- Custom styles should be added to `assets/css/custom.css`
+- HugoBlox handles styling via its module system
 - Avoid inline styles; prefer utility classes
+- Custom icons can be added to `assets/media/icons/custom/`
 
 ## 🧪 Testing and Validation
 
@@ -108,10 +109,19 @@ Before committing changes:
 4. **Test locally**: Run `pnpm run dev` and verify changes in browser
 
 ### CI/CD Pipeline
-GitHub Actions workflows automatically:
+The site uses dual deployment:
+- **GitHub Pages**: Automated via `.github/workflows/deploy.yml` (primary)
+  - Builds on push to `main` and pull requests
+  - PRs create preview deployments
+- **Netlify**: Configured via `netlify.toml` (alternative/backup)
+  - Includes Pagefind search indexing
+  - Advanced caching and optimization plugins
+
+GitHub Actions workflows:
 - **CI**: Validates site structure and entry points
 - **Deploy**: Builds and deploys to GitHub Pages
 - **Summary**: Generates performance reports
+- **Import Publications**: Syncs publications from external sources
 
 ### Accessibility Validation
 - All images must have descriptive `alt` text
@@ -121,11 +131,16 @@ GitHub Actions workflows automatically:
 - See `ACCESSIBILITY.md` for full guidelines
 
 ### Performance Targets
-- Lighthouse Performance: > 90
-- First Contentful Paint: < 1.8s
-- Largest Contentful Paint: < 2.5s
-- Cumulative Layout Shift: < 0.1
-- See `PERFORMANCE.md` for full benchmarks
+As documented in `PERFORMANCE.md`:
+- **Lighthouse Performance**: > 90
+- **Lighthouse Accessibility**: 100
+- **Lighthouse Best Practices**: 100
+- **Lighthouse SEO**: 100
+- **First Contentful Paint (FCP)**: < 1.8s
+- **Largest Contentful Paint (LCP)**: < 2.5s
+- **Time to Interactive (TTI)**: < 3.8s
+- **Cumulative Layout Shift (CLS)**: < 0.1
+- **First Input Delay (FID)**: < 100ms
 
 ## 🤖 Custom Agents
 
