@@ -1,28 +1,20 @@
 ---
 title: "Blog"
 type: landing
-summary: "Selected coding tutorials and reproducible snippets in R and Python, research utilities, and small writeups."
+summary: "Dispatches across research, fieldwork, and public engagement."
 sections:
   - block: markdown
     content:
-      title: "About This Section"
-      subtitle: "Coding tutorials and research utilities"
-      text: |
-        ## Welcome
-        This section contains coding tutorials, reproducible snippets in R and Python, research utilities, and technical writeups related to my research and data analysis workflows.
-        
-        - Data visualization examples
-        - Statistical analysis workflows
-        - Research utilities and tools
-        - Technical documentation
+      title: "Notes from the field and beyond"
+      text: "Short reflections on methods, data stories, and science communication."
   - block: collection
     content:
-      title: "Recent Posts"
-      subtitle: "Latest updates"
       filters:
         folders: ["blog"]
-        count: 6
+      sort_by: "Date"
+      order: "desc"
+      count: 10
     design:
       view: "card"
-      columns: "3"
+      columns: "2"
 ---

@@ -1,19 +1,15 @@
 ---
 title: "Contact"
 type: landing
-summary: "Contact Robert J. Dellinger - PhD student in Atmospheric & Oceanic Sciences at UCLA."
+summary: "Get in touch about research, collaborations, and outreach."
 sections:
   - block: resume-biography
     content:
       username: "admin"
-      text: |
-        **Email:** rjdellinger@ucla.edu
-        
-        **GitHub:** https://github.com/robertjdellinger
-        
-        **LinkedIn:** https://www.linkedin.com/in/robertjdellinger/
-        
-        **ORCID:** https://orcid.org/0009-0009-3524-4041
+      text: "I welcome inquiries about research collaborations, mentoring, public engagement, and speaking."
+      button:
+        text: "Email Robert"
+        url: "mailto:rjdellinger@ucla.edu"
   - block: markdown
     content:
       title: "Send a message"
@@ -21,10 +17,11 @@ sections:
         <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
           <input type="hidden" name="form-name" value="contact">
           <p style="display:none;">
-            <label>Don’t fill this out if you're human: <input name="bot-field"></label>
+            <label>Don't fill this out if you're human: <input name="bot-field"></label>
           </p>
-          <p><label>Name <input type="text" name="name" required></label></p>
-          <p><label>Email <input type="email" name="email" required></label></p>
+          <p><label>Your name <input type="text" name="name" required></label></p>
+          <p><label>Your email <input type="email" name="email" required></label></p>
+          <p><label>Subject <input type="text" name="subject"></label></p>
           <p><label>Message <textarea name="message" required></textarea></label></p>
           <p><button type="submit">Send</button></p>
         </form>
