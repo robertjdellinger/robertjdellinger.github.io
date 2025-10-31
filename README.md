@@ -5,7 +5,6 @@ This repository powers the personal academic website of Robert J. Dellinger, a P
 ## Technical Details
 
 - **Framework**: Hugo v0.152.1 with HugoBlox Academic CV template
-- **Build**: `hugo --minify`
 - **Deployment**: Netlify/GitHub Pages with automated builds
 
 ## Contact
