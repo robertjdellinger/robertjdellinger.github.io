@@ -1,19 +1,15 @@
 ---
 title: "Gallery"
-summary: "Field photography and research documentation showcasing marine ecosystems, coastal landscapes, coral reefs, and ocean-climate interactions from scientific expeditions."
-date: 2025-01-01
 type: landing
-design:
-  spacing: "5rem"
+summary: "Field photography and research documentation showcasing marine ecosystems, coastal landscapes, coral reefs, and ocean-climate interactions from scientific expeditions."
 sections:
-  - block: markdown
+  - block: cta-image-paragraph
     content:
-      title: ""
-      text: |
-        A collection of field photography documenting marine ecosystems, research expeditions, and the natural world.
-    design:
-      columns: "1"
-  
+      items:
+        - name: "Banda Islands Fieldwork"
+          description: "Sub-annual coral sampling and archives."
+        - name: "Lake Atitlán"
+          description: "Wetland ecology & community science."
   - block: collection
     content:
       title: ""

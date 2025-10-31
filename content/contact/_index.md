@@ -1,31 +1,28 @@
 ---
 title: "Contact"
-summary: "Contact Robert J. Dellinger - PhD student in Atmospheric & Oceanic Sciences at UCLA. Get in touch via email, ORCID, GitHub, LinkedIn, and Google Scholar."
-date: 2025-01-01
 type: landing
-design:
-  spacing: "5rem"
+summary: "Contact Robert J. Dellinger - PhD student in Atmospheric & Oceanic Sciences at UCLA."
 sections:
+  - block: resume-biography
+    content:
+      username: "admin"
+      text: |
+        **Email:** rjdellinger@ucla.edu
+        
+        **GitHub:** https://github.com/robertjdellinger
+        
+        **LinkedIn:** https://www.linkedin.com/in/robertjdellinger/
+        
+        **ORCID:** https://orcid.org/0009-0009-3524-4041
   - block: markdown
     content:
-      title: "Get in Touch"
+      title: "Send a message"
       text: |
-        ### Contact Information
-        
-        **Email:** [rjdellinger@ucla.edu](mailto:rjdellinger@ucla.edu)
-        
-        ### Professional Profiles
-        
-        - **ORCID:** [0009-0009-3524-4041](https://orcid.org/0009-0009-3524-4041)
-        - **GitHub:** [@robertjdellinger](https://github.com/robertjdellinger)
-        - **LinkedIn:** [robertjdellinger](https://www.linkedin.com/in/robertjdellinger/)
-        - **Google Scholar:** [Robert J. Dellinger](https://scholar.google.com/citations?user=lxtnDm4AAAAJ&hl)
-        
-        ### Office
-        
-        Department of Atmospheric & Oceanic Sciences  
-        University of California, Los Angeles  
-        Los Angeles, CA 90095
-    design:
-      columns: "1"
+        <form name="contact" method="POST" data-netlify="true">
+          <input type="hidden" name="form-name" value="contact">
+          <p><label>Name <input type="text" name="name" required></label></p>
+          <p><label>Email <input type="email" name="email" required></label></p>
+          <p><label>Message <textarea name="message" required></textarea></label></p>
+          <p><button type="submit">Send</button></p>
+        </form>
 ---
