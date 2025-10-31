@@ -40,13 +40,21 @@ header:
 
 # Site footer
 footer:
+  enable: true
+  block: "minimal"
   copyright:
-    notice: '© {year} Robert J. Dellinger. This work is licensed under {license}'
-    license:
-      enable: true
-      allow_derivatives: false
-      share_alike: true
-      allow_commercial: false
+    notice: "© {year} Robert J. Dellinger"
+  text: |
+    UCLA Atmospheric & Oceanic Sciences
+    7127 Math Sciences Building Box 951565
+    Los Angeles, CA 90095-1565
+  links:
+    - text: "Email"
+      icon: "envelope"
+      url: "mailto:rjdellinger@ucla.edu"
+    - text: "GitHub"
+      icon: "github"
+      url: "https://github.com/robertjdellinger"
 
 # Localization
 locale:
@@ -59,6 +67,10 @@ features:
     enable: false
   privacy_pack:
     enable: false
+  contact_form:
+    provider: netlify
+    netlify:
+      honeypot: "bot-field"
   
 # Privacy and cookie consent
 privacy:

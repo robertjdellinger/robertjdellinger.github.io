@@ -51,7 +51,7 @@ markup:
     lineNos: false
   goldmark:
     renderer:
-      unsafe: false
+      unsafe: true
     parser:
       attribute:
         block: true
