@@ -1,6 +1,7 @@
 ---
 title: Courses
-summary: My courses
+summary: Teaching and educational materials related to marine science, climate change, and environmental studies.
+date: 2025-01-01
 type: landing
 
 cascade:

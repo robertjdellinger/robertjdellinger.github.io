@@ -1,11 +1,12 @@
 ---
 title: "Research at Amigos Del Lago in Lake Atitlán, Guatemala"
-summary: "Hydrilla, water quality, native macrophytes, and community interviews."
+summary: "Invasive Hydrilla impacts on water quality, native macrophytes, and community-engaged research in a changing watershed."
 date: 2016-07-01
 type: landing
+draft: false
 #featured:
   #image: "/uploads/lake-atitlan.jpg"
-  #alt: "Fieldwork on Lake Atitlán"
+  #alt: "Fieldwork and water quality sampling on Lake Atitlán, Guatemala"
 design:
   spacing: "4rem"
 sections:
@@ -26,5 +27,5 @@ sections:
         diversity, and macrophyte efficacy for reducing eutrophication. *Hydrilla* improved some
         water chemistry through high N, P, and As bioaccumulation, but outcompeted natives.
         We added **stakeholder and Indigenous community interviews** and shared recommendations
-        with local agencies, strengthening Spanish language science communication.
+        with local agencies, strengthening Spanish-language science communication.
 ---

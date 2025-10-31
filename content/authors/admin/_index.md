@@ -70,7 +70,7 @@ education:
       Research focus: Quantitative marine ecology and biogeochemistry, examining the physiological and energetic responses of marine invertebrates to the combined impacts of ocean acidification and warming.
       Thesis: *Facing Physiological Constraints: The Interactive Effects of Ocean Acidification and Warming*.
     button:
-      text: 'Thesis PDF'
+      text: 'Read Full Thesis (PDF)'
       url: 'https://github.com/robertjdellinger/CSUN-masters-thesis/blob/main/_book/thesis.pdf'
   - area: BS Marine & Coastal Science (MCS) / BA International Relations (IR)
     institution: University of California, Davis

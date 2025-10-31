@@ -49,7 +49,20 @@ markup:
   _merge: deep
   highlight:
     lineNos: false
+  goldmark:
+    renderer:
+      unsafe: false
+    parser:
+      attribute:
+        block: true
 security:
   _merge: deep
+  funcs:
+    getenv:
+      - ^HUGO_
+      - ^CI$
 sitemap:
   _merge: deep
+  changefreq: monthly
+  filename: sitemap.xml
+  priority: 0.5

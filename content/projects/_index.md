@@ -1,6 +1,7 @@
 ---
 title: 'Projects'
-date: 2024-05-19
+summary: Research projects, collaborations, and scientific initiatives spanning marine ecology, biogeochemistry, and climate science.
+date: 2025-01-01
 type: landing
 
 design:
@@ -12,7 +13,7 @@ sections:
   - block: collection
     content:
       title: Selected Projects
-      text: I enjoy making things. Here are a selection of projects that I have worked on over the years.
+      text: Research projects and collaborations spanning marine ecology, biogeochemistry, and climate science.
       filters:
         folders:
           - projects

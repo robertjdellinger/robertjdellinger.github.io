@@ -53,7 +53,39 @@
     pnpm dlx pagefind --source 'public' --verbose
   """
 
+# Post-processing optimizations
+[build.processing]
+  skip_processing = false
+
+[build.processing.css]
+  bundle = true
+  minify = true
+
+[build.processing.js]
+  bundle = true
+  minify = true
+
+[build.processing.html]
+  pretty_urls = true
+
+[build.processing.images]
+  compress = true
+
 [[plugins]]
   package = "netlify-plugin-hugo-cache-resources"
   [plugins.inputs]
     debug = true
+
+# Headers are defined in static/_headers file
+# Redirects configuration
+[[redirects]]
+  from = "/author/robert-j.-dellinger"
+  to = "/"
+  status = 301
+
+# Default 404 page
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
+

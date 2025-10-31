@@ -1,0 +1,40 @@
+# Headers for robertjdellinger.github.io
+# Security and Performance Headers
+
+/*
+  # Security Headers
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  X-XSS-Protection: 1; mode=block
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()
+  
+  # Content Security Policy
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://buttons.github.io https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
+  
+  # Performance Headers
+  Cache-Control: public, max-age=31536000, immutable
+
+# Specific caching for HTML pages
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Specific caching for CSS and JS
+/*.css
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.js
+  Cache-Control: public, max-age=31536000, immutable
+
+# Fonts
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+  Access-Control-Allow-Origin: *
+
+# Images
+/media/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Static assets
+/uploads/*
+  Cache-Control: public, max-age=31536000, immutable

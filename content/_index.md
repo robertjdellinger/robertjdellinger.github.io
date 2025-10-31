@@ -1,6 +1,7 @@
 ---
 # Leave title empty to use site title
 title: ''
+summary: 'Robert J. Dellinger - PhD Student in Atmospheric and Oceanic Sciences at UCLA researching climate change impacts on marine ecosystems and biogeochemistry.'
 date: 2025-01-01
 type: landing
 

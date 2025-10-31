@@ -1,5 +1,6 @@
 ---
 title: 'Experience'
+summary: 'Professional experience, education, research skills, awards, and language proficiency.'
 date: 2025-01-01
 type: landing
 

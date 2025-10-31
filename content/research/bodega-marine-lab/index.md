@@ -1,11 +1,12 @@
 ---
 title: "Bodega Marine Lab"
-summary: "Microplastic ingestion in marine larvae, mechanisms and implications."
+summary: "Microplastic ingestion in marine larvae: mechanisms, impacts, and implications for coastal ecosystems."
 date: 2019-06-01
 type: landing
+draft: false
 #featured:
   #image: "/uploads/bodega-marine-lab.jpg"
-  #alt: "Working at a microscope in Bodega Marine Laboratory"
+  #alt: "Researcher examining marine larvae under confocal microscope at Bodega Marine Laboratory"
 design:
   spacing: "4rem"
 sections:
@@ -29,5 +30,5 @@ sections:
       text: |
         - BML Ambassador, student outreach and representation  
         - Collaboration in the **Gold Lab** on comparative genomics of **Cnidaria**  
-        - Six week **Aurelia aurita** hypoxia experiment, lower oxygen reduced frequency and rate of regeneration
+        - Six-week **Aurelia aurita** hypoxia experiment: lower oxygen reduced frequency and rate of regeneration
 ---

@@ -1,5 +1,8 @@
 ---
 title: Publications
+summary: Peer-reviewed publications and research outputs on ocean acidification, warming impacts, and marine ecosystem biogeochemistry.
+date: 2025-01-01
+type: landing
 cms_exclude: true
 
 # View.

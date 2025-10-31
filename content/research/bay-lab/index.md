@@ -1,11 +1,12 @@
 ---
 title: "Bay Lab"
-summary: "Climate impacts on coral genetic diversity, meta analysis and husbandry."
+summary: "Climate impacts on coral genetic diversity, meta-analysis, and husbandry at UC Davis Bodega Marine Laboratory."
 date: 2018-09-01
 type: landing
+draft: false
 #featured:
   #image: "/uploads/bay-lab.jpg"
-  #alt: "Coral husbandry and tanks"
+  #alt: "Coral husbandry and experimental tanks"
 design:
   spacing: "4rem"
 sections:
@@ -14,8 +15,8 @@ sections:
       title: "The Bay Lab"
       text: |
         In the **Bay Lab** at UC Davis I supported coral husbandry, participated in a faculty
-        reading group, and contributed to a **meta analysis** on environmental and anthropogenic
+        reading group, and contributed to a **meta-analysis** on environmental and anthropogenic
         drivers of genetic diversity in **_Acropora_**. Early results indicated **pH** had the
         strongest association with genetic diversity, and **_A. palmata_** in the Caribbean showed
-        notably high diversity, suggesting species specific baselines and stressor sensitivities.
+        notably high diversity, suggesting species-specific baselines and stressor sensitivities.
 ---

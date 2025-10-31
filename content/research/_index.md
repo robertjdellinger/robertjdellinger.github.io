@@ -1,7 +1,8 @@
 ---
 title: "Research"
+summary: Research highlights spanning coral biogeochemistry, marine invertebrate physiology, and ecosystem responses to climate change.
+date: 2025-01-01
 type: landing
-summary: "Case studies and labs I have worked with."
 design:
   spacing: "5rem"
 sections:
@@ -10,7 +11,7 @@ sections:
       title: "Research highlights"
       text: >
         Selected projects and labs I have contributed to, linking organismal physiology,
-        ecological change, and justice oriented science.
+        ecological change, and justice-oriented science.
     design:
       columns: "1"
 
