@@ -136,11 +136,11 @@ As documented in `PERFORMANCE.md`:
 - **Lighthouse Accessibility**: 100
 - **Lighthouse Best Practices**: 100
 - **Lighthouse SEO**: 100
-- **First Contentful Paint (FCP)**: < 1.8s
-- **Largest Contentful Paint (LCP)**: < 2.5s
-- **Time to Interactive (TTI)**: < 3.8s
-- **Cumulative Layout Shift (CLS)**: < 0.1
-- **First Input Delay (FID)**: < 100ms
+- **First Contentful Paint (FCP)**: Target < 1.8s
+- **Largest Contentful Paint (LCP)**: Target < 2.5s
+- **Time to Interactive (TTI)**: Target < 3.8s
+- **Cumulative Layout Shift (CLS)**: Target < 0.1
+- **First Input Delay (FID)**: Target < 100ms
 
 ## 🤖 Custom Agents
 
