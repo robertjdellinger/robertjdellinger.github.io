@@ -4,6 +4,7 @@ title: ''
 summary: 'Robert J. Dellinger - PhD Student in Atmospheric and Oceanic Sciences at UCLA researching climate change impacts on marine ecosystems and biogeochemistry.'
 date: 2025-01-01
 type: landing
+draft: false
 
 design:
   # Default section spacing
@@ -98,21 +99,6 @@ sections:
       # Reduce spacing
       spacing:
         padding: [0, 0, 0, 0]
-  - block: cta-card
-    demo: true # Only display this section in the Hugo Blox Builder demo site
-    content:
-      title: 👉 Build your own academic website like this
-      text: |-
-
-      button:
-        text: Get Started
-        url: https://hugoblox.com/templates/
-    design:
-      card:
-        # Card background color (CSS class)
-        css_class: 'bg-primary-300 dark:bg-primary-700'
-        css_style: ''
-
   - block: resume-experience
     content:
       username: "admin"

@@ -3,6 +3,7 @@ title: "Research"
 summary: "PhD, Masters, and Early Career research, plus publications and active projects."
 date: 2025-01-01
 type: landing
+draft: false
 design:
   spacing: "5rem"
 sections:

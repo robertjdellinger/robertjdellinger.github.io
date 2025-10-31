@@ -3,6 +3,7 @@ title: "Public Engagement"
 summary: "Writing, media appearances, and science communication."
 date: 2025-01-01
 type: landing
+draft: false
 design:
   spacing: "5rem"
 sections:

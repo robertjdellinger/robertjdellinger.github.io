@@ -3,6 +3,7 @@ title: 'Projects'
 summary: Research projects, collaborations, and scientific initiatives spanning marine ecology, biogeochemistry, and climate science.
 date: 2025-01-01
 type: landing
+draft: false
 
 design:
   # Section spacing

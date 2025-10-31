@@ -1,8 +1,9 @@
 ---
 title: "Gallery"
-summary: "Field photography and research documentation showcasing marine ecosystems, coastal landscapes, coral reefs, and ocean-climate interactions from scientific expeditions."
+summary: "Field photography showcasing marine ecosystems, coastal landscapes, and coral reefs from scientific expeditions."
 date: 2025-01-01
 type: landing
+draft: false
 design:
   spacing: "5rem"
 sections:

@@ -1,8 +1,9 @@
 ---
 title: "Contact"
-summary: "Contact Robert J. Dellinger - PhD student in Atmospheric & Oceanic Sciences at UCLA. Get in touch via email, ORCID, GitHub, LinkedIn, and Google Scholar."
+summary: "Get in touch with Robert J. Dellinger, PhD student at UCLA specializing in ocean-climate science and biogeochemistry."
 date: 2025-01-01
 type: landing
+draft: false
 design:
   spacing: "5rem"
 sections:
