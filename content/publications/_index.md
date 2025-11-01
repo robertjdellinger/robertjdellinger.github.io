@@ -1,15 +1,17 @@
 ---
-title: Publications
-summary: Peer-reviewed publications and research outputs on ocean acidification, warming impacts, and marine ecosystem biogeochemistry.
-date: 2025-01-01
+title: "Publications"
 type: landing
-cms_exclude: true
-
-# View.
-view: citation
-
-# Optional header image (relative to `static/media/` folder).
-banner:
-  caption: ''
-  image: ''
+summary: "Peer-reviewed articles, preprints, and works in progress."
+sections:
+  - block: collection
+    content:
+      title: "All Publications"
+      filters:
+        folders: ["publication"]
+      sort_by: "Date"
+      order: "desc"
+      count: 20
+    design:
+      view: "card"
+      columns: "2"
 ---
