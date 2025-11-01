@@ -43,7 +43,7 @@ sections:
       title: "Masters Research | CSU Northridge"
       subtitle: "Quantitative Ecology"
       text: |
-        **Advisor(s):** [Nyssa Silbiger](https://www.soest.hawaii.edu/soestwp/about/directory/nyssa-silbriger/)
+        **Advisor(s):** Nyssa Silbiger
         
         My previous research examined how ocean warming and acidification interact to influence the physiological energetics of Tegula funebralis, a common intertidal sea snail. Along the Pacific West Coast, T. funebralis is highly abundant and plays a key ecological role as a macroalgal grazer—facilitating energy transfer from primary producers to higher trophic levels-a foundational interaction that structures energy flow throughout marine food webs. In dynamic intertidal zones, T. funebralis experiences substantial seasonal and diurnal temperature fluctuations that directly influence metabolic rates (e.g, increased temperatures, elevate grazing activity). As oceans continue to warm and acidify due to anthropogenic climate change, understanding how these co-occurring stressors affect the metabolic performance of key herbivores is essential for predicting broader ecosystem responses. Therefore, this study asked: How does ocean acidification impact energetic expenditure across a range of ecologically relevant temperatures experienced by Tegula funebralis?
     design:
@@ -86,11 +86,16 @@ sections:
       view: card
       columns: 3
   
-  - block: markdown
+  - block: collection
     content:
       title: "Publications and Works in Progress"
-      text: |
-        For a complete list of peer-reviewed publications, manuscripts in preparation, and research outputs, visit the **[Publications page](/publications/)**.
+      text: ""
+      filters:
+        folders: ["publication"]
+      sort_by: "Date"
+      order: "desc"
+      count: 20
     design:
+      view: citation
       columns: "1"
 ---
