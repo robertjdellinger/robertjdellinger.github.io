@@ -8,9 +8,9 @@ design:
 sections:
   - block: markdown
     content:
-      title: ""
+      title: "Research Focus"
       text: |
-        My research spans coral biogeochemistry, marine invertebrate physiology, and ecosystem responses to climate change, integrating multi-proxy geochemistry, quantitative ecology, and critical theory frameworks.
+        My research integrates multi-proxy coral geochemistry with ancient DNA metabarcoding to understand how marine ecosystems respond to climate variability and anthropogenic change. I examine coral biomineralization, symbiont dynamics, and physiological ecology to predict ecosystem-level responses to warming, acidification, and land-use impacts. Using critical ecology frameworks, I also investigate how structural inequalities shape environmental degradation.
     design:
       columns: "1"
   
@@ -88,7 +88,7 @@ sections:
   
   - block: collection
     content:
-      title: "Publications and Works in Progress"
+      title: "Publications"
       text: ""
       filters:
         folders: ["publication"]

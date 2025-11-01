@@ -17,8 +17,8 @@ sections:
       text: ''
       # Show a call-to-action button under your biography? (optional)
       button:
-        text: Download CV
-        url: uploads/CV.pdf
+        text: ''
+        url: ''
       headings:
         about: ''
         education: ''
@@ -28,118 +28,6 @@ sections:
       css_class: hbx-bg-gradient
       # Avatar customization
       avatar:
-        size: medium # Options: small (150px), medium (200px, default), large (320px), xl (400px), xxl (500px)
+        size: large # Options: small (150px), medium (200px, default), large (320px), xl (400px), xxl (500px)
         shape: circle # Options: circle (default), square, rounded
-  - block: markdown
-    content:
-      title: 'Research Focus'
-      subtitle: ''
-      text: |-
-        Robert J. Dellinger (he/they) is a Ph.D. student in Atmospheric and Oceanic Sciences at UCLA, specializing in biogeochemistry, under the mentorship of Dr. Aradhna Tripati. Rob previously earned a Master of Science degree in Biology from California State University, Northridge, as a researcher in the Quantitative Marine Ecology Lab. They also hold dual bachelor's degrees in Marine and Coastal Science (B.S.) and International Relations (B.A.) from UC Davis. 
-        
-        Rob's research explores the interactive effects of ocean acidification and warming on marine organisms by assessing their physiological responses to projected climate change scenarios. By employing mechanistic approaches, they aim to predict how changes at the organismal level could scale up to influence broader ecosystem functions. Furthermore, by utilizing both ecological and biogeochemical techniques, they aim to understand how shifts in ecological processes will ultimately impact human society.
-
-    design:
-      columns: '1'
-  - block: collection
-    id: papers
-    content:
-      title: Featured Publications
-      filters:
-        folders:
-          - publications
-        featured_only: true
-    design:
-      view: article-grid
-      columns: 2
-  - block: collection
-    content:
-      title: Recent Publications
-      text: ''
-      filters:
-        folders:
-          - publications
-        exclude_featured: false
-    design:
-      view: citation
-  - block: collection
-    id: talks
-    content:
-      title: Conferences & Colloquia
-      filters:
-        folders:
-          - events
-    design:
-      view: card
-  - block: collection
-    id: news
-    content:
-      title: Recent News
-      subtitle: ''
-      text: ''
-      # Page type to display. E.g. post, talk, publication...
-      page_type: blog
-      # Choose how many pages you would like to display (0 = all pages)
-      count: 5
-      # Filter on criteria
-      filters:
-        author: ''
-        category: ''
-        tag: ''
-        exclude_featured: false
-        exclude_future: false
-        exclude_past: false
-        publication_type: ''
-      # Choose how many pages you would like to offset by
-      offset: 0
-      # Page order: descending (desc) or ascending (asc) date.
-      order: desc
-    design:
-      # Choose a layout view
-      view: card
-      # Reduce spacing
-      spacing:
-        padding: [0, 0, 0, 0]
-  - block: cta-card
-    demo: true # Only display this section in the Hugo Blox Builder demo site
-    content:
-      title: 👉 Build your own academic website like this
-      text: |-
-
-      button:
-        text: Get Started
-        url: https://hugoblox.com/templates/
-    design:
-      card:
-        # Card background color (CSS class)
-        css_class: 'bg-primary-300 dark:bg-primary-700'
-        css_style: ''
-
-  - block: resume-experience
-    content:
-      username: "admin"
-      title: "Professional Experience"
-    design:
-      columns: "1"
-      spacing:
-        padding: ["6","6","6","6"]
-
-  - block: resume-skills
-    content:
-      username: "admin"
-      title: "Research & Technical Skills"
-      text: ""
-    design:
-      columns: "1"
-      spacing:
-        padding: ["6","6","6","6"]
-
-  - block: markdown
-    content:
-      title: "Media & Outreach"
-      subtitle: "Writing, Communication, and Public Engagement"
-      text: |
-        Explore features, interviews, and science communication projects highlighting ocean–climate research and collaborative storytelling.
-    design:
-      columns: "1"
 ---
