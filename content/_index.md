@@ -35,7 +35,9 @@ sections:
       title: 'Research Focus'
       subtitle: ''
       text: |-
-        Robert J. Dellinger is a Ph.D. student in Atmospheric and Oceanic Sciences at UCLA, specializing in biogeochemistry, under the mentorship of Dr. Aradhna Tripati. Rob's research explores the interactive effects of ocean acidification and warming on marine organisms by assessing their physiological responses to projected climate change scenarios. By employing mechanistic approaches, they aim to predict how changes at the organismal level could scale up to influence broader ecosystem functions.
+        Robert J. Dellinger (he/they) is a Ph.D. student in Atmospheric and Oceanic Sciences at UCLA, specializing in biogeochemistry, under the mentorship of Dr. Aradhna Tripati. Rob previously earned a Master of Science degree in Biology from California State University, Northridge, as a researcher in the Quantitative Marine Ecology Lab. They also hold dual bachelor's degrees in Marine and Coastal Science (B.S.) and International Relations (B.A.) from UC Davis. 
+        
+        Rob's research explores the interactive effects of ocean acidification and warming on marine organisms by assessing their physiological responses to projected climate change scenarios. By employing mechanistic approaches, they aim to predict how changes at the organismal level could scale up to influence broader ecosystem functions. Furthermore, by utilizing both ecological and biogeochemical techniques, they aim to understand how shifts in ecological processes will ultimately impact human society.
 
     design:
       columns: '1'
