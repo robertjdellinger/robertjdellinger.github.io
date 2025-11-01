@@ -44,6 +44,13 @@ jobs:
             --exclude 'example.com'
             --exclude 'twitter.com'
             --exclude 'x.com'
+            --exclude 'linkedin.com'
+            --exclude 'scholar.google.com'
+            --exclude 'atmos.ucla.edu'
+            --exclude 'www.atmos.ucla.edu'
+            --exclude 'noaa.gov'
+            --exclude 'www.noaa.gov'
+            --exclude 'soest.hawaii.edu'
             '**/*.md' '**/*.html' '**/*.txt'
           fail: true
           # Don't fail on errors for scheduled runs (weekly checks)
