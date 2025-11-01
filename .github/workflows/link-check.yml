@@ -1,0 +1,61 @@
+name: Link check
+
+on:
+  pull_request:
+    branches: [main, netlify]
+  push:
+    branches: [main, netlify]
+  workflow_dispatch:
+  schedule:
+    # Run weekly on Mondays at 00:00 UTC
+    - cron: '0 0 * * 1'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: link-check-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lychee:
+    name: Link check
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Link Checker
+        uses: lycheeverse/lychee-action@v2
+        with:
+          # Check all markdown, HTML, and text files
+          args: |
+            --verbose
+            --no-progress
+            --accept 200,201,202,203,204,206,207,208,226,300,301,302,303,304,307,308,429,999
+            --timeout 30
+            --max-retries 3
+            --exclude-path ./public
+            --exclude-path ./resources
+            --exclude-path ./node_modules
+            --exclude 'localhost'
+            --exclude 'example.com'
+            --exclude 'twitter.com'
+            --exclude 'x.com'
+            '**/*.md' '**/*.html' '**/*.txt'
+          fail: true
+          # Don't fail on errors for scheduled runs (weekly checks)
+          jobSummary: true
+          format: markdown
+
+      - name: Create Issue From File
+        if: failure() && github.event_name == 'schedule'
+        uses: peter-evans/create-issue-from-file@v5
+        with:
+          title: 'Broken links detected by weekly check'
+          content-filepath: ./lychee/out.md
+          labels: |
+            bug
+            documentation

@@ -1,0 +1,85 @@
+name: HTML lint
+
+on:
+  pull_request:
+    branches: [main, netlify]
+  push:
+    branches: [main, netlify]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: html-lint-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  htmlhint:
+    name: HTML lint
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: pnpm/action-setup@v4
+        if: hashFiles('package.json') != ''
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+          cache-dependency-path: pnpm-lock.yaml
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '0.152.1'
+          extended: true
+
+      - name: Build site
+        run: hugo --minify
+
+      - name: Install HTMLHint
+        run: pnpm add -D htmlhint
+
+      - name: Create HTMLHint config
+        run: |
+          cat > .htmlhintrc << 'EOF'
+          {
+            "tagname-lowercase": true,
+            "attr-lowercase": true,
+            "attr-value-double-quotes": true,
+            "attr-value-not-empty": false,
+            "attr-no-duplication": true,
+            "doctype-first": false,
+            "tag-pair": true,
+            "tag-self-close": false,
+            "spec-char-escape": true,
+            "id-unique": true,
+            "src-not-empty": true,
+            "title-require": true,
+            "alt-require": true,
+            "doctype-html5": true,
+            "id-class-value": false,
+            "style-disabled": false,
+            "inline-style-disabled": false,
+            "inline-script-disabled": false,
+            "space-tab-mixed-disabled": "space",
+            "id-class-ad-disabled": false,
+            "href-abs-or-rel": false,
+            "attr-unsafe-chars": true
+          }
+          EOF
+
+      - name: Run HTMLHint
+        run: |
+          npx htmlhint "public/**/*.html" --format unix || true
+          # Store exit code
+          npx htmlhint "public/**/*.html" --format unix
+        continue-on-error: false
