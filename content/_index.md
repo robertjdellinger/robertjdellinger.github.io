@@ -1,33 +1,31 @@
 ---
-# Leave title empty to use site title
-title: ''
-summary: 'Robert J. Dellinger - PhD Student in Atmospheric and Oceanic Sciences at UCLA researching climate change impacts on marine ecosystems and biogeochemistry.'
-date: 2025-01-01
+title: ""
 type: landing
-
-design:
-  # Default section spacing
-  spacing: '6rem'
-
+# Keep the page out of lists
+_build:
+  list: never
+  publishResources: false
+  render: always
+# Do not auto inject author or profile widgets
+show_author: false
+# Hide the global nav on the home route only
+hide_nav: true
 sections:
-  - block: resume-biography-3
+  - block: hero
     content:
-      # Choose a user profile to display (a folder name within `content/authors/`)
-      username: admin
-      text: ''
-      # Show a call-to-action button under your biography? (optional)
-      button:
-        text: ''
-        url: ''
-      headings:
-        about: ''
-        education: ''
-        interests: ''
+      title: "ROBERT J.<br>DELLINGER"
+      subtitle: "Oceanic & Atmospheric Scientist"
+      text: "Investigating the Physical and Social Drivers of Environmental Change"
+      cta:
+        label: ""
+        url: ""
     design:
-      # Apply a gradient background
-      css_class: hbx-bg-gradient
-      # Avatar customization
-      avatar:
-        size: large # Options: small (150px), medium (200px, default), large (320px), xl (400px), xxl (500px)
-        shape: circle # Options: circle (default), square, rounded
+      align: center
+      padding: ["8rem","0","8rem","0"]
+      headline:
+        font_size: "5xl"
+      subtitle:
+        font_size: "xl"
+      text:
+        font_size: "base"
 ---
