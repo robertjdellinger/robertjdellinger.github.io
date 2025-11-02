@@ -91,9 +91,6 @@ sections:
     content:
       username: "admin"
       text: "This is sample text content for the section."
-      button:
-        text: "Click Here"
-        url: "https://example.com"
     design:
       background:
         color: ""
