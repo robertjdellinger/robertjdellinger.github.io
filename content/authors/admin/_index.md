@@ -61,14 +61,13 @@ education:
     date_start: 2024-09-01
     date_end: ''
     summary: |
-      Advisors: Dr. [Aradhna Tripati](https://www.ioes.ucla.edu/person/aradhna-tripati/), Dr. Robert Eagle  
+      Advisors: Drs. Aradhna Tripati & Robert Eagle.  
       Research focus: Biogeochemistry & Climate Change Impacts on Marine Ecosystems.
   - area: MS Biological Sciences
     institution: California State University, Northridge
     date_start: 2021-09-01
     date_end: 2024-09-01
     summary: |
-      Advisor: Dr. Nyssa J. Silbiger  
       GPA: 3.75  
       Thesis: *Facing Physiological Constraints: The Interactive Effects of Ocean Acidification and Warming on the Energetics of an Intertidal Gastropod, Tegula funebralis*.
     button:
@@ -319,4 +318,4 @@ awards:
     
 ---
 
-Robert J. Dellinger is a Ph.D. student in Atmospheric and Oceanic Sciences at UCLA, specializing in biogeochemistry. Their research integrates multi-proxy coral geochemistry with ancient DNA metabarcoding to reconstruct centennial-scale impacts of climate variability and land-use change on marine ecosystems, with implications for predicting how ecological shifts will impact human society.
+Robert J. Dellinger (he/they) is a Ph.D. student in Atmospheric and Oceanic Sciences at UCLA, specializing in biogeochemistry, under the mentorship of Dr. Aradhna Tripati. Rob previously earned a Master of Science degree in Biology from California State University, Northridge, as a researcher in the Quantitative Marine Ecology Lab. They also hold dual bachelor's degrees in, Marine and Coastal Science (B.S.) and International Relations (B.A.) from UC Davis. Rob's research explores the interactive effects of ocean acidification and warming on marine organisms by assessing their physiological responses to projected climate change scenarios. By employing mechanistic approaches, they aim to predict how changes at the organismal level could scale up to influence broader ecosystem functions. Furthermore, by utilzing both ecological and biogeochemical techniques, they aim to understand how shifts in ecological processes will ultimately impact human society. Currently, Robert is honored to be a National Science Foundation Graduate Research Fellow, UCLA Center for Diverse leadership Fellow, and a Sustainable Oceans NSF National Research Trainee. I am also committed furthering access to higher education and all levels of academia for individuals from diverse and underrepresented minority (URM) backgrounds. Academia and knowledge should be accessible to all whom have the curiosity to explore them. 
