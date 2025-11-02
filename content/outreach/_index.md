@@ -8,39 +8,52 @@ sections:
       title: "Community Engagement"
       text: |
         The lack of diversity in the marine sciences is well-documented. Thus, I aim to create environments and imbue a sense of diversity, equity, inclusion, justice and belonging within the academic and scientific communities I am part of. Below are my current and past leadership positions.
-  - block: resume-experience
+  
+  - block: markdown
     content:
       title: "Leadership Positions"
-      items:
-        - title: "President, Radical Imagination Club (CJC)"
-          company: "UCLA"
-          company_url: "https://climatejusticecollective.co/"
-          description: "https://climatejusticecollective.co/"
-        - title: "Co-founder, Climate Futures Studio"
-          company_url: "https://climatefutures.art/about"
-          description: "https://climatefutures.art/about"
-        - title: "Board of Directors, Queer Sol Collective"
-          company_url: "https://www.thequeersolcollective.org/our-work"
-          description: "https://www.thequeersolcollective.org/our-work"
-        - title: "President, CSUN MBGSA (2022–2023)"
-          company: "CSU Northridge"
-          company_url: "https://csunmarinebiograds.weebly.com/officers.html"
-          description: "https://csunmarinebiograds.weebly.com/officers.html"
-        - title: "Member, UC Davis EPS ARAC"
-          company: "UC Davis"
-          company_url: "https://eps.ucdavis.edu/dei"
-          description: "https://eps.ucdavis.edu/dei"
-        - title: "Member, Ethnic and Cultural Affairs Commission"
-          company: "UC Davis"
-          company_url: "https://commissions.ucdavis.edu/ethnic-and-cultural-affairs-commission"
-          description: "https://commissions.ucdavis.edu/ethnic-and-cultural-affairs-commission"
-        - title: "Member, GASC"
-          company: "UC Davis"
-          company_url: "https://commissions.ucdavis.edu/gasc"
-          description: "https://commissions.ucdavis.edu/gasc"
+      text: |
+        ### Current Positions
+        
+        **President, Radical Imagination Coalition**  
+        UCLA Climate Justice Collective (CJC) | September 2024 – Present  
+        [climatejusticecollective.co](https://climatejusticecollective.co/)
+        
+        **Co-Founder, Climate Storytelling Project**  
+        UCLA Center for Diverse Leadership in Science | September 2023 – Present  
+        [climatefutures.art](https://climatefutures.art/about)
+        
+        **Board of Directors, Queer Sol Collective**  
+        Kumeyaay Territory, San Diego, California | June 2023 – Present  
+        [thequeersolcollective.org](https://www.thequeersolcollective.org/our-work)
+        
+        **Volunteer, Noname Book Club**  
+        Radical Hood Library | June 2021 – Present
+        
+        ### Past Positions
+        
+        **President, Marine Biology Graduate Student Association (MBGSA)**  
+        California State University, Northridge | September 2022 – June 2023  
+        [csunmarinebiograds.weebly.com](https://csunmarinebiograds.weebly.com/officers.html)
+        
+        **Member, Anti-Racism Committee**  
+        UC Davis Department of Earth and Planetary Sciences | June 2020 – June 2021  
+        [eps.ucdavis.edu/dei](https://eps.ucdavis.edu/dei)
+        
+        **Commissioner, Gender and Sexuality Commission**  
+        Associated Students of the University of California, Davis | September 2019 – June 2021  
+        [commissions.ucdavis.edu/gasc](https://commissions.ucdavis.edu/gasc)
+        
+        **Commissioner, Ethnic and Cultural Affairs Commission**  
+        Associated Students of the University of California, Davis | September 2017 – June 2019  
+        [commissions.ucdavis.edu/ethnic-and-cultural-affairs-commission](https://commissions.ucdavis.edu/ethnic-and-cultural-affairs-commission)
+  
   - block: collection
     content:
       title: "Conferences & Colloquia"
-      filters: { folders: ["events"] }
-    design: { view: "card", columns: "3" }
+      filters: 
+        folders: ["events"]
+    design: 
+      view: "card"
+      columns: "3"
 ---

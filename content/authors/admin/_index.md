@@ -28,7 +28,7 @@ role: PhD Student, Atmospheric & Oceanic Sciences
 # Organizations/Affiliations to display in Biography blox
 organizations:
   - name: University of California, Los Angeles (UCLA)
-    url: https://www.atmos.ucla.edu/
+    url: https://www.ucla.edu/
 
 # Social network links
 # Need to use another icon? Simply download the SVG icon to your `assets/media/icons/` folder.
@@ -43,7 +43,8 @@ profiles:
   - icon: brands/linkedin
     url: https://www.linkedin.com/in/robertjdellinger/
   - icon: academicons/google-scholar
-    url: https://scholar.google.com/citations?user=lxtnDm4AAAAJ&hl
+    url: ''
+    label: Google Scholar
   - icon: academicons/orcid
     url: https://orcid.org/0009-0009-3524-4041
 
