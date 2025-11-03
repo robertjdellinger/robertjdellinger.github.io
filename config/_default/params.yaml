@@ -1,8 +1,95 @@
----
-description: "Oceanic and Atmospheric Scientist, investigating the physical and social drivers of environmental change"
+############################
+## PARAMS
+############################
+description: "Oceanic and Atmospheric Scientist investigating the physical and social drivers of environmental change."
 mainSections: ["blog"]
 date_format: "2006-01-02"
 
+params:
+  author:
+    name: "Robert J. Dellinger"
+    affiliation: "UCLA Atmospheric and Oceanic Sciences"
+    orcid: "0009-0009-3524-4041"
+    orcid_url: "https://orcid.org/0009-0009-3524-4041"
+    email: "rjdellinger@ucla.edu"         # publish only if intended
+    telephone: "+13108809842"             # E.164 for tel: links
+    jobTitle: "PhD Student"
+
+  short_title: "Robert J. Dellinger"
+  short_description: "Oceanic & Atmospheric Scientist"
+  description_long: "Investigating how physical and social forces drive environmental change, translating science into policy and community action."
+  show_reading_time: true
+
+  social:
+    twitter:
+      url: "https://twitter.com/RJ_Dellinger"
+    github:
+      url: "https://github.com/robertjdellinger"
+    linkedin:
+      url: "https://www.linkedin.com/in/robertjdellinger"
+    orcid:
+      url: "https://orcid.org/0009-0009-3524-4041"
+
+  default_image: "/assets/media/icons/logo.png"
+
+assets:
+  favicon: "/assets/media/icons/icon.png"
+  logo:
+    light: "/assets/media/icons/logo.png"
+    dark: "/assets/media/icons/logo.png"
+
+############################
+## FEATURES
+############################
+features:
+  #############################################
+  ## MATH
+  #############################################
+  math:
+    enable: true                  # turn math on globally
+    engine: "katex"               # "katex" for speed, "mathjax" for advanced packages
+    katex:
+      enable: true
+      # delimiter pairs that the auto-renderer will parse
+      delimiters:
+        inline: ["$", "$"]
+        display: ["$$", "$$"]
+      # lightweight macro set, extend as you need
+      macros:
+        "\\R": "\\mathbb{R}"
+        "\\C": "\\mathbb{C}"
+        "\\vect": "\\mathbf"
+        "\\dd": "\\mathrm{d}"
+    mathjax:
+      enable: true               # flip to true only if you need MathJax features
+      config: "TeX-MML-AM_CHTML"
+      inline: ["\\(", "\\)"]
+      display: ["\\[", "\\]"]
+    render_on_scroll: false       # predictable render, less jank
+    lazy_load: false
+
+  #############################################
+  ## DIAGRAMS
+  #############################################
+  diagrams:
+    enable: true
+    mermaid: true                 # flowcharts, sequences, state, gantt
+    chartjs: false                # set true only if your theme exposes a Chart.js shortcode
+    render_mode: "client"         # browser renders diagrams
+
+  #############################################
+  ## REPOSITORY METADATA
+  #############################################
+  repository:
+    url: "https://github.com/robertjdellinger/robertjdellinger.github.io"
+    content_dir: "content"
+    branch: "main"
+    edit_link: true               # show "Edit this page" if the theme supports it
+    lastmod: true                 # use Git commit dates for updated timestamps
+
+############################
+## HEADER
+############################
 header:
   navbar:
     enable: true
@@ -11,44 +98,50 @@ header:
     fixed_to_top: true
     logo:
       text: "Robert J. Dellinger"
-      filename: "assets/media/icons/logo.png"
+      filename: "/assets/media/icons/logo.png"
+      alt: "Robert J. Dellinger logo"
     show_theme_chooser: true
     show_search: true
     highlight_active_link: true
     show_translations: false
     hide_language_name: false
 
-features:
-  math:
-    enable: true
-  diagrams:
-    enable: true
-  repository:
-    url: "https://github.com/robertjdellinger/robertjdellinger.github.io"
-    content_dir: "content"
-    branch: "main"
-
+############################
+## FOOTER
+############################
 footer:
   block: minimal
   copyright:
-    notice: "© {year} Robert J. Dellinger, This work is licensed under {license}"
+    notice: "© {year} Robert J. Dellinger."
     license:
       enable: true
+      name: "CC BY-NC-ND 4.0"
+      uri: "https://creativecommons.org/licenses/by-nc-nd/4.0/"
       allow_derivatives: false
-      share_alike: true
       allow_commercial: false
+      share_alike: false
   show_translations: false
 
-assets:
-  favicon: "assets/media/icons/icon.png"
 
+############################
+## SEO
+############################
 seo:
   site_type: "Person"
   org_name: "UCLA Atmospheric and Oceanic Sciences"
-
-privacy:
-  youtube:
-    privacyEnhanced: true
-  x:
-    enableDNT: true
----
+  canonical: true
+  robots:
+    index: true
+    follow: true
+    noimageindex: false
+  open_graph:
+    type: "profile"
+    image: "/assets/media/icons/logo.png"
+    image_alt: "Robert J. Dellinger site logo"
+    locale: "en_US"
+  twitter_card:
+    card: "summary_large_image"
+    site: "@RJ_Dellinger"
+  jsonld:
+    enable: true
+    
