@@ -1,5 +1,5 @@
 main:
-  - name: "About & Experience"
+  - name: "About"
     identifier: "about"
     url: "/about/"
     weight: 10
