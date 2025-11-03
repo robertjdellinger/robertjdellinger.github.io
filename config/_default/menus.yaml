@@ -1,37 +1,36 @@
 main:
-  - name: "About"
-    identifier: "about"
+  - name: "About & Experience"
     url: "/about/"
     weight: 10
-    params:
-      description: "Bio, education, experience, awards"
+    identifier: "about"
+    params: { description: "Background, Education, Professional Experience, Skills, and Languages" }
+
   - name: "Research"
-    identifier: "research"
     url: "/research/"
     weight: 20
-    params:
-      description: "Biophysical and social drivers of change"
+    identifier: "research"
+    params: { description: "Ongoing and Previous Research Projects, Publications, & Presentations" }
+
   - name: "Gallery"
-    identifier: "gallery"
     url: "/gallery/"
     weight: 30
-    params:
-      description: "Anthologies, personal work"
+    identifier: "gallery"
+    params: { description: "Photography and Art Gallery" }
+
   - name: "Outreach"
-    identifier: "outreach"
     url: "/outreach/"
     weight: 40
-    params:
-      description: "Media, press, writing"
+    identifier: "outreach"
+    params: { description: "Media/Press Engagement & Writing" }
+
   - name: "Blog"
-    identifier: "blog"
     url: "/blog/"
     weight: 50
-    params:
-      description: "Coding posts and notes"
+    identifier: "blog"
+    params: { description: "Coding and Scientific Methods Blog" }
+
   - name: "Contact"
-    identifier: "contact"
     url: "/contact/"
     weight: 60
-    params:
-      description: "Get in touch"
+    identifier: "contact"
+    params: { description: "Contact Information" }
