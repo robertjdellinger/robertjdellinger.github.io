@@ -1,1 +1,9 @@
-<script async defer src="https://buttons.github.io/buttons.js"></script>
+{{/* Optional GitHub button partial.
+   Keep scripts/styles minimal; this example outputs a meta tag for a lightweight button script.
+   Replace or remove as needed.
+*/}}
+
+{{/* If you load a tiny script for a GitHub button, include it conditionally. */}}
+{{ with .Site.Params.github_button_script }}
+<script async src="{{ . }}"></script>
+{{ end }}

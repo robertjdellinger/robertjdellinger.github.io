@@ -1,0 +1,114 @@
+name: Build and Link Check
+
+env:
+  WC_HUGO_VERSION: '0.152.1'
+  NODE_VERSION: '20'
+
+on:
+  pull_request:
+    branches: [main, netlify]
+  push:
+    branches: [main, netlify]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: build-and-links-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-check:
+    name: Build Hugo site and check links
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: pnpm/action-setup@v4
+        if: hashFiles('package.json') != ''
+
+      - uses: actions/setup-node@v4
+        if: hashFiles('package.json') != ''
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'pnpm'
+          cache-dependency-path: pnpm-lock.yaml
+
+      - name: Install JS dependencies if applicable
+        if: hashFiles('package.json') != ''
+        run: pnpm install || npm install
+
+      # Cache Hugo build cache
+      - uses: actions/cache@v4
+        with:
+          path: /tmp/hugo_cache_runner/
+          key: ${{ runner.os }}-hugo-deps-${{ hashFiles('**/go.mod', '**/package-lock.json', '**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-hugo-deps-
+
+      # Cache Go modules (when go.mod exists)
+      - uses: actions/cache@v4
+        if: hashFiles('go.mod') != ''
+        with:
+          path: ~/go/pkg/mod
+          key: ${{ runner.os }}-go-mod-${{ hashFiles('**/go.mod', '**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-go-mod-
+
+      # Cache Hugo resources
+      - uses: actions/cache@v4
+        with:
+          path: resources/
+          key: ${{ runner.os }}-hugo-resources-${{ hashFiles('assets/**/*', 'config/**/*', 'hugo.yaml', 'package.json') }}
+          restore-keys: |
+            ${{ runner.os }}-hugo-resources-
+
+      - uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: ${{ env.WC_HUGO_VERSION }}
+          extended: true
+
+      - name: Build with Hugo
+        env:
+          HUGO_ENVIRONMENT: production
+        run: hugo --minify
+
+      - name: Link Checker
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: |
+            --verbose
+            --no-progress
+            --accept 200,201,202,203,204,206,207,208,226,300,301,302,303,304,307,308,429,999
+            --timeout 30
+            --max-retries 3
+            --exclude-path ./resources
+            --exclude-path ./node_modules
+            --exclude-file .github/lychee-allowlist.txt
+            --output ./lychee-report.json
+            --format json
+            './public/**/*.html'
+          fail: false
+          jobSummary: true
+
+      - name: Upload link check report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lychee-link-check-report
+          path: |
+            lychee-report.json
+            lychee/out.md
+          retention-days: 30
+          if-no-files-found: warn
+
+      - name: Upload built site
+        uses: actions/upload-artifact@v4
+        with:
+          name: hugo-public-site
+          path: ./public
+          retention-days: 7

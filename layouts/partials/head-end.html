@@ -1,0 +1,37 @@
+{{/* head-end delegates to modular hooks in layouts/partials/hooks/head-end/ */}}
+
+{{ with .Site.Params.seo.google_site_verification -}}
+<meta name="google-site-verification" content="{{ . }}">
+{{- end }}
+
+{{ with .Site.Params.seo.bing_site_verification -}}
+<meta name="msvalidate.01" content="{{ . }}">
+{{- end }}
+
+{{/* page-level JSON-LD override (if present) */}}
+{{ $usePageJSONLD := and (isset .Params "jsonld") (ne .Params.jsonld "") }}
+{{ if $usePageJSONLD }}
+<script type="application/ld+json">
+{{ .Params.jsonld | safeJS }}
+</script>
+{{ else }}
+  {{/* include site-level structured data partial if enabled */}}
+  {{ if and (isset .Site.Params "seo") (.Site.Params.seo.jsonld.enable) }}
+    {{ partial "hooks/head-end/structured-data.html" . }}
+  {{ end }}
+{{ end }}
+
+{{/* include a small custom partial for extra meta/scripts */}}
+{{ if partialExists "hooks/head-end/custom.html" }}
+  {{ partial "hooks/head-end/custom.html" . }}
+{{ end }}
+
+{{/* include github button if present */}}
+{{ if partialExists "hooks/head-end/github-button.html" }}
+  {{ partial "hooks/head-end/github-button.html" . }}
+{{ end }}
+
+{{/* analytics in head (if any) */}}
+{{ with .Site.Params.analytics.head }}
+{{ . | safeHTML }}
+{{ end }}
