@@ -2,6 +2,8 @@ name: Deploy website to Netlify
 
 env:
   WC_HUGO_VERSION: '0.152.1'
+  # Note: Using Node 20 to match GitHub Pages deploy workflow
+  # netlify.toml uses Node 22 for Netlify's native builds
   NODE_VERSION: '20'
 
 on:
@@ -22,7 +24,7 @@ jobs:
     permissions:
       contents: read
     # Only deploy if Netlify secrets are configured
-    if: github.repository_owner != 'HugoBlox' && (vars.NETLIFY_SITE_ID != '' || secrets.NETLIFY_SITE_ID != '')
+    if: github.repository_owner != 'HugoBlox' && secrets.NETLIFY_SITE_ID != ''
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -83,6 +85,8 @@ jobs:
         env:
           HUGO_ENVIRONMENT: production
         run: |
+          # Note: GitHub Pages deploy uses --baseURL from actions/configure-pages
+          # For Netlify, we use --gc for garbage collection and --minify for optimization
           hugo --gc --minify --logLevel info
 
       - name: Deploy to Netlify
