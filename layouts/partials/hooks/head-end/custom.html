@@ -1,32 +1,9 @@
-{{/* Optional meta and scripts that can be inserted at end of <head> */}}
+{{/* small site-specific head snippets. Keep minimal. */}}
 
-{{/* Search engine / site verification tokens (render only if set) */}}
-{{ with .Site.Params.seo.google_site_verification }}
-<meta name="google-site-verification" content="{{ . }}">
+{{/* Example: additional meta keywords (optional) */}}
+{{ with .Site.Params.seo.keywords }}
+<meta name="keywords" content="{{ . }}">
 {{ end }}
 
-{{ with .Site.Params.seo.bing_site_verification }}
-<meta name="msvalidate.01" content="{{ . }}">
-{{ end }}
-
-{{/* Optional inline JSON-LD structured data (page-specific or site-level) */}}
-{{ if .Site.Params.seo.jsonld.enable }}
-<script type="application/ld+json">
-{{- with .Site.Params.seo.jsonld.site }}{{ . | safeJS }}{{ else }}{{- /* fallback example */ -}}
-{
-  "@context": "https://schema.org",
-  "@type": "{{ .Site.Params.seo.site_type | default "Person" }}",
-  "name": "{{ .Site.Params.author.name }}",
-  "url": "{{ .Site.BaseURL }}",
-  "sameAs": [
-    {{ with .Site.Params.social.twitter }}"{{ .url }}"{{ end }}
-  ]
-}
-{{- end }}
-</script>
-{{ end }}
-
-{{/* Analytics snippets that require being in head (e.g., some tag managers) */}}
-{{ with .Site.Params.analytics.head }}
-{{ . | safeHTML }}
-{{ end }}
+{{/* Example: theme-color fallback (set via params.theme_color) */}}
+<meta name="theme-color" content="{{ .Site.Params.theme_color | default "#4F46E5" }}">
