@@ -1,235 +1,109 @@
-# Copilot Instructions for robertjdellinger.github.io
+# GitHub Copilot Instructions for robertjdellinger.github.io
 
-This repository powers the academic website for Robert J. Dellinger, a PhD student in Atmospheric and Oceanic Sciences at UCLA. The site showcases research, publications, teaching, and outreach related to marine biogeochemistry and ocean acidification.
+Purpose
+- Guide Copilot and other automated agents to make minimal, precise edits so the site matches the Website Structure provided by the owner. All edits must preserve identity, nav, front matter, media paths, footer, accessibility, and dual-deploy workflows.
 
-## 🏗️ Repository Overview
+High-level rules (enforced)
+- Do not change identity: pronouns, affiliations, email, phone, postal address, footer copy.
+- Minimal diffs only: fix what's broken, do not bulk-reformat or refactor unrelated files.
+- No em dashes: replace em dashes with hyphens or commas.
 
-**Framework**: Hugo v0.152.1 with HugoBlox Academic CV template  
-**Deployment**: Dual deployment (GitHub Pages + Netlify) with automated builds  
-**Package Manager**: pnpm v10.14.0  
-**Node Version**: 22 (Netlify) / 20 (GitHub Actions)  
-**Styling**: Tailwind CSS v4 with JIT compilation
+Canonical navigation
+- The single source of truth for navigation is config/_default/menus.yaml in the repository. CI will validate the expected menu entries directly (no separate canonical file).
+- Top-level menu items (names, identifiers, urls, weights, params.description) are immutable unless the PR is explicitly titled "Nav Change Request".
 
-## 📁 Project Structure
+Page types and canonical URLs
+- Trailing slashes required for section landing pages: /about/, /research/, /gallery/, /outreach/, /blog/, /contact/
+- `type: landing` for section index pages, `type: post` for posts, `type: page` for standalone content.
 
-```
-├── .github/
-│   ├── agents/                 # GitHub Copilot agent definitions
-│   │   └── hugo-site-guardian.md  # Site quality and accessibility agent
-│   └── workflows/              # GitHub Actions workflows
-├── assets/                     # Static assets (images, CSS, JS)
-├── config/                     # Hugo configuration files
-│   └── _default/
-│       ├── hugo.yaml          # Main Hugo config
-│       ├── params.yaml        # Site parameters
-│       └── menus.yaml         # Navigation menus
-├── content/                    # Markdown content for all pages
-│   ├── _index.md              # Home page
-│   ├── authors/               # Author profiles
-│   ├── publication/           # Research publications
-│   ├── experience/            # Research experience
-│   ├── public-engagement/     # Public engagement content
-│   └── blog/                  # Blog posts
-├── layouts/                    # Custom Hugo templates (overrides)
-├── static/                     # Static files served as-is
-├── go.mod                      # Hugo modules configuration
-├── package.json                # Node.js dependencies
-└── hugoblox.yaml              # HugoBlox configuration
-```
+Front matter and blocks
+- Every content file should include:
+  - title
+  - summary (used for meta description; ~<160 chars)
+  - type
+  - draft (true|false)
+  - date for posts or dated pages
+- Landing pages should include a `sections:` array using existing HugoBlox blocks (hero, resume-biography-3, resume-education, resume-experience, gallery, contact, collection, etc.).
+- Social card `image` must be page bundle relative and include `image_alt`.
 
-## 🛠️ Build and Development Commands
+Homepage and About page requirements
+- content/_index.md must include:
+  - title: "Robert J. Dellinger"
+  - summary matching canonical description
+  - hero block with primary_action → /about/ and secondary_action → /contact/
+  - design.background referencing media/coral-reefs.png with image_alt
+- content/about/_index.md must include aliases: ["/experience/","/cv/"]
+- CV button should link to /uploads/CV.pdf (page bundle or static as currently used)
+- When owner text is not yet available, placeholders are permitted (see Placeholder guidance below) but should be clearly marked for future replacement.
 
-### Development Server
-```bash
-pnpm run dev
-# or
-hugo server --disableFastRender
-```
+Footer requirements
+- layouts/partials/footer.html must render a 2-column layout with exact left/right text (left must contain dynamic year).
+  - Left: "Robert J. Dellinger © {{ now.Year }}" and the UCLA address lines.
+  - Right: "Contact Information" with email mailto:rjdellinger@ucla.edu and phone tel:+13108809842.
 
-### Production Build
-```bash
-pnpm run build
-# or
-hugo --minify
-```
+Accessibility and inclusion checks
+- All images must have meaningful alt text (decorative images alt="").
+- One H1 per page. Headings must be sequential.
+- External links: include rel="noopener noreferrer".
+- Do not remove pronouns, leadership roles, community context, or justice framing when editing text.
 
-### Install Dependencies
-```bash
-pnpm install
-```
+Deployment & CI constraints
+- Dual deployment: GitHub Pages is primary; Netlify provides PR preview builds and acts as backup.
+- PRs that change presentation (content, layout, assets) should include a Netlify preview URL.
+- Do not change GitHub Actions workflow triggers or Netlify build commands without an explicit "Deploy Change Request" PR and owner approval.
 
-### Hugo Module Management
-```bash
-hugo mod get -u ./...  # Update all modules
-hugo mod tidy          # Clean up unused modules
-```
+Placeholder guidance (changed)
+- Placeholders (strings such as "PASTE_", "Insert bio here", "Short summary of", or similar) are allowed in branches and PRs.
+- CI and guardian checks should flag placeholders as advisory (warnings) rather than blocking by default. This allows iterative work and staged content.
+- If a change is intended for a production merge (main branch), maintainers or the owner should confirm whether placeholders must be replaced before merging to main. The guardian will include a "placeholders present" note in its CI output and PR comments.
+- When creating content that uses placeholders, include a short comment in the front matter or the PR describing what still needs to be completed and who is responsible.
 
-## 🎨 Code Style and Patterns
+Validation checks (CI or pre-commit)
+- Build: pnpm run build || hugo --minify — failure blocks merge.
+- Nav guard: CI checks config/_default/menus.yaml for expected top-level entries; any deviation blocks merge unless PR is a "Nav Change Request".
+- Placeholder guard: CI will run git grep for placeholder patterns and report findings as warnings; these are advisory unless maintainers configure them to block.
+  - Example command (advisory): git grep -nE 'PASTE_|Insert bio here|Short summary of' -- content || true
+- Footer guard: ensure footer partial contains required strings and dynamic year.
+- Front matter guard: ensure title, summary, type, draft exist; posts must include date.
+- Link integrity: scan build output for missing assets or broken links (404s) — any 404 blocks merge.
+- Alt text: ensure changed files with images include alt text.
 
-### Content Files (Markdown)
-- All content pages must include front matter with:
-  - `title`: Page title
-  - `summary`: Brief description (used for meta description and SEO)
-  - `date`: Publication/creation date
-  - `type`: Content type (e.g., `page`, `post`, `publication`)
-  - `draft`: Boolean indicating draft status
-- Use Hugo shortcodes for complex elements (callouts, figures, etc.)
-- Image paths should be relative to the page bundle
-- Alt text is **mandatory** for all images
+Branch & PR etiquette
+- Branch naming: copilot/<short-task>
+- PR description should include:
+  - Netlify deploy preview URL (for presentation changes)
+  - A short checklist confirming Non-negotiables, Accessibility, and Validation steps passed
+  - If placeholders remain, document them in the PR and indicate owner/assignee for completion
+  - If changing nav/menu, PR title must start with "Nav Change Request"
+- Commit messages: use imperative style and scoped message:
+  - Examples: fix(content): fill About bio block and add CV link, chore(ci): add nav guard script, fix(layout): enforce footer two-column structure
 
-### Navigation Structure
-Standard menu items (defined in `config/_default/menus.yaml`):
-- Home
-- Bio
-- Research Experience
-- Public Engagement
-- Media
-- Blog
-- Contact
+When to ask the owner (blockers)
+- Any change to identity (pronouns, affiliations, contact info)
+- Missing owner-supplied long-form copy where it must be authoritative
+- Requests to reorder or rename top-level nav items or change primary background image
 
-### Hugo Templates
-- Follow Hugo's template lookup order
-- Use partials for reusable components
-- Leverage Hugo Pipes for asset processing
-- Maintain accessibility standards (WCAG 2.1 Level AA)
+Behavior when encountering an issue
+- For non-blocking issues (placeholders present, accessibility suggestions), leave a concise PR comment describing what's missing and a suggested patch or resource.
+- For blocking issues (broken build, missing footer strings, nav deviations, identity edits), stop and leave a precise PR review comment describing the blocker and include a minimal diff suggestion where appropriate.
 
-### Tailwind CSS
-- Use utility classes following Tailwind v4 syntax
-- HugoBlox handles styling via its module system
-- Avoid inline styles; prefer utility classes
-- Custom icons can be added to `assets/media/icons/custom/`
+Examples (patterns to follow)
+- Footer patch suggestion
+  ```diff
+  --- a/layouts/partials/footer.html
+  +++ b/layouts/partials/footer.html
+  @@
+  -      <p>Contact, rjdellinger@ucla.edu</p>
+  +      <p>Contact Information</p>
+  +      <p>Email, <a href="mailto:rjdellinger@ucla.edu">rjdellinger@ucla.edu</a></p>
+  +      <p>Phone, <a href="tel:+13108809842">+1 310 880 9842</a></p>
+  ```
+- Placeholder detection output (what to show in PR review)
+  - File: content/research/_index.md
+  - Line: 12
+  - Offending text: PASTE_YOUR_PARAGRAPH_ON_BIOMINERALIZATION_AND_coraDNA
+  - Action: Advisory note in PR, list owner/assignee for completion.
 
-## 🧪 Testing and Validation
-
-### Pre-commit Checks
-Before committing changes:
-1. **Build the site**: `pnpm run build` to ensure no build errors
-2. **Check for broken links**: Review build output for link warnings
-3. **Validate front matter**: Ensure all required fields are present
-4. **Test locally**: Run `pnpm run dev` and verify changes in browser
-
-### CI/CD Pipeline
-The site uses dual deployment:
-- **GitHub Pages**: Automated via `.github/workflows/deploy.yml` (primary)
-  - Builds on push to `main` and pull requests
-  - PRs create preview deployments
-- **Netlify**: Configured via `netlify.toml` (alternative/backup)
-  - Includes Pagefind search indexing
-  - Advanced caching and optimization plugins
-
-GitHub Actions workflows:
-- **CI**: Validates site structure and entry points
-- **Deploy**: Builds and deploys to GitHub Pages
-- **Summary**: Generates performance reports
-- **Import Publications**: Syncs publications from external sources
-
-### Accessibility Validation
-- All images must have descriptive `alt` text
-- Maintain proper heading hierarchy (H1 → H2 → H3, etc.)
-- Ensure sufficient color contrast (WCAG AA minimum)
-- Test keyboard navigation
-- See `ACCESSIBILITY.md` for full guidelines
-
-### Performance Targets
-As documented in `PERFORMANCE.md`:
-- **Lighthouse Performance**: > 90
-- **Lighthouse Accessibility**: 100
-- **Lighthouse Best Practices**: 100
-- **Lighthouse SEO**: 100
-- **First Contentful Paint (FCP)**: Target < 1.8s
-- **Largest Contentful Paint (LCP)**: Target < 2.5s
-- **Time to Interactive (TTI)**: Target < 3.8s
-- **Cumulative Layout Shift (CLS)**: Target < 0.1
-- **First Input Delay (FID)**: Target < 100ms
-
-## 🤖 Custom Agents
-
-### hugo-site-guardian
-A specialized agent that reviews and improves the Hugo/Hugo Blox website for:
-- **Accessibility**: Alt text, heading hierarchy, keyboard navigation
-- **SEO**: Meta descriptions, canonical tags, structured data
-- **Content quality**: Clear communication, proper formatting
-- **Build integrity**: Valid front matter, safe Mermaid/KaTeX syntax
-- **Performance**: Image optimization, asset bundling
-
-**When to use**: Use this agent for content changes, template modifications, or accessibility improvements.
-
-## 🔒 Security and Privacy
-
-- Never commit API keys or credentials
-- Keep dependencies updated (Dependabot enabled)
-- Follow security best practices in `SECURITY.md`
-- Academic data should be accurate and properly attributed
-
-## 📝 Common Tasks
-
-### Adding a New Publication
-1. Create new directory in `content/publication/[slug]/`
-2. Add `index.md` with required front matter
-3. Include citation info, abstract, and authors
-4. Add PDF if available to directory
-5. Commit and push
-
-### Adding a Blog Post
-1. Create new directory in `content/blog/[slug]/`
-2. Add `index.md` with front matter (title, date, summary, tags)
-3. Write content in Markdown
-4. Add featured image if desired
-5. Set `draft: false` when ready to publish
-
-### Updating Navigation
-1. Edit `config/_default/menus.yaml`
-2. Follow existing pattern for menu items
-3. Test navigation locally before committing
-
-### Updating Site Metadata
-1. Edit `config/_default/params.yaml`
-2. Update fields like site description, social links, contact info
-3. Validate YAML syntax
-
-## 🐛 Common Issues and Solutions
-
-### Hugo Build Failures
-- **Missing front matter**: Ensure all content files have valid YAML front matter
-- **Invalid shortcode syntax**: Check shortcode parameters match documentation
-- **Module errors**: Run `hugo mod get -u ./...` to update modules
-
-### Styling Issues
-- **Tailwind classes not working**: Ensure Tailwind CLI is installed and configured
-- **CSS not updating**: Clear Hugo cache with `hugo --gc`
-
-### Image Problems
-- **Images not displaying**: Check file paths are relative to page bundle
-- **Large file sizes**: Optimize images before adding (use WebP format when possible)
-
-## 📚 Key Documentation
-
-- [Hugo Documentation](https://gohugo.io/documentation/)
-- [HugoBlox Documentation](https://hugoblox.com/docs/)
-- [Tailwind CSS v4 Docs](https://tailwindcss.com/docs)
-- [WCAG 2.1 Guidelines](https://www.w3.org/WAI/WCAG21/quickref/)
-
-## 💡 Best Practices
-
-1. **Make minimal changes**: Only modify what's necessary
-2. **Test locally first**: Always run `pnpm run dev` to test changes
-3. **Use the hugo-site-guardian agent**: For content and accessibility work
-4. **Maintain accessibility**: Every change should preserve or improve accessibility
-5. **Keep it fast**: Monitor performance impact of changes
-6. **Document changes**: Clear commit messages and PR descriptions
-7. **Follow Hugo conventions**: Use Hugo's built-in features rather than workarounds
-
-## 🎯 Goals and Priorities
-
-1. **Accessibility**: WCAG 2.1 Level AA compliance (target: AAA where possible)
-2. **Performance**: Lighthouse score > 90 on all metrics
-3. **Content accuracy**: Scientific rigor and proper citations
-4. **User experience**: Clear navigation, readable typography, responsive design
-5. **Maintainability**: Clean code, documented patterns, reusable components
-
-## 📬 Contact
-
-For questions or issues:
-- **Repository**: https://github.com/robertjdellinger/robertjdellinger.github.io/issues
-- **Email**: rjdellinger@ucla.edu
-- **Website**: https://robertjdellinger.github.io
+Notes
+- The guardian reads config/_default/menus.yaml as the canonical source for the nav; do not create separate canonical menu files unless the owner requests it.
+- These instructions favor an iterative content workflow: placeholders allowed during drafting, flagged as warnings; final merges to main should be reviewed for placeholders per maintainers' policy.

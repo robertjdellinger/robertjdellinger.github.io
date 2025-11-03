@@ -1,78 +1,54 @@
-# SITE SETUP
-# Guide: https://docs.hugoblox.com/tutorial/
-# Documentation: https://docs.hugoblox.com/
-# This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
+---
+description: "Oceanic and Atmospheric Scientist, investigating the physical and social drivers of environmental change"
+mainSections: ["blog"]
+date_format: "2006-01-02"
 
-# Appearance
-appearance:
-  mode: system
-  color: indigo
-
-# SEO
-marketing:
-  seo:
-    site_type: Person
-    local_business_type: ''
-    org_name: 'University of California, Los Angeles'
-    description: 'Robert J. Dellinger - PhD Student in Atmospheric and Oceanic Sciences at UCLA researching climate change impacts on marine ecosystems and biogeochemistry.'
-    twitter: 'RJ_Dellinger'
-  analytics:
-    google_analytics: ''
-    baidu_tongji: ''
-    plausible: ''
-    fathom: ''
-    pirsch: ''
-  verification:
-    google: ''
-    baidu: ''
-
-# Site header
 header:
   navbar:
     enable: true
-    block: 'navbar'
+    blox: "navbar"
+    align: "center"
     fixed_to_top: true
-    show_search: true
-    show_theme_chooser: true
     logo:
-      text: 'Robert J. Dellinger'
-      filename: 'icons/icon.svg'
+      text: "Robert J. Dellinger"
+      filename: "logo.svg"
+    show_theme_chooser: true
+    show_search: true
+    highlight_active_link: true
+    show_translations: false
+    hide_language_name: false
 
-# Site footer
-footer:
-  enable: true
-  block: "minimal"
-  copyright:
-    notice: "© {year} Robert J. Dellinger"
-  text: |
-    UCLA Atmospheric & Oceanic Sciences
-    7127 Math Sciences Building Box 951565
-    Los Angeles, CA 90095-1565
-  links:
-    - text: "Email"
-      icon: "envelope"
-      url: "mailto:rjdellinger@ucla.edu"
-    - text: "GitHub"
-      icon: "github"
-      url: "https://github.com/robertjdellinger"
-
-# Localization
-locale:
-  date_format: 'Jan 2, 2006'
-  time_format: '3:04 PM'
-
-# Site features
 features:
   math:
-    enable: false
-  privacy_pack:
-    enable: false
-  contact_form:
-    provider: netlify
-    netlify:
-      honeypot: "bot-field"
-  
-# Privacy and cookie consent
+    enable: true
+  diagrams:
+    enable: true
+  repository:
+    url: "https://github.com/robertjdellinger/robertjdellinger.github.io"
+    content_dir: "content"
+    branch: "main"
+
+footer:
+  block: minimal
+  copyright:
+    notice: "© {year} Robert J. Dellinger, This work is licensed under {license}"
+    license:
+      enable: true
+      allow_derivatives: false
+      share_alike: true
+      allow_commercial: false
+  show_translations: false
+
+assets:
+  favicon: "media/icon.png"
+
+seo:
+  site_type: "Person"
+  org_name: "UCLA Atmospheric and Oceanic Sciences"
+
 privacy:
-  anonymizeIP: true
-  respectDoNotTrack: true
+  youtube:
+    privacyEnhanced: true
+  x:
+    enableDNT: true
+---

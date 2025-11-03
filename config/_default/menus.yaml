@@ -1,27 +1,37 @@
-# Navigation Links
-#   To link a homepage widget, specify the URL as a hash `#` followed by the
-#   filename of the desired widget in your `content/home/` folder.
-#   The weight parameter defines the order that the links will appear in.
-
 main:
-  - name: "Bio & Experience"
-    url: "/experience/"
+  - name: "About & Experience"
+    identifier: "about"
+    url: "/about/"
     weight: 10
+    params:
+      description: "Bio, education, experience, awards"
   - name: "Research"
+    identifier: "research"
     url: "/research/"
     weight: 20
-  - name: "Outreach & Leadership"
-    url: "/outreach/"
-    weight: 30
-  - name: "Public Engagement"
-    url: "/public-engagement/"
-    weight: 40
+    params:
+      description: "Biophysical and social drivers of change"
   - name: "Gallery"
+    identifier: "gallery"
     url: "/gallery/"
-    weight: 50
+    weight: 30
+    params:
+      description: "Anthologies, personal work"
+  - name: "Outreach"
+    identifier: "outreach"
+    url: "/outreach/"
+    weight: 40
+    params:
+      description: "Media, press, writing"
   - name: "Blog"
+    identifier: "blog"
     url: "/blog/"
-    weight: 60
+    weight: 50
+    params:
+      description: "Coding posts and notes"
   - name: "Contact"
+    identifier: "contact"
     url: "/contact/"
-    weight: 70
+    weight: 60
+    params:
+      description: "Get in touch"
