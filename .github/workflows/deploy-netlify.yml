@@ -24,7 +24,7 @@ jobs:
     permissions:
       contents: read
     # Only deploy if Netlify secrets are configured
-    if: github.repository_owner != 'HugoBlox' && secrets.NETLIFY_SITE_ID != ''
+    if: github.repository_owner != 'HugoBlox' && secrets.NETLIFY_SITE_ID
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4

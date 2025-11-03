@@ -153,7 +153,7 @@ The checker will:
 
 **Possible causes:**
 1. Missing dependencies: Ensure `pnpm-lock.yaml` is up to date
-2. Hugo version mismatch: Check that `WC_HUGO_VERSION` in the workflow matches your local version
+2. Hugo version mismatch: Check that `WC_HUGO_VERSION` in the workflow matches your local version. You can check your local Hugo version by running `hugo version` in your terminal. For more details, see the [Hugo Documentation](https://gohugo.io/documentation/).
 3. Content errors: Check Hugo build logs for content-related errors
 
 ### Link checker failures
