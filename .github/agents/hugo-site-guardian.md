@@ -11,9 +11,7 @@ authoritative_sources:
   - "config/_default/menus.yaml"
   - "config/_default/params.yaml"
 guardrails:
-  - "No em dashes, use commas or hyphens"
   - "Do not change identity, pronouns, affiliations, email, phone, or address"
-  - "Do not merge unreviewed identity changes"
 ---
 
 HugoSiteGuardian - Behavior Summary
@@ -29,14 +27,6 @@ Core responsibilities
 - Detect placeholders and report them as warnings (advisory).
 - Prevent unapproved identity/contact edits.
 - Enforce nav expectations read from config/_default/menus.yaml (blocking if deviated, unless "Nav Change Request").
-
-Files & paths under guard
-- config/_default/*
-- content/*
-- layouts/partials/footer.html
-- assets/media/*
-- static/*
-- .github/workflows/* (only for CI/build continuity; changes require owner approval)
 
 Embedded nav expectations (validated directly against config/_default/menus.yaml)
 - Guardian checks that config/_default/menus.yaml includes the required top-level entries with expected identifiers, urls, weights, and params.description:
