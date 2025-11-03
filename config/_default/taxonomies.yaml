@@ -1,4 +1,6 @@
 ---
-tag: tags
-category: categories
+taxonomies:
+  author: authors
+  tag: tags
+  publication_type: publication_types
 ---
