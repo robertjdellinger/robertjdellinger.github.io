@@ -1,17 +1,80 @@
-<footer class="footer py-8 border-t" role="contentinfo" aria-label="Site footer">
-  <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+<footer class="footer py-8 border-t" role="contentinfo" aria-label="Site footer"
+        itemscope itemtype="https://schema.org/Person">
+  {{/* Person metadata for structured data */}}
+  <meta itemprop="name" content="{{ with .Site.Params.author.name }}{{ . }}{{ else }}{{ .Site.Title }}{{ end }}">
+  <div class="container mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+    <!-- Left: identity + optional postal address -->
     <div>
-      <p><span class="font-medium">Robert J. Dellinger</span> © {{ now.Year }}</p>
-      <address class="not-italic">
-        UCLA Atmospheric and Oceanic Sciences<br>
-        7127 Math Sciences Building, Box 951565<br>
-        Los Angeles, CA 90095-1565
+      <p>
+        <span class="font-medium" itemprop="name">
+          {{ with .Site.Params.author.name }}{{ . }}{{ else }}{{ .Site.Title }}{{ end }}
+        </span>
+        © {{ now.Format "2006" }}
+      </p>
+
+      {{ with .Site.Params.author.affiliation }}
+      <p class="mt-1 text-xs text-muted-foreground" itemprop="affiliation">{{ . }}</p>
+      {{ end }}
+
+      {{ with .Site.Params.postal_address }}
+      <address class="not-italic mt-3" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+        {{ with .street }}<span itemprop="streetAddress">{{ . }}</span><br>{{ end }}
+        {{ with .locality }}<span itemprop="addressLocality">{{ . }}</span>, {{ end }}
+        {{ with .region }}<span itemprop="addressRegion"><abbr title="{{ .region_full | default . }}">{{ . }}</abbr></span>{{ end }}
+        {{ with .postal_code }} <span itemprop="postalCode">{{ . }}</span>{{ end }}
       </address>
+      {{ end }}
     </div>
+
+    <!-- Right: contact & social (conditionally rendered) -->
     <div class="md:text-right">
-      <p class="font-medium">Contact Information</p>
-      <p>Email: <a href="mailto:rjdellinger@ucla.edu" rel="me">rjdellinger@ucla.edu</a></p>
-      <p>Phone: <a href="tel:+13108809842" aria-label="Call +1 310 880 9842">+1 310 880 9842</a></p>
+      <p class="font-medium">Contact</p>
+
+      {{ with .Site.Params.author.email }}
+      <p>
+        Email:
+        <a href="mailto:{{ . | safeURL }}"
+           itemprop="email"
+           aria-label="Email {{ with $.Site.Params.author.name }}{{ . }}{{ else }}site owner{{ end }}">
+           {{ . }}
+        </a>
+      </p>
+      {{ end }}
+
+      {{ with .Site.Params.author.telephone }}
+      <p>
+        Phone:
+        <a href="tel:{{ . | safeURL }}"
+           itemprop="telephone"
+           aria-label="Call {{ with $.Site.Params.author.name }}{{ . }}{{ else }}site owner{{ end }}">
+           {{ . }}
+        </a>
+      </p>
+      {{ end }}
+
+      {{ $social := .Site.Params.social }}
+      {{ if $social }}
+      <nav aria-label="Social profiles" class="mt-2">
+        <span class="sr-only">Social</span>
+        <span class="flex md:justify-end gap-3 items-center">
+          {{ with $social.github }}
+          <a href="{{ .url }}" class="hover:underline" rel="me noopener noreferrer" target="_blank" aria-label="GitHub profile" itemprop="sameAs">{{ .url | plainUrl }}</a>
+          {{ end }}
+
+          {{ with $social.twitter }}
+          <a href="{{ .url }}" class="hover:underline" rel="me noopener noreferrer" target="_blank" aria-label="Twitter profile" itemprop="sameAs">{{ .url | plainUrl }}</a>
+          {{ end }}
+
+          {{ with $social.linkedin }}
+          <a href="{{ .url }}" class="hover:underline" rel="me noopener noreferrer" target="_blank" aria-label="LinkedIn profile" itemprop="sameAs">{{ .url | plainUrl }}</a>
+          {{ end }}
+
+          {{ with $social.orcid }}
+          <a href="{{ .url }}" class="hover:underline" rel="noopener noreferrer" target="_blank" aria-label="ORCID profile" itemprop="sameAs">{{ .url | plainUrl }}</a>
+          {{ end }}
+        </span>
+      </nav>
+      {{ end }}
     </div>
   </div>
 </footer>

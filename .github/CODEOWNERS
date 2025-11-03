@@ -1,0 +1,10 @@
+# CODEOWNERS file for robertjdellinger.github.io
+# Lines starting with '#' are comments.
+# Each line is a file pattern followed by one or more owners.
+
+# Default owner for everything in the repo
+* @robertjdellinger
+
+# GitHub workflows and CI configuration
+/.github/ @robertjdellinger
+/.github/workflows/ @robertjdellinger

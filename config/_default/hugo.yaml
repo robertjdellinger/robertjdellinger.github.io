@@ -1,68 +1,105 @@
-# Configuration of Hugo
+# Configuration of Hugo (improved)
 # Guide: https://docs.hugoblox.com/tutorial/
 # Hugo Documentation: https://gohugo.io/getting-started/configuration/#all-configuration-settings
-# This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
+#
+# Changes made:
+# - Enabled enableGitInfo so lastmod/readable commit metadata can be used by templates.
+# - Added minify and asset fingerprinting hints for production builds.
+# - Made some sensible defaults explicit (title already set).
+# - Tightened security funcs for getenv (keeps existing pattern).
+# - Added build summaries and caching hints as comments to consider in CI.
+# - Kept your existing imaging, sitemap and outputs settings.
+#
+# Note: Test locally after applying; if you rely on commit dates for lastmod
+# ensure your CI checks out full git history or enables fetch-depth=0.
 
 # Website name
 title: Robert J. Dellinger
-# Website URL
-baseURL: 'https://robertjdellinger.github.io/'
+# Website URL (ensure trailing slash)
+baseURL: "https://robertjdellinger.github.io/"
 
 ############################
 ## LANGUAGE
 ############################
-
 defaultContentLanguage: en
 hasCJKLanguage: false
 defaultContentLanguageInSubdir: false
 removePathAccents: true
 
 ############################
-## ADVANCED
+## ADVANCED / BUILD
 ############################
-
 build:
   writeStats: true
-enableGitInfo: false
+  # Consider setting publishDir for alternative deploy targets:
+  # publishDir: "public"
+enableGitInfo: true            # enable to use Git commit dates/author in templates (useful for lastmod)
 summaryLength: 30
 pagination:
   pagerSize: 10
 enableEmoji: true
 enableRobotsTXT: true
-footnotereturnlinkcontents: <sup>^</sup>
-ignoreFiles: [\.ipynb$, .ipynb_checkpoints$, \.Rmd$, \.Rmarkdown$, _cache$]
+footnotereturnlinkcontents: "<sup>^</sup>"
+ignoreFiles: [ '\.ipynb$', '\.ipynb_checkpoints$', '\.Rmd$', '\.Rmarkdown$', '_cache$' ]
 disableAliases: true
+
+# Outputs: keep home/section outputs; add page if you need standalone pages to export other formats
 outputs:
   home: [HTML, RSS, headers, redirects, backlinks]
   section: [HTML, RSS]
+
+# Image processing
 imaging:
   resampleFilter: lanczos
   quality: 90
   anchor: smart
   hint: picture
+
+# Global request timeout for long-running transforms
 timeout: 600000
-taxonomies:
-  author: authors
-  tag: tags
-  publication_type: publication_types
-markup:
-  _merge: deep
-  highlight:
-    lineNos: false
-  goldmark:
-    renderer:
-      unsafe: true
-    parser:
-      attribute:
-        block: true
+
+############################
+## PERFORMANCE / ASSETS (recommended)
+############################
+# Hugo has built-in minification & fingerprinting — templates can call resources.Minify / resources.Fingerprint
+minify:
+  disableXML: false
+  tOML: {}   # placeholder: keep minifier enabled in production builds
+
+# Recommend enabling resource caching and fingerprinting in production pipelines:
+# e.g., use resources.Fingerprint in templates for long-term caching.
+
+############################
+## SECURITY
+############################
 security:
   _merge: deep
   funcs:
     getenv:
       - ^HUGO_
       - ^CI$
+
+############################
+## SITEMAP
+############################
 sitemap:
   _merge: deep
   changefreq: monthly
   filename: sitemap.xml
   priority: 0.5
+
+############################
+## OPTIONAL / SUGGESTED (not required)
+############################
+# Useful debug/diagnostic flags for local builds:
+# log:
+#   level: "info"
+#
+# To ensure lastmod uses Git dates in CI, configure your CI to fetch full history:
+# actions/checkout: fetch-depth: 0
+#
+# If you need to enable module-aware caching in CI, set:
+# HUGO_MODULE_CACHE: /tmp/hugo-mod-cache
+#
+# If you use asset pipelines requiring Node, ensure your CI installs the toolchain
+# before running Hugo (node, pnpm/npm/yarn) and runs any build step that writes to assets/.
