@@ -1,0 +1,19 @@
+# Quiet config for lychee link checker
+exclude_path = [
+  ".git/",
+  ".github/",
+  "node_modules/",
+  "public/",
+]
+
+exclude = [
+  "mailto:*",
+  "tel:*",
+  "https://www.linode.com/*",
+  "https://hugoblox.com/sponsor/",
+]
+
+max_retries = 2
+retry_wait_time = 2
+timeout = 20
+user_agent = "lychee-link-checker"
