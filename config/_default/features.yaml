@@ -7,9 +7,9 @@ features:
   #############################################
   math:
     enable: true                  # turn math on globally
-    engine: "katex"               # "katex" for speed, "mathjax" for advanced packages
+    engine: "mathjax"             # using MathJax for advanced packages
     katex:
-      enable: true
+      enable: false               # disabled to avoid loading two engines
       # delimiter pairs that the auto-renderer will parse
       delimiters:
         inline: ["$", "$"]
@@ -21,10 +21,10 @@ features:
         "\\vect": "\\mathbf"
         "\\dd": "\\mathrm{d}"
     mathjax:
-      enable: true               # flip to true only if you need MathJax features
+      enable: true                # MathJax enabled as the primary math engine
       config: "TeX-MML-AM_CHTML"
-      inline: ["\\(", "\\)"]
-      display: ["\\[", "\\]"]
+      inline: ["\\(", "\\)"]      # standard LaTeX inline delimiters
+      display: ["\\[", "\\]"]     # standard LaTeX display delimiters
     render_on_scroll: false       # predictable render, less jank
     lazy_load: false
 
@@ -36,3 +36,13 @@ features:
     mermaid: true                 # flowcharts, sequences, state, gantt
     chartjs: false                # set true only if your theme exposes a Chart.js shortcode
     render_mode: "client"         # browser renders diagrams
+
+  #############################################
+  ## REPOSITORY METADATA
+  #############################################
+  repository:
+    url: "https://github.com/robertjdellinger/robertjdellinger.github.io"
+    content_dir: "content"
+    branch: "main"
+    edit_link: true               # show "Edit this page" if the theme supports it
+    lastmod: true                 # use Git commit dates for updated timestamps

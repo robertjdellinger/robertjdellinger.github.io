@@ -33,8 +33,8 @@ jobs:
       - name: Checkout the repo
         uses: actions/checkout@v4
         with:
-          # Only need recent history for publication import
-          fetch-depth: 1
+          # Need full history for enableGitInfo to work properly
+          fetch-depth: 0
 
       - name: Set up Python 3.12
         uses: actions/setup-python@v6

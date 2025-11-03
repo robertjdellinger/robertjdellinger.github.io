@@ -28,5 +28,7 @@ jobs:
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Ensure site entry exists
         run: test -f index.html || test -d public || test -d content || (echo "No site entry found" && exit 1)

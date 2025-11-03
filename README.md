@@ -32,7 +32,7 @@ A fast and flexible static site generator built with love by [bep], [spf13], and
 [![Tests on Linux, MacOS and Windows](https://github.com/gohugoio/hugo/workflows/Test/badge.svg)](https://github.com/gohugoio/hugo/actions?query=workflow%3ATest)
 [![Go Report Card](https://goreportcard.com/badge/github.com/gohugoio/hugo)](https://goreportcard.com/report/github.com/gohugoio/hugo)
 
-[Website] | [Installation] | [Documentation] | [Support] | <a rel="me" href="https://fosstodon.org/@gohugoio">Mastodon</a>
+[Website] | [Installation] | [Documentation] | [Support] | [Contributing] | <a rel="me" href="https://fosstodon.org/@gohugoio">Mastodon</a>
 
 ## Overview
 
@@ -158,6 +158,8 @@ If you have an idea for an enhancement or new feature, create a new topic on the
 - Refine the concept
 
 If there is sufficient interest, [create a proposal]. Do not submit a pull request until the project lead accepts the proposal.
+
+For a complete guide to contributing to Hugo, see the [Contribution Guide](https://github.com/gohugoio/hugo/blob/master/CONTRIBUTING.md).
 
 ## Dependencies
 
