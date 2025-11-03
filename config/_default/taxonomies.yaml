@@ -1,4 +1,15 @@
----
-tag: tags
-category: categories
----
+############################
+# Taxonomies for the site
+# Keys map to taxonomy names used in front matter (e.g. "tags:")
+# Values determine the plural used in URLs and taxonomy list pages.
+############################
+taxonomies:
+  tag: tags
+  category: categories
+  author: authors
+  publication_type: publication_types
+  series: series
+
+# Optional additional taxonomies you can enable by uncommenting:
+# language: languages       # if you want per-language taxonomy pages
+# keyword: keywords         # alternative keyword taxonomy separate from tags

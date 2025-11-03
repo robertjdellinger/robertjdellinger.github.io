@@ -1,25 +1,74 @@
-############################
-## HUGO MODULES
-## Install or uninstall themes and plugins here.
-## Docs: https://gohugo.io/hugo-modules/
-############################
+# Hugo Modules configuration (improved & expanded)
+# Docs: https://gohugo.io/hugo-modules/
+# Notes:
+# - Pin module versions when possible to make builds reproducible.
+# - Use mounts to expose files from modules into the site source.
+# - Keep mounts minimal & explicit to avoid surprising overrides of your site files.
+# - You can add or remove modules by editing the imports list below.
 
 imports:
-  - path: github.com/HugoBlox/hugo-blox-builder/modules/blox-plugin-netlify
-  - path: github.com/HugoBlox/hugo-blox-builder/modules/blox-tailwind
+  # Plugin modules (pin to a release or commit to avoid surprises)
+  - path: github.com/HugoBlox/hugo-blox-builder/modules/blox-plugin-netlify@v0.10.0
+  - path: github.com/HugoBlox/hugo-blox-builder/modules/blox-tailwind@v0.10.0
 
-# Install any Hugo Blox within the `hugo-blox/blox/` folder
+  # Optional utility modules (examples; uncomment to use)
+  # - path: github.com/kaushalmodi/hugo-module-table-of-contents@v0.1.0
+  # - path: github.com/justsomedude/hugo-shortcodes@v1.2.3
+
+# Local mounts: map module/source directories into your site source tree.
+# Only mount what you need to avoid shadowing site files unintentionally.
 mounts:
-  - source: hugo-blox/blox/community
-    target: layouts/_partials/blox/community/
-    includeFiles: '**.html'
-  - source: hugo-blox/blox/all-access
-    target: layouts/_partials/blox/
-    includeFiles: '**.html'
-  - source: hugo-blox/blox
-    target: assets/dist/community/blox/
-    includeFiles: '**.css'
-  - source: layouts
-    target: layouts
-  - source: assets
-    target: assets
+  # Bring blox partials into your partials area so modules' partials can be used directly
+  - source: "hugo-blox/blox/community"
+    target: "layouts/_partials/blox/community/"
+    includeFiles: "**/*.html"
+
+  - source: "hugo-blox/blox/all-access"
+    target: "layouts/_partials/blox/"
+    includeFiles: "**/*.html"
+
+  # CSS assets from blox into your assets pipeline
+  - source: "hugo-blox/blox"
+    target: "assets/dist/community/blox/"
+    includeFiles: "**/*.css"
+
+  # Module-supplied layouts & assets (explicit to avoid accidental shadowing)
+  - source: "layouts"
+    target: "layouts"
+    includeFiles: "**/*"
+
+  - source: "assets"
+    target: "assets"
+    includeFiles: "**/*"
+
+  # Common useful mounts (only add if your modules provide content here)
+  - source: "data"
+    target: "data"
+    includeFiles: "**/*"
+
+  - source: "i18n"
+    target: "i18n"
+    includeFiles: "**/*.toml, **/*.yaml, **/*.json"
+
+  - source: "static"
+    target: "static"
+    includeFiles: "**/*"
+
+# Module configuration: replacements or overrides (optional)
+# Example: forked theme replacement or local override during development.
+# Replace remote modulae with a local path:
+# replace:
+#   - from: github.com/example/some-theme
+#     to: ../local-some-theme
+
+# Control module download behavior (Hugo 0.111+ uses this)
+# You can pin Hugo's module download mode via environment or CLI (HUGO_MODULE_PROXY).
+# For reproducible builds, prefer to pin versions in imports above.
+
+# Notes & recommendations:
+# - Pin module versions (tag or commit) to avoid unexpected upgrades.
+# - Keep the include globs in mounts specific (use **/*.html, **/*.css) rather than '**/*'
+#   when possible to reduce accidental file shadowing.
+# - Use the `replace` stanza during local development if you need to test local module changes.
+# - If you add modules that provide SCSS, JS build steps, or Node tooling, ensure your
+#   CI/build pipeline installs any required dependencies (Node, pnpm, etc).

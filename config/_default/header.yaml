@@ -1,0 +1,18 @@
+############################
+## HEADER
+############################
+header:
+  navbar:
+    enable: true
+    blox: "navbar"
+    align: "center"
+    fixed_to_top: true
+    logo:
+      text: "Robert J. Dellinger"
+      filename: "/assets/media/icons/logo.png"
+      alt: "Robert J. Dellinger logo"
+    show_theme_chooser: true
+    show_search: true
+    highlight_active_link: true
+    show_translations: false
+    hide_language_name: false

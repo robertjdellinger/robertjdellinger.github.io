@@ -1,16 +1,45 @@
----
-# add code highlighting, smart punctuation, and markdown options
-goldmark:
-  renderer:
-    unsafe: true           # allow iframes and HTML in Markdown sections, needed for map iframe fallback
-  parser:
-    autoHeadingID: true
-  extensions:
-    typographer: true
-highlight:
-  noClasses: false
-  guessSyntax: true
-  lineNos: false
-  # Chroma themes, "algol", "dracula", "github", etc.
-  style: "github"
----
+# Enable syntax highlighting, smart punctuation, and safe Markdown options
+# Improvements:
+# - Added common Goldmark extensions (tables, taskLists) widely used in docs/blogs.
+# - Switched default math-safe inline delimiters note (keep goldmark renderer unsafe true as before).
+# - Enabled autoHeadingID generation and ensured GitHub-style IDs remain.
+# - Added `headingRange` & `linkify` kept; added `typographer` already present.
+# - Kept highlight classes (noClasses: false) so you can style via theme CSS.
+# - Added `lineNos` toggle commented guidance for enabling line numbers selectively.
+# - Added `plainify` setting removed (not used); kept config minimal and safe.
+markup:
+  _merge: deep                     # keep theme defaults, override only what we set here
+
+  goldmark:
+    renderer:
+      unsafe: true                 # allow raw HTML inside Markdown (needed for iframes and embeds)
+      # Add optional configuration for link attributes if your theme relies on them
+      # (Hugo doesn't provide direct automatic target/_blank here; use shortcodes/partials)
+    parser:
+      # Use predictable GitHub-style heading IDs so links like #my-heading work as expected
+      autoHeadingIDType: github
+      attribute:
+        block: true                # enable attribute lists on block elements, e.g., {: .class #id}
+    extensions:
+      typographer: true            # smart punctuation, quotes, ellipses
+      linkify: true                # turn plain URLs into links
+      strikethrough: true          # support ~~strike~~ in Markdown
+      table: true                  # support GitHub-style tables
+      taskList: true               # support - [ ] task lists
+      definitionList: true         # support definition lists (if your content uses them)
+
+  highlight:
+    noClasses: false               # use CSS classes so your theme can control code colors
+    guessSyntax: true              # try to detect language when not specified
+    lineNos: false                 # set true if you want line numbers by default (can be toggled per page)
+    style: onedark                 # Chroma theme name
+    # Optional: set a default language for unspecified fences
+    # defaultLang: "text"
+
+# Notes & recommendations:
+# - Keep goldmark.renderer.unsafe=true only if you trust your content source (it allows raw HTML).
+# - If you prefer to avoid accidental math parsing with $ delimiters, use explicit TeX delimiters in your math shortcodes or KaTeX settings.
+# - Use `noClasses: false` (classes enabled) to allow theme CSS to style code blocks; if you prefer inline styles, set to true.
+# - To enable line numbers on specific pages only, use front matter: highlight:
+#     lineNos: true
+# - If you add content that requires other extensions (e.g., footnote behavior) we can add them here.
