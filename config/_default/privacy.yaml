@@ -1,0 +1,11 @@
+---
+# Extra privacy controls, pairs with params.analytics
+googleAnalytics:
+  anonymizeIP: true
+  respectDoNotTrack: true
+  useSessionStorage: false
+x:
+  enableDNT: true
+youtube:
+  privacyEnhanced: true
+---

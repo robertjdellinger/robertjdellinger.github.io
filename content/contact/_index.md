@@ -1,21 +1,20 @@
 ---
 title: "Contact"
 type: landing
-summary: "Get in touch about research, collaborations, and outreach."
+summary: "Email and mailing address"
 sections:
   - block: markdown
     content:
-      title: "Send a message"
+      title: "Get in touch"
       text: |
-        <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
-          <input type="hidden" name="form-name" value="contact">
-          <p style="display:none;">
-            <label>Don't fill this out if you're human: <input name="bot-field"></label>
-          </p>
-          <p><label>Your name <input type="text" name="name" required></label></p>
-          <p><label>Your email <input type="email" name="email" required></label></p>
-          <p><label>Subject <input type="text" name="subject"></label></p>
-          <p><label>Message <textarea name="message" required></textarea></label></p>
-          <p><button type="submit">Send</button></p>
-        </form>
+        **Email:** [rjdellinger@ucla.edu](mailto:rjdellinger@ucla.edu)
+        
+        **Mailing Address:**  
+        UCLA Atmospheric and Oceanic Sciences  
+        7127 Math Sciences Building, Box 951565  
+        Los Angeles, CA 90095
+        
+        [Email Robert](mailto:rjdellinger@ucla.edu?subject=Hello%20from%20your%20website)
+    design:
+      columns: "1"
 ---
