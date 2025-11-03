@@ -1,5 +1,5 @@
 ---
-title: "Research at Amigos Del Lago in Lake Atitlán, Guatemala"
+title: "Study Abroad Research"
 summary: "Invasive Hydrilla impacts on water quality, native macrophytes, and community-engaged research in a changing watershed."
 date: 2016-07-01
 type: landing
