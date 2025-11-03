@@ -1,14 +1,14 @@
 ---
 title: "Robert J. Dellinger"
 role: "Oceanic & Atmospheric Scientist"
-bio: "Insert short bio for author cards and blog bylines."
+bio: "Ph.D. Student Researching Climate Change Impacts on Ecosystem Processes."
 organizations:
   - name: "UCLA Atmospheric and Oceanic Sciences"
     url: "https://atmos.ucla.edu/"
 email: "rjdellinger@ucla.edu"
 # avatar photo, place at assets/media/avatar.jpg or change the path
 avatar:
-   src: "media/avatar.jpg"
+   src: "assets/media/avatar.jpg"
    alt: "Portrait of Robert J. Dellinger"
 social:
   - icon: github
