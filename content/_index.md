@@ -11,13 +11,13 @@ sections:
         Oceanic & Atmospheric Scientist  
         Investigating the physical and social drivers of environmental change
       primary_action:
-        text: "About & Experience"
+        text: "About"
         url: "/about/"
-        aria_label: "Go to About and Experience"
+        aria_label: "Learn More"
       secondary_action:
         text: "Contact"
         url: "/contact/"
-        aria_label: "Go to Contact page"
+        aria_label: "Contact Information"
     design:
       align: center
       spacing:
