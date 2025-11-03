@@ -5,7 +5,17 @@
 
 version: 2
 updates:
-  - package-ecosystem: "" # See documentation for possible values
-    directory: "/" # Location of package manifests
+  - package-ecosystem: "github-actions"
+    directory: "/" # location of workflow files
     schedule:
       interval: "weekly"
+    # optionals:
+    # open-pull-requests-limit: 5
+    # allow:
+    #   - dependency-type: "direct"
+#
+# If you later add a package.json or use a JS toolchain, enable npm like:
+#  - package-ecosystem: "npm"
+#    directory: "/"
+#    schedule:
+#      interval: "weekly"
