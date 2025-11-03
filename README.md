@@ -159,7 +159,7 @@ If you have an idea for an enhancement or new feature, create a new topic on the
 
 If there is sufficient interest, [create a proposal]. Do not submit a pull request until the project lead accepts the proposal.
 
-For a complete guide to contributing to Hugo, see the [Contribution Guide](CONTRIBUTING.md).
+For a complete guide to contributing to Hugo, see the [Contribution Guide](https://github.com/gohugoio/hugo/blob/master/CONTRIBUTING.md).
 
 ## Dependencies
 
