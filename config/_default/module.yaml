@@ -18,7 +18,6 @@ imports:
 # Local mounts: map module/source directories into your site source tree.
 # Only mount what you need to avoid shadowing site files unintentionally.
 mounts:
-  # Bring blox partials into your partials area so modules' partials can be used directly
   - source: "hugo-blox/blox/community"
     target: "layouts/_partials/blox/community/"
     includeFiles: "**/*.html"
@@ -27,7 +26,6 @@ mounts:
     target: "layouts/_partials/blox/"
     includeFiles: "**/*.html"
 
-  # CSS assets from blox into your assets pipeline
   - source: "hugo-blox/blox"
     target: "assets/dist/community/blox/"
     includeFiles: "**/*.css"
@@ -35,16 +33,16 @@ mounts:
   # Module-supplied layouts & assets (explicit to avoid accidental shadowing)
   - source: "layouts"
     target: "layouts"
-    includeFiles: "**/*"
+    includeFiles: "**/*.html, **/*.xml, **/*.html.*"
 
   - source: "assets"
     target: "assets"
-    includeFiles: "**/*"
+    includeFiles: "**/*.css, **/*.js, **/*.svg, **/*.png, **/*.jpg, **/*.jpeg, **/*.webp"
 
   # Common useful mounts (only add if your modules provide content here)
   - source: "data"
     target: "data"
-    includeFiles: "**/*"
+    includeFiles: "**/*.yaml, **/*.yml, **/*.toml, **/*.json"
 
   - source: "i18n"
     target: "i18n"
@@ -52,23 +50,4 @@ mounts:
 
   - source: "static"
     target: "static"
-    includeFiles: "**/*"
-
-# Module configuration: replacements or overrides (optional)
-# Example: forked theme replacement or local override during development.
-# Replace remote modulae with a local path:
-# replace:
-#   - from: github.com/example/some-theme
-#     to: ../local-some-theme
-
-# Control module download behavior (Hugo 0.111+ uses this)
-# You can pin Hugo's module download mode via environment or CLI (HUGO_MODULE_PROXY).
-# For reproducible builds, prefer to pin versions in imports above.
-
-# Notes & recommendations:
-# - Pin module versions (tag or commit) to avoid unexpected upgrades.
-# - Keep the include globs in mounts specific (use **/*.html, **/*.css) rather than '**/*'
-#   when possible to reduce accidental file shadowing.
-# - Use the `replace` stanza during local development if you need to test local module changes.
-# - If you add modules that provide SCSS, JS build steps, or Node tooling, ensure your
-#   CI/build pipeline installs any required dependencies (Node, pnpm, etc).
+    includeFiles: "**/*.*"
