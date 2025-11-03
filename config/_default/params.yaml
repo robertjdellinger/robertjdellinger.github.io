@@ -38,45 +38,6 @@ assets:
     light: "/assets/media/icons/logo.png"
     dark: "/assets/media/icons/logo.png"
 
-############################
-## FEATURES
-############################
-features:
-  #############################################
-  ## MATH
-  #############################################
-  math:
-    enable: true                  # turn math on globally
-    engine: "katex"               # "katex" for speed, "mathjax" for advanced packages
-    katex:
-      enable: true
-      # delimiter pairs that the auto-renderer will parse
-      delimiters:
-        inline: ["$", "$"]
-        display: ["$$", "$$"]
-      # lightweight macro set, extend as you need
-      macros:
-        "\\R": "\\mathbb{R}"
-        "\\C": "\\mathbb{C}"
-        "\\vect": "\\mathbf"
-        "\\dd": "\\mathrm{d}"
-    mathjax:
-      enable: true               # flip to true only if you need MathJax features
-      config: "TeX-MML-AM_CHTML"
-      inline: ["\\(", "\\)"]
-      display: ["\\[", "\\]"]
-    render_on_scroll: false       # predictable render, less jank
-    lazy_load: false
-
-  #############################################
-  ## DIAGRAMS
-  #############################################
-  diagrams:
-    enable: true
-    mermaid: true                 # flowcharts, sequences, state, gantt
-    chartjs: false                # set true only if your theme exposes a Chart.js shortcode
-    render_mode: "client"         # browser renders diagrams
-
   #############################################
   ## REPOSITORY METADATA
   #############################################
@@ -86,62 +47,3 @@ features:
     branch: "main"
     edit_link: true               # show "Edit this page" if the theme supports it
     lastmod: true                 # use Git commit dates for updated timestamps
-
-############################
-## HEADER
-############################
-header:
-  navbar:
-    enable: true
-    blox: "navbar"
-    align: "center"
-    fixed_to_top: true
-    logo:
-      text: "Robert J. Dellinger"
-      filename: "/assets/media/icons/logo.png"
-      alt: "Robert J. Dellinger logo"
-    show_theme_chooser: true
-    show_search: true
-    highlight_active_link: true
-    show_translations: false
-    hide_language_name: false
-
-############################
-## FOOTER
-############################
-footer:
-  block: minimal
-  copyright:
-    notice: "© {year} Robert J. Dellinger."
-    license:
-      enable: true
-      name: "CC BY-NC-ND 4.0"
-      uri: "https://creativecommons.org/licenses/by-nc-nd/4.0/"
-      allow_derivatives: false
-      allow_commercial: false
-      share_alike: false
-  show_translations: false
-
-
-############################
-## SEO
-############################
-seo:
-  site_type: "Person"
-  org_name: "UCLA Atmospheric and Oceanic Sciences"
-  canonical: true
-  robots:
-    index: true
-    follow: true
-    noimageindex: false
-  open_graph:
-    type: "profile"
-    image: "/assets/media/icons/logo.png"
-    image_alt: "Robert J. Dellinger site logo"
-    locale: "en_US"
-  twitter_card:
-    card: "summary_large_image"
-    site: "@RJ_Dellinger"
-  jsonld:
-    enable: true
-    
