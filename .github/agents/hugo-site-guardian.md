@@ -40,7 +40,7 @@ Files & paths under guard
 
 Embedded nav expectations (validated directly against config/_default/menus.yaml)
 - Guardian checks that config/_default/menus.yaml includes the required top-level entries with expected identifiers, urls, weights, and params.description:
-  - About & Experience — identifier: about — url: /about/ — weight: 10 — params.description: "Background, Education, Professional Experience, Skills, and Languages"
+  - About — identifier: about — url: /about/ — weight: 10 — params.description: "Background, Education, Professional Experience, Skills, and Languages"
   - Research — identifier: research — url: /research/ — weight: 20 — params.description: "Ongoing and Previous Research Projects, Publications, & Presentations"
   - Gallery — identifier: gallery — url: /gallery/ — weight: 30 — params.description: "Photography and Art Gallery"
   - Outreach — identifier: outreach — url: /outreach/ — weight: 40 — params.description: "Media/Press Engagement & Writing"
