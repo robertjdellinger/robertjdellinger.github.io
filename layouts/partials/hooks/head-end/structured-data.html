@@ -1,52 +1,23 @@
-<!-- Structured Data (JSON-LD) for Person Schema -->
+{{/* Structured data (JSON-LD) built from site params. Keep personal data in config. */}}
+{{ $author := .Site.Params.author | default dict }}
+{{ $social := .Site.Params.social | default dict }}
+{{ $sameAs := slice }}
+{{ with $social.twitter }}{{ $sameAs = $sameAs | append .url }}{{ end }}
+{{ with $social.github }}{{ $sameAs = $sameAs | append .url }}{{ end }}
+{{ with $social.linkedin }}{{ $sameAs = $sameAs | append .url }}{{ end }}
+{{ with $social.orcid }}{{ $sameAs = $sameAs | append .url }}{{ end }}
+
+{{ $person := dict
+    "@context" "https://schema.org"
+    "@type" (default "Person" .Site.Params.seo.site_type)
+    "name" (or $author.name .Site.Title)
+    "url" (or .Site.BaseURL "")
+    "image" (or .Site.Params.seo.open_graph.image .Site.Params.default_image)
+    "jobTitle" (or $author.jobTitle "")
+    "worksFor" (cond (isset $author "affiliation") (dict "@type" "Organization" "name" $author.affiliation) nil)
+    "sameAs" $sameAs
+}}
+
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Robert J. Dellinger",
-  "givenName": "Robert J.",
-  "familyName": "Dellinger",
-  "url": "https://robertjdellinger.github.io/",
-  "image": "https://robertjdellinger.github.io/author/robert-j.-dellinger/avatar.jpg",
-  "email": "rjdellinger@ucla.edu",
-  "jobTitle": "PhD Student",
-  "worksFor": {
-    "@type": "EducationalOrganization",
-    "name": "University of California, Los Angeles",
-    "url": "https://www.atmos.ucla.edu/"
-  },
-  "affiliation": {
-    "@type": "EducationalOrganization",
-    "name": "University of California, Los Angeles",
-    "department": {
-      "@type": "Organization",
-      "name": "Department of Atmospheric and Oceanic Sciences"
-    }
-  },
-  "alumniOf": [
-    {
-      "@type": "EducationalOrganization",
-      "name": "California State University, Northridge"
-    },
-    {
-      "@type": "EducationalOrganization",
-      "name": "University of California, Davis"
-    }
-  ],
-  "knowsAbout": [
-    "Ocean Acidification",
-    "Climate Change",
-    "Marine Biogeochemistry",
-    "Coral Reefs",
-    "Physiological Ecology",
-    "Environmental Justice"
-  ],
-  "sameAs": [
-    "https://twitter.com/RJ_Dellinger",
-    "https://github.com/robertjdellinger",
-    "https://www.linkedin.com/in/robertjdellinger/",
-    "https://scholar.google.com/citations?user=lxtnDm4AAAAJ&hl",
-    "https://orcid.org/0009-0009-3524-4041"
-  ]
-}
+{{ $person | jsonify | safeJS }}
 </script>
