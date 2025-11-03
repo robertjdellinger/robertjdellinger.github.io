@@ -1,7 +1,9 @@
----
-# config/_default/taxonomies.yaml
-tag: tags
-category: categories
-author: authors
-publication_type: publication_types
----
+############################
+## TAXONOMIES & PARAMS
+############################
+taxonomies:
+  tag: tags
+  category: categories
+  author: authors
+  publication_type: publication_types
+  series: series
