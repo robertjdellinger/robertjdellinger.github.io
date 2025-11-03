@@ -11,7 +11,7 @@ header:
     fixed_to_top: true
     logo:
       text: "Robert J. Dellinger"
-      filename: "logo.svg"
+      filename: "assets/media/logo.svg"
     show_theme_chooser: true
     show_search: true
     highlight_active_link: true
