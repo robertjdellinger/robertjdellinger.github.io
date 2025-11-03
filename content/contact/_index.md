@@ -3,13 +3,6 @@ title: "Contact"
 type: landing
 summary: "Get in touch about research, collaborations, and outreach."
 sections:
-  - block: resume-biography
-    content:
-      username: "admin"
-      text: "I welcome inquiries about research collaborations, mentoring, public engagement, and speaking."
-      button:
-        text: "Email Robert"
-        url: "mailto:rjdellinger@ucla.edu"
   - block: markdown
     content:
       title: "Send a message"

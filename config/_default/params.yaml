@@ -36,7 +36,7 @@ header:
     show_theme_chooser: true
     logo:
       text: 'Robert J. Dellinger'
-      filename: 'icon.svg'
+      filename: 'icons/icon.svg'
 
 # Site footer
 footer:

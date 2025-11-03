@@ -7,7 +7,7 @@ sections:
     content:
       title: "All Publications"
       filters:
-        folders: ["publication"]
+        folders: ["publications"]
       sort_by: "Date"
       order: "desc"
       count: 20

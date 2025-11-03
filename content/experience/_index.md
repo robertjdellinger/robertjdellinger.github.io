@@ -3,6 +3,10 @@ title: "Bio & Experience"
 type: landing
 summary: "Overview, education, experience, fellowships, awards, skills, and languages."
 sections:
+  - block: resume-biography
+    content:
+      username: "admin"
+      text: ""
   - block: markdown
     content:
       title: "Professional Summary"
