@@ -161,3 +161,45 @@ Notes for Copilot
 	•	If a file is referenced but absent, either add the missing file in the correct path, or remove the reference and leave a small TODO comment in the PR description.
 
 ⸻
+
+Canonical nav file reference
+	•	Canonical nav file must exist at .github/canonical/menus.yaml with this content:
+
+main:
+  - name: "About"
+    url: "/about/"
+    weight: 10
+    identifier: "about"
+    params: { description: "Background, Education, Professional Experience, Skills, and Languages" }
+
+  - name: "Research"
+    url: "/research/"
+    weight: 20
+    identifier: "research"
+    params: { description: "Ongoing and Previous Research Projects, Publications, & Presentations" }
+
+  - name: "Gallery"
+    url: "/gallery/"
+    weight: 30
+    identifier: "gallery"
+    params: { description: "Photography and Art Gallery" }
+
+  - name: "Outreach"
+    url: "/outreach/"
+    weight: 40
+    identifier: "outreach"
+    params: { description: "Media/Press Engagement & Writing" }
+
+  - name: "Blog"
+    url: "/blog/"
+    weight: 50
+    identifier: "blog"
+    params: { description: "Coding and Scientific Methods Blog" }
+
+  - name: "Contact"
+    url: "/contact/"
+    weight: 60
+    identifier: "contact"
+    params: { description: "Contact Information" }
+
+⸻
