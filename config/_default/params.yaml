@@ -40,7 +40,7 @@ footer:
   show_translations: false
 
 assets:
-  favicon: "media/icon.png"
+  favicon: "media/icons/icon.png"
 
 seo:
   site_type: "Person"

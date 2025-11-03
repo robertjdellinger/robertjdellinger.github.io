@@ -8,7 +8,8 @@ sections:
     content:
       title: "Robert J. Dellinger"
       text: |
-        Oceanic & Atmospheric Scientist  
+        Oceanic & Atmospheric Scientist
+        
         Investigating the physical and social drivers of environmental change
       primary_action:
         text: "About & Experience"
@@ -23,4 +24,7 @@ sections:
       spacing:
         padding: ["10", "8", "12", "8"]
       max_width: "lg"
+      background:
+        image: "media/coral-reefs.svg"
+        image_alt: "Coral reef ecosystem illustration"
 ---
