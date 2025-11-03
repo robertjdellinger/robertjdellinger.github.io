@@ -1,0 +1,21 @@
+############################
+## SEO
+############################
+seo:
+  site_type: "Person"
+  org_name: "UCLA Atmospheric and Oceanic Sciences"
+  canonical: true
+  robots:
+    index: true
+    follow: true
+    noimageindex: false
+  open_graph:
+    type: "profile"
+    image: "/assets/media/icons/logo.png"
+    image_alt: "Robert J. Dellinger site logo"
+    locale: "en_US"
+  twitter_card:
+    card: "summary_large_image"
+    site: "@RJ_Dellinger"
+  jsonld:
+    enable: true
