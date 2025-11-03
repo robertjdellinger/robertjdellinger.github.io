@@ -1,0 +1,15 @@
+############################
+## FOOTER
+############################
+footer:
+  block: minimal
+  copyright:
+    notice: "© {year} Robert J. Dellinger."
+    license:
+      enable: true
+      name: "CC BY-NC-ND 4.0"
+      uri: "https://creativecommons.org/licenses/by-nc-nd/4.0/"
+      allow_derivatives: false
+      allow_commercial: false
+      share_alike: false
+  show_translations: false

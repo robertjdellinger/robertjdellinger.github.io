@@ -1,54 +1,49 @@
----
-description: "Oceanic and Atmospheric Scientist, investigating the physical and social drivers of environmental change"
+############################
+## PARAMS
+############################
+description: "Oceanic and Atmospheric Scientist investigating the physical and social drivers of environmental change."
 mainSections: ["blog"]
 date_format: "2006-01-02"
 
-header:
-  navbar:
-    enable: true
-    blox: "navbar"
-    align: "center"
-    fixed_to_top: true
-    logo:
-      text: "Robert J. Dellinger"
-      filename: "assets/media/icons/logo.png"
-    show_theme_chooser: true
-    show_search: true
-    highlight_active_link: true
-    show_translations: false
-    hide_language_name: false
+params:
+  author:
+    name: "Robert J. Dellinger"
+    affiliation: "UCLA Atmospheric and Oceanic Sciences"
+    orcid: "0009-0009-3524-4041"
+    orcid_url: "https://orcid.org/0009-0009-3524-4041"
+    email: "rjdellinger@ucla.edu"         # publish only if intended
+    telephone: "+13108809842"             # E.164 for tel: links
+    jobTitle: "PhD Student"
 
-features:
-  math:
-    enable: true
-  diagrams:
-    enable: true
+  short_title: "Robert J. Dellinger"
+  short_description: "Oceanic & Atmospheric Scientist"
+  description_long: "Investigating how physical and social forces drive environmental change, translating science into policy and community action."
+  show_reading_time: true
+
+  social:
+    twitter:
+      url: "https://twitter.com/RJ_Dellinger"
+    github:
+      url: "https://github.com/robertjdellinger"
+    linkedin:
+      url: "https://www.linkedin.com/in/robertjdellinger"
+    orcid:
+      url: "https://orcid.org/0009-0009-3524-4041"
+
+  default_image: "/assets/media/icons/logo.png"
+
+assets:
+  favicon: "/assets/media/icons/icon.png"
+  logo:
+    light: "/assets/media/icons/logo.png"
+    dark: "/assets/media/icons/logo.png"
+
+  #############################################
+  ## REPOSITORY METADATA
+  #############################################
   repository:
     url: "https://github.com/robertjdellinger/robertjdellinger.github.io"
     content_dir: "content"
     branch: "main"
-
-footer:
-  block: minimal
-  copyright:
-    notice: "© {year} Robert J. Dellinger, This work is licensed under {license}"
-    license:
-      enable: true
-      allow_derivatives: false
-      share_alike: true
-      allow_commercial: false
-  show_translations: false
-
-assets:
-  favicon: "assets/media/icons/icon.png"
-
-seo:
-  site_type: "Person"
-  org_name: "UCLA Atmospheric and Oceanic Sciences"
-
-privacy:
-  youtube:
-    privacyEnhanced: true
-  x:
-    enableDNT: true
----
+    edit_link: true               # show "Edit this page" if the theme supports it
+    lastmod: true                 # use Git commit dates for updated timestamps

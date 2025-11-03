@@ -1,0 +1,38 @@
+############################
+## FEATURES
+############################
+features:
+  #############################################
+  ## MATH
+  #############################################
+  math:
+    enable: true                  # turn math on globally
+    engine: "katex"               # "katex" for speed, "mathjax" for advanced packages
+    katex:
+      enable: true
+      # delimiter pairs that the auto-renderer will parse
+      delimiters:
+        inline: ["$", "$"]
+        display: ["$$", "$$"]
+      # lightweight macro set, extend as you need
+      macros:
+        "\\R": "\\mathbb{R}"
+        "\\C": "\\mathbb{C}"
+        "\\vect": "\\mathbf"
+        "\\dd": "\\mathrm{d}"
+    mathjax:
+      enable: true               # flip to true only if you need MathJax features
+      config: "TeX-MML-AM_CHTML"
+      inline: ["\\(", "\\)"]
+      display: ["\\[", "\\]"]
+    render_on_scroll: false       # predictable render, less jank
+    lazy_load: false
+
+  #############################################
+  ## DIAGRAMS
+  #############################################
+  diagrams:
+    enable: true
+    mermaid: true                 # flowcharts, sequences, state, gantt
+    chartjs: false                # set true only if your theme exposes a Chart.js shortcode
+    render_mode: "client"         # browser renders diagrams
