@@ -91,7 +91,7 @@ sections:
       title: "Publications"
       text: ""
       filters:
-        folders: ["publication"]
+        folders: ["publications"]
       sort_by: "Date"
       order: "desc"
       count: 20
