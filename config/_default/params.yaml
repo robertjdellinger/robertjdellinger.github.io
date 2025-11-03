@@ -11,7 +11,7 @@ header:
     fixed_to_top: true
     logo:
       text: "Robert J. Dellinger"
-      filename: "assets/media/logo.svg"
+      filename: "assets/media/icons/logo.png"
     show_theme_chooser: true
     show_search: true
     highlight_active_link: true
@@ -40,7 +40,7 @@ footer:
   show_translations: false
 
 assets:
-  favicon: "media/icon.png"
+  favicon: "assets/media/icons/icon.png"
 
 seo:
   site_type: "Person"
