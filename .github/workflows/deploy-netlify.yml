@@ -2,7 +2,7 @@ name: Deploy website to Netlify
 
 env:
   WC_HUGO_VERSION: '0.152.1'
-  NODE_VERSION: '22'
+  NODE_VERSION: '20'
 
 on:
   push:
@@ -22,7 +22,7 @@ jobs:
     permissions:
       contents: read
     # Only deploy if Netlify secrets are configured
-    if: github.repository_owner != 'HugoBlox' && vars.NETLIFY_SITE_ID != '' || secrets.NETLIFY_SITE_ID != ''
+    if: github.repository_owner != 'HugoBlox' && (vars.NETLIFY_SITE_ID != '' || secrets.NETLIFY_SITE_ID != '')
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -43,7 +43,7 @@ jobs:
 
       - name: Install JS dependencies
         if: hashFiles('package.json') != ''
-        run: pnpm install
+        run: pnpm install || npm install
 
       # Cache Hugo build cache
       - name: Cache Hugo build
