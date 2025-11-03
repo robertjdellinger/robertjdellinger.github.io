@@ -37,13 +37,3 @@ assets:
   logo:
     light: "/assets/media/icons/logo.png"
     dark: "/assets/media/icons/logo.png"
-
-  #############################################
-  ## REPOSITORY METADATA
-  #############################################
-  repository:
-    url: "https://github.com/robertjdellinger/robertjdellinger.github.io"
-    content_dir: "content"
-    branch: "main"
-    edit_link: true               # show "Edit this page" if the theme supports it
-    lastmod: true                 # use Git commit dates for updated timestamps

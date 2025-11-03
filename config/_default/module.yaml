@@ -35,16 +35,16 @@ mounts:
   # Module-supplied layouts & assets (explicit to avoid accidental shadowing)
   - source: "layouts"
     target: "layouts"
-    includeFiles: "**/*"
+    includeFiles: "**/*.html, **/*.xml, **/*.txt"
 
   - source: "assets"
     target: "assets"
-    includeFiles: "**/*"
+    includeFiles: "**/*.css, **/*.js, **/*.scss, **/*.sass, **/*.json"
 
   # Common useful mounts (only add if your modules provide content here)
   - source: "data"
     target: "data"
-    includeFiles: "**/*"
+    includeFiles: "**/*.yaml, **/*.yml, **/*.json, **/*.toml"
 
   - source: "i18n"
     target: "i18n"
@@ -52,7 +52,7 @@ mounts:
 
   - source: "static"
     target: "static"
-    includeFiles: "**/*"
+    includeFiles: "**/*.png, **/*.jpg, **/*.jpeg, **/*.gif, **/*.svg, **/*.webp, **/*.ico, **/*.pdf, **/*.woff, **/*.woff2, **/*.ttf, **/*.eot"
 
 # Module configuration: replacements or overrides (optional)
 # Example: forked theme replacement or local override during development.
