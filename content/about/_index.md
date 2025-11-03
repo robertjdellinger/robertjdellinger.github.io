@@ -1,9 +1,9 @@
 ---
-title: "About & Experience"
+title: "About"
 type: landing
 summary: "Bio, education, research and professional roles, leadership, awards, skills, languages"
 aliases: ["/experience/","/cv/"]
-image: "media/coral-reefs.svg"
+image: "assets/media/coral-reef.png"
 sections:
   - block: resume-biography-3
     content:
