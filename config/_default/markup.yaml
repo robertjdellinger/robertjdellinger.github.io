@@ -1,0 +1,16 @@
+---
+# add code highlighting, smart punctuation, and markdown options
+goldmark:
+  renderer:
+    unsafe: true           # allow iframes and HTML in Markdown sections, needed for map iframe fallback
+  parser:
+    autoHeadingID: true
+  extensions:
+    typographer: true
+highlight:
+  noClasses: false
+  guessSyntax: true
+  lineNos: false
+  # Chroma themes, "algol", "dracula", "github", etc.
+  style: "github"
+---
