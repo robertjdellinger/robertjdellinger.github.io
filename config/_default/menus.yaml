@@ -1,5 +1,5 @@
 main:
-  - name: "About & Experience"
+  - name: "About"
     url: "/about/"
     weight: 10
     identifier: "about"
@@ -13,20 +13,20 @@ main:
     params:
       description: "Ongoing and Previous Research Projects, Publications, & Presentations"
 
+  - name: "Public Engagement"
+    url: "/outreach/"
+    weight: 30
+    identifier: "outreach"
+    params:
+      description: "Media/Press Features & Public Writing"
+
   - name: "Gallery"
     url: "/gallery/"
-    weight: 30
+    weight: 40
     identifier: "gallery"
     params:
       description: "Photography and Art Gallery"
-
-  - name: "Outreach"
-    url: "/outreach/"
-    weight: 40
-    identifier: "outreach"
-    params:
-      description: "Media/Press Engagement & Writing"
-
+      
   - name: "Blog"
     url: "/blog/"
     weight: 50
