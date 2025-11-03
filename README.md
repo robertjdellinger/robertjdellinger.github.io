@@ -1,6 +1,5 @@
 [bep]: https://github.com/bep
 [bugs]: https://github.com/gohugoio/hugo/issues?q=is%3Aopen+is%3Aissue+label%3ABug
-[contributing]: CONTRIBUTING.md
 [create a proposal]: https://github.com/gohugoio/hugo/issues/new?labels=Proposal%2C+NeedsTriage&template=feature_request.md
 [documentation repository]: https://github.com/gohugoio/hugoDocs
 [documentation]: https://gohugo.io/documentation
@@ -33,7 +32,7 @@ A fast and flexible static site generator built with love by [bep], [spf13], and
 [![Tests on Linux, MacOS and Windows](https://github.com/gohugoio/hugo/workflows/Test/badge.svg)](https://github.com/gohugoio/hugo/actions?query=workflow%3ATest)
 [![Go Report Card](https://goreportcard.com/badge/github.com/gohugoio/hugo)](https://goreportcard.com/report/github.com/gohugoio/hugo)
 
-[Website] | [Installation] | [Documentation] | [Support] | [Contributing] | <a rel="me" href="https://fosstodon.org/@gohugoio">Mastodon</a>
+[Website] | [Installation] | [Documentation] | [Support] | <a rel="me" href="https://fosstodon.org/@gohugoio">Mastodon</a>
 
 ## Overview
 
@@ -159,8 +158,6 @@ If you have an idea for an enhancement or new feature, create a new topic on the
 - Refine the concept
 
 If there is sufficient interest, [create a proposal]. Do not submit a pull request until the project lead accepts the proposal.
-
-For a complete guide to contributing to Hugo, see the [Contribution Guide](CONTRIBUTING.md).
 
 ## Dependencies
 

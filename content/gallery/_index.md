@@ -37,10 +37,16 @@ sections:
     content:
       title: "Personal Gallery"
       text: |
+        <!-- Photo: Meet Francisca - Study Abroad, Guatemala
+        To add this photo, upload meet-francisca.jpg to content/gallery/media/gallery/
+        Image URL: https://github.com/user-attachments/assets/5e810ed2-253d-47ed-b1d2-723c6ea40abb
+        
         ![Meet Francisca - Study Abroad, Guatemala, Ecological and Social Issues at Lake Atitlan](media/gallery/meet-francisca.jpg "'Meet Francisca,' Study Abroad, Guatemala, Ecological and Social Issues at Lake Atitlan - UC Davis Photo Contest Winner")
+        -->
         
-        [Learn more about this photo](https://www.ucdavis.edu/news/download-study-abroad-photo-contest)
+        [Learn more about UC Davis Study Abroad Photo Contest](https://www.ucdavis.edu/news/download-study-abroad-photo-contest)
         
+        <!-- Research Photos - Add actual photos to media/gallery/ directory
         ### Research Photos
         
         ![Research photo 1](media/gallery/research-1.jpg "Research activities")
@@ -48,7 +54,9 @@ sections:
         ![Research photo 3](media/gallery/research-3.jpg "Research activities")
         ![Research photo 4](media/gallery/research-4.jpg "Research activities")
         ![Research photo 5](media/gallery/research-5.jpg "Research activities")
+        -->
         
+        <!-- Nature Photography - Add actual photos to media/gallery/ directory
         ### Nature Photography
         
         ![Nature photo 1](media/gallery/nature-1.jpg "Nature photography")
@@ -56,7 +64,9 @@ sections:
         ![Nature photo 3](media/gallery/nature-3.jpg "Nature photography")
         ![Nature photo 4](media/gallery/nature-4.jpg "Nature photography")
         ![Nature photo 5](media/gallery/nature-5.jpg "Nature photography")
+        -->
         
+        <!-- Art & Creative Work - Add actual photos to media/gallery/ directory
         ### Art & Creative Work
         
         ![Art piece 1](media/gallery/art-1.jpg "Art and creative work")
@@ -64,6 +74,7 @@ sections:
         ![Art piece 3](media/gallery/art-3.jpg "Art and creative work")
         ![Art piece 4](media/gallery/art-4.jpg "Art and creative work")
         ![Art piece 5](media/gallery/art-5.jpg "Art and creative work")
+        -->
     design:
       columns: "1"
       spacing:

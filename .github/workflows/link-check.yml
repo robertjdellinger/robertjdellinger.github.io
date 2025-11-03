@@ -6,6 +6,11 @@ on:
   push:
     branches: [main, netlify]
   workflow_dispatch:
+    inputs:
+      site_url:
+        description: 'Site URL to check (optional, defaults to auto-detect)'
+        required: false
+        type: string
   schedule:
     # Run weekly on Mondays at 00:00 UTC
     - cron: '0 0 * * 1'
@@ -21,11 +26,60 @@ jobs:
   lychee:
     name: Link check
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 12
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
+      - name: Determine site URL
+        id: site-url
+        run: |
+          # Priority order:
+          # 1. Manual workflow input
+          # 2. NETLIFY_SITE_URL secret/var (if Netlify is configured)
+          # 3. Default to GitHub Pages URL
+          
+          if [ -n "${{ inputs.site_url }}" ]; then
+            SITE_URL="${{ inputs.site_url }}"
+            echo "Using manually provided URL: $SITE_URL"
+          elif [ -n "${{ secrets.NETLIFY_SITE_URL }}" ]; then
+            SITE_URL="${{ secrets.NETLIFY_SITE_URL }}"
+            echo "Using Netlify URL from secret: $SITE_URL"
+          elif [ -n "${{ vars.NETLIFY_SITE_URL }}" ]; then
+            SITE_URL="${{ vars.NETLIFY_SITE_URL }}"
+            echo "Using Netlify URL from variable: $SITE_URL"
+          else
+            SITE_URL="https://robertjdellinger.github.io"
+            echo "Using default GitHub Pages URL: $SITE_URL"
+          fi
+          
+          echo "site_url=$SITE_URL" >> $GITHUB_OUTPUT
+
+      - name: Wait for site to be available
+        run: |
+          SITE_URL="${{ steps.site-url.outputs.site_url }}"
+          MAX_ATTEMPTS=30
+          WAIT_SECONDS=10
+          
+          echo "Waiting for site to respond at: $SITE_URL"
+          
+          for i in $(seq 1 $MAX_ATTEMPTS); do
+            echo "Attempt $i of $MAX_ATTEMPTS..."
+            
+            if curl -sSf --max-time 10 --retry 2 "$SITE_URL" > /dev/null 2>&1; then
+              echo "✓ Site is available at $SITE_URL"
+              exit 0
+            fi
+            
+            if [ $i -lt $MAX_ATTEMPTS ]; then
+              echo "Site not ready yet, waiting ${WAIT_SECONDS}s..."
+              sleep $WAIT_SECONDS
+            fi
+          done
+          
+          echo "⚠ Site did not respond after $MAX_ATTEMPTS attempts"
+          echo "Proceeding with link check anyway..."
 
       - name: Link Checker
         uses: lycheeverse/lychee-action@v2
@@ -40,17 +94,7 @@ jobs:
             --exclude-path ./public
             --exclude-path ./resources
             --exclude-path ./node_modules
-            --exclude 'localhost'
-            --exclude 'example.com'
-            --exclude 'twitter.com'
-            --exclude 'x.com'
-            --exclude 'linkedin.com'
-            --exclude 'scholar.google.com'
-            --exclude 'atmos.ucla.edu'
-            --exclude 'www.atmos.ucla.edu'
-            --exclude 'noaa.gov'
-            --exclude 'www.noaa.gov'
-            --exclude 'soest.hawaii.edu'
+            --exclude-file .github/lychee-allowlist.txt
             '**/*.md' '**/*.html' '**/*.txt'
           fail: true
           # Don't fail on errors for scheduled runs (weekly checks)
