@@ -38,7 +38,7 @@ mounts:
   - source: "layouts"
     target: "layouts"
     # HTML, XML and shortcodes; avoid mounting templates that could override site-specific non-module files
-    includeFiles: "**/*.html, **/*.xml, **/*.html.*"
+    includeFiles: "**/*.html,**/*.xml,**/*.html.*"
 
   - source: "assets"
     target: "assets"
