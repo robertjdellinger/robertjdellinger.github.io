@@ -1,6 +1,7 @@
 ---
-taxonomies:
-  author: authors
-  tag: tags
-  publication_type: publication_types
+# config/_default/taxonomies.yaml
+tag: tags
+category: categories
+author: authors
+publication_type: publication_types
 ---
