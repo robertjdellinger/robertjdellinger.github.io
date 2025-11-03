@@ -1,7 +1,7 @@
 ---
-title: "Outreach"
+title: "Public Engagement"
 type: landing
-summary: "Media, press, and writing"
+summary: "Engagement with Media/Press and Writing for the Public "
 sections:
   - block: markdown
     content:
