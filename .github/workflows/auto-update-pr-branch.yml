@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Log context
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             core.info(`Run sha: ${context.sha}`);
@@ -33,7 +33,7 @@ jobs:
 
       - name: Compare base vs PR branch
         id: compare
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             const { owner, repo } = context.repo;
@@ -64,7 +64,7 @@ jobs:
 
       - name: Update branch from base (only if base has new commits)
         if: steps.compare.outputs.behind_by != '0'
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             try {

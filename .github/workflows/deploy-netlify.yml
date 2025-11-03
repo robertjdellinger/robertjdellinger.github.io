@@ -36,7 +36,7 @@ jobs:
         if: hashFiles('package.json') != ''
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         if: hashFiles('package.json') != ''
         with:
           node-version: ${{ env.NODE_VERSION }}
@@ -104,7 +104,7 @@ jobs:
 
       - name: Upload build artifacts
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: netlify-build-output
           path: ./public

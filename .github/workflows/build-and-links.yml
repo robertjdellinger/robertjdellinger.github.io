@@ -1,28 +1,28 @@
-name: Deploy website to GitHub Pages
+name: Build and Link Check
 
 env:
   WC_HUGO_VERSION: '0.152.1'
   NODE_VERSION: '20'
 
 on:
-  push:
-    branches: ['main']
   pull_request:
-    branches: ['main']
+    branches: [main, netlify]
+  push:
+    branches: [main, netlify]
   workflow_dispatch:
 
-# Per-ref concurrency so PR previews don't block or get blocked by main
+permissions:
+  contents: read
+
 concurrency:
-  group: pages-${{ github.ref }}
+  group: build-and-links-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
-  build:
-    if: github.repository_owner != 'HugoBlox'
+  build-and-check:
+    name: Build Hugo site and check links
     runs-on: ubuntu-latest
-    timeout-minutes: 20
-    permissions:
-      contents: read
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
         with:
@@ -31,7 +31,7 @@ jobs:
       - uses: pnpm/action-setup@v4
         if: hashFiles('package.json') != ''
 
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v4
         if: hashFiles('package.json') != ''
         with:
           node-version: ${{ env.NODE_VERSION }}
@@ -67,9 +67,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-hugo-resources-
 
-      - uses: actions/configure-pages@v5
-        id: pages
-
       - uses: peaceiris/actions-hugo@v3
         with:
           hugo-version: ${{ env.WC_HUGO_VERSION }}
@@ -78,27 +75,40 @@ jobs:
       - name: Build with Hugo
         env:
           HUGO_ENVIRONMENT: production
-        run: hugo --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
+        run: hugo --minify
 
-      - uses: actions/upload-pages-artifact@v4
+      - name: Link Checker
+        uses: lycheeverse/lychee-action@v2
         with:
+          args: |
+            --verbose
+            --no-progress
+            --accept 200,201,202,203,204,206,207,208,226,300,301,302,303,304,307,308,429,999
+            --timeout 30
+            --max-retries 3
+            --exclude-path ./resources
+            --exclude-path ./node_modules
+            --exclude-file .github/lychee-allowlist.txt
+            --output ./lychee-report.json
+            --format json
+            './public/**/*.html'
+          fail: false
+          jobSummary: true
+
+      - name: Upload link check report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lychee-link-check-report
+          path: |
+            lychee-report.json
+            lychee/out.md
+          retention-days: 30
+          if-no-files-found: warn
+
+      - name: Upload built site
+        uses: actions/upload-artifact@v4
+        with:
+          name: hugo-public-site
           path: ./public
           retention-days: 7
-
-  deploy:
-    if: github.repository_owner != 'HugoBlox'
-    needs: build
-    runs-on: ubuntu-latest
-    permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
-        with:
-          # PRs → preview; pushes to main → production
-          preview: ${{ github.event_name == 'pull_request' }}

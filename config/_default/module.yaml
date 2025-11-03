@@ -1,10 +1,14 @@
 # Hugo Modules configuration (improved & expanded)
 # Docs: https://gohugo.io/hugo-modules/
+#
 # Notes:
 # - Pin module versions when possible to make builds reproducible.
 # - Use mounts to expose files from modules into the site source.
 # - Keep mounts minimal & explicit to avoid surprising overrides of your site files.
 # - You can add or remove modules by editing the imports list below.
+#
+# This file replaces the previous conflicted file and normalizes include globs,
+# removes merge conflict markers, and clarifies comments and examples.
 
 imports:
   # Plugin modules (pin to a release or commit to avoid surprises)
@@ -18,7 +22,6 @@ imports:
 # Local mounts: map module/source directories into your site source tree.
 # Only mount what you need to avoid shadowing site files unintentionally.
 mounts:
-  # Bring blox partials into your partials area so modules' partials can be used directly
   - source: "hugo-blox/blox/community"
     target: "layouts/_partials/blox/community/"
     includeFiles: "**/*.html"
@@ -27,7 +30,6 @@ mounts:
     target: "layouts/_partials/blox/"
     includeFiles: "**/*.html"
 
-  # CSS assets from blox into your assets pipeline
   - source: "hugo-blox/blox"
     target: "assets/dist/community/blox/"
     includeFiles: "**/*.css"
@@ -35,16 +37,18 @@ mounts:
   # Module-supplied layouts & assets (explicit to avoid accidental shadowing)
   - source: "layouts"
     target: "layouts"
-    includeFiles: "**/*.html, **/*.xml, **/*.txt"
+    # HTML, XML and shortcodes; avoid mounting templates that could override site-specific non-module files
+    includeFiles: "**/*.html, **/*.xml, **/*.html.*"
 
   - source: "assets"
     target: "assets"
-    includeFiles: "**/*.css, **/*.js, **/*.scss, **/*.sass, **/*.json"
+    # Common asset types used by themes and modules
+    includeFiles: "**/*.css, **/*.scss, **/*.sass, **/*.js, **/*.svg, **/*.png, **/*.jpg, **/*.jpeg, **/*.webp, **/*.json"
 
   # Common useful mounts (only add if your modules provide content here)
   - source: "data"
     target: "data"
-    includeFiles: "**/*.yaml, **/*.yml, **/*.json, **/*.toml"
+    includeFiles: "**/*.yaml, **/*.yml, **/*.toml, **/*.json"
 
   - source: "i18n"
     target: "i18n"
@@ -52,11 +56,12 @@ mounts:
 
   - source: "static"
     target: "static"
-    includeFiles: "**/*.png, **/*.jpg, **/*.jpeg, **/*.gif, **/*.svg, **/*.webp, **/*.ico, **/*.pdf, **/*.woff, **/*.woff2, **/*.ttf, **/*.eot"
+    # Mount static assets from modules (keep broad for static because many asset types can be required)
+    includeFiles: "**/*.*"
 
 # Module configuration: replacements or overrides (optional)
 # Example: forked theme replacement or local override during development.
-# Replace remote modulae with a local path:
+# Replace remote module with a local path (uncomment and edit when needed):
 # replace:
 #   - from: github.com/example/some-theme
 #     to: ../local-some-theme
@@ -65,7 +70,7 @@ mounts:
 # You can pin Hugo's module download mode via environment or CLI (HUGO_MODULE_PROXY).
 # For reproducible builds, prefer to pin versions in imports above.
 
-# Notes & recommendations:
+# Recommendations:
 # - Pin module versions (tag or commit) to avoid unexpected upgrades.
 # - Keep the include globs in mounts specific (use **/*.html, **/*.css) rather than '**/*'
 #   when possible to reduce accidental file shadowing.
