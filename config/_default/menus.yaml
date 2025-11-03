@@ -3,34 +3,40 @@ main:
     url: "/about/"
     weight: 10
     identifier: "about"
-    params: { description: "Background, Education, Professional Experience, Skills, and Languages" }
+    params:
+      description: "Background, Education, Professional Experience, Skills, and Languages"
 
   - name: "Research"
     url: "/research/"
     weight: 20
     identifier: "research"
-    params: { description: "Ongoing and Previous Research Projects, Publications, & Presentations" }
+    params:
+      description: "Ongoing and Previous Research Projects, Publications, & Presentations"
 
   - name: "Gallery"
     url: "/gallery/"
     weight: 30
     identifier: "gallery"
-    params: { description: "Photography and Art Gallery" }
+    params:
+      description: "Photography and Art Gallery"
 
   - name: "Outreach"
     url: "/outreach/"
     weight: 40
     identifier: "outreach"
-    params: { description: "Media/Press Engagement & Writing" }
+    params:
+      description: "Media/Press Engagement & Writing"
 
   - name: "Blog"
     url: "/blog/"
     weight: 50
     identifier: "blog"
-    params: { description: "Coding and Scientific Methods Blog" }
+    params:
+      description: "Coding and Scientific Methods Blog"
 
   - name: "Contact"
     url: "/contact/"
     weight: 60
     identifier: "contact"
-    params: { description: "Contact Information" }
+    params:
+      description: "Contact Information"
