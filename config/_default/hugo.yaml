@@ -7,7 +7,6 @@
 title: Robert J. Dellinger
 # Website URL
 baseURL: 'https://robertjdellinger.github.io/'
-languageCode: en-us
 
 ############################
 ## LANGUAGE
@@ -22,11 +21,6 @@ removePathAccents: true
 ## ADVANCED
 ############################
 
-module:
-  hugoVersion:
-    extended: true
-    min: "0.124.0"
-
 build:
   writeStats: true
 enableGitInfo: false
@@ -34,7 +28,7 @@ summaryLength: 30
 pagination:
   pagerSize: 10
 enableEmoji: true
-enableRobotsTXT: false
+enableRobotsTXT: true
 footnotereturnlinkcontents: <sup>^</sup>
 ignoreFiles: [\.ipynb$, .ipynb_checkpoints$, \.Rmd$, \.Rmarkdown$, _cache$]
 disableAliases: true
