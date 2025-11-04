@@ -1,79 +1,135 @@
 ---
 title: "Research"
 type: landing
-summary: "Biophysical drivers, social drivers, early career work, and scholarly contributions"
+summary: "Physical and social drivers of environmental change, early research, and scholarly exchange."
 sections:
   - block: markdown
     content:
-      title: "Biophysical Drivers of Environmental Change"
-      text: |
-        **Biogeochemistry & Paleogenomics Research**  
-        PASTE_YOUR_PARAGRAPH_ON_BIOMINERALIZATION_AND_coraDNA
-
-        **Quantitative Ecology Research**  
-        PASTE_YOUR_PARAGRAPH_ON_TEGULA_FUNEBRALIS_WORK
-
-  - block: markdown
+      title: "Physical Drivers of Environmental Change"
+      text: "Biogeochemistry and paleogenomics, quantitative ecology, organism to ecosystem scales."
+  
+  - block: collection
     content:
-      title: "Selected Publications - Biophysical Drivers"
-      text: |
-        **Ocean acidification alters thermal performance metrics and increases energetic demand in Tegula funebralis**  
-        Dellinger, R. J., Fields, J. B., Silbiger, N. J.  
-        *Journal of Experimental Biology* (2024) - In preparation
-
-        **Facing Physiological Constraints: Interactive Effects of Ocean Acidification and Warming on Energetics of Tegula funebralis**  
-        Dellinger, R. J.  
-        *CSUN Thesis* (2024) - [Read thesis](https://github.com/robertjdellinger/CSUN-masters-thesis/blob/main/_book/thesis.pdf)
-
+      title: "Biogeochemistry & Paleogenomics"
+      filters:
+        folders: ["research/physical-drivers/biogeochemistry-paleogenomics"]
+      sort_by: "Date"
+      order: "desc"
+      count: 12
+    design:
+      view: "card"
+  
+  - block: collection
+    content:
+      title: "Quantitative Ecology"
+      filters:
+        folders: ["research/physical-drivers/quantitative-ecology"]
+      sort_by: "Date"
+      order: "desc"
+      count: 12
+    design:
+      view: "card"
+  
+  - block: collection
+    content:
+      title: "Selected Publications, Physical Drivers"
+      filters:
+        page_type: "publication"
+        tags: ["biogeochemistry", "coral", "paleogenomics"]
+      sort_by: "Date"
+      order: "desc"
+      count: 6
+    design:
+      view: "card"
+      columns: "3"
+  
   - block: markdown
     content:
       title: "Social Drivers of Environmental Change"
-      text: |
-        **Critical Ecology Research**  
-        PASTE_YOUR_PARAGRAPH_ON_AIR_POLLUTION_INEQUALITY_AND_HOLC_SVI
-
-        **Policy-Driven Scientific Research**  
-        PASTE_YOUR_PARAGRAPH_ON_ECO_ALPHA_NOAA_NRDA_AND_NSFSO
-
-  - block: markdown
+      text: "Critical ecology, policy driven science, environmental justice, legacies and futures."
+  
+  - block: collection
     content:
-      title: "Selected Publications - Social Drivers"
-      text: |
-        **Where we go from here: harnessing queer perspectives to advance practice in EEB**  
-        Eppley, M., Dellinger, R. J., Curtis, L., Estien, C., Forg, L., Jones, A., Swank, A., Lee, A.  
-        (2025) - In submission
-
-        **There is no consensus on biological sex**  
-        Eppley, M., Dellinger, R. J., Lee, A., Swank, A.  
-        *Submitted to Ecology Letters* (2025) - In submission
-
+      title: "Critical Ecology"
+      filters:
+        folders: ["research/social-drivers/critical-ecology"]
+      sort_by: "Date"
+      order: "desc"
+      count: 12
+    design:
+      view: "card"
+  
+  - block: collection
+    content:
+      title: "Policy-Driven Scientific Research"
+      filters:
+        folders: ["research/social-drivers/policy-driven-science"]
+      sort_by: "Date"
+      order: "desc"
+      count: 12
+    design:
+      view: "card"
+  
+  - block: collection
+    content:
+      title: "Selected Publications, Social Drivers"
+      filters:
+        page_type: "publication"
+        tags: ["environmental justice", "policy", "air pollution"]
+      sort_by: "Date"
+      order: "desc"
+      count: 6
+    design:
+      view: "card"
+      columns: "3"
+  
   - block: markdown
     content:
       title: "Early Career Research"
-      text: |
-        ### Bay Lab, 2019 to 2021
-        **Population Genomics & Coral Adaptation**  
-        Short summary of Bay Lab work  
-        [Learn more about Bay Lab](https://baylab.github.io/)
-
-        ### Bodega Marine Laboratory, Gold Lab, 2019
-        **Molecular Paleontology, Geobiology, Ecotoxicology**  
-        Short summary of BML and Gold Lab work  
-        [Learn more about BML](https://marinescience.ucdavis.edu/bml/about)
-
-        ### Study Abroad Research, 2017
-        **Wetland Ecology & Community Science**  
-        Short summary of Lake Atitlan work
-
-  - block: markdown
+      text: "Paired systems and methods, scaffolding a long practice."
+  
+  - block: collection
     content:
-      title: "Academic Conferences & Colloquia"
-      text: |
-        **Measuring social drivers and biogeochemical changes: the social origins of emissions and transboundary impacts on forest ecosystem function**  
-        Dellinger, R. J., Pierre, S., Hawkins, P. S.  
-        *NSF LTER Project Review, Hubbard Brook* (2025)
-
-        **Ecology through the lens of critical theory**  
-        Dellinger, R. J., Hawkins, P. S., Pierre, S.  
-        *UCLA CDLS Research and Outreach Symposium* (2024)
+      title: "Bay Lab, Population Genomics & Coral Adaptation"
+      filters:
+        folders: ["research/early-career/bay-lab"]
+      sort_by: "Date"
+      order: "desc"
+      count: 9
+    design:
+      view: "card"
+  
+  - block: collection
+    content:
+      title: "Bodega Marine Laboratory, Gold Lab, Ecotoxicology & Geobiology"
+      filters:
+        folders: ["research/early-career/bodega-marine-lab"]
+      sort_by: "Date"
+      order: "desc"
+      count: 9
+    design:
+      view: "card"
+  
+  - block: collection
+    content:
+      title: "Study Abroad, Wetland Ecology & Community Science"
+      filters:
+        folders: ["research/early-career/study-abroad"]
+      sort_by: "Date"
+      order: "desc"
+      count: 9
+    design:
+      view: "card"
+  
+  - block: collection
+    content:
+      title: "Academic Conferences & Colloquia, Presentations and Posters"
+      filters:
+        folders: ["research/conferences"]
+      sort_by: "Date"
+      order: "desc"
+      count: 20
+    design:
+      view: "card"
+      columns: "3"
 ---

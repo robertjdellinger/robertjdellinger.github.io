@@ -1,19 +1,21 @@
 ---
 title: "Blog"
 type: landing
-summary: "Coding blog, reproducible workflows, geospatial processing, oceanographic visualization, and research automation"
+summary: "Dispatches across research, fieldwork, and public engagement."
 sections:
   - block: markdown
     content:
-      title: "Coding Blog"
-      text: "Posts appear below. Use tags to filter."
+      title: "Notes from the field and beyond"
+      text: "Short reflections on methods, data stories, and science communication."
+  
   - block: collection
     content:
       filters:
         folders: ["blog"]
-        taxonomy: "tags"
-        filter_default: ""
-      count: 10
-      sort_by: "date"
-      sort_ascending: false
+      sort_by: "Date"
+      order: "desc"
+      count: 12
+    design:
+      view: "card"
+      columns: "2"
 ---

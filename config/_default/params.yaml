@@ -1,19 +1,45 @@
 ---
-description: "Oceanic and Atmospheric Scientist, investigating the physical and social drivers of environmental change"
+description: "Oceanic and Atmospheric Scientist investigating the physical and social drivers of environmental change."
 mainSections: ["blog"]
 date_format: "2006-01-02"
 
+params:
+  author:
+    name: "Robert J. Dellinger"
+    affiliation: "UCLA Atmospheric and Oceanic Sciences"
+    orcid: "0009-0009-3524-4041"
+    orcid_url: "https://orcid.org/0009-0009-3524-4041"
+    email: "rjdellinger@ucla.edu"
+  short_title: "Robert J. Dellinger"
+  short_description: "Oceanic & Atmospheric Scientist"
+  description_long: "Investigating how physical and social forces drive environmental change, translating science into policy and community action."
+  show_reading_time: true
+  social:
+    twitter:
+      handle: "RJ_Dellinger"
+      url: "https://twitter.com/RJ_Dellinger"
+    github:
+      handle: "robertjdellinger"
+      url: "https://github.com/robertjdellinger"
+    linkedin:
+      handle: "robertjdellinger"
+      url: "https://www.linkedin.com/in/robertjdellinger"
+    orcid:
+      handle: "0009-0009-3524-4041"
+      url: "https://orcid.org/0009-0009-3524-4041"
+  default_image: "/assets/media/icons/logo.png"
+
 header:
-assets:
-  favicon: "/media/icons/icon.png"
+  assets:
+    favicon: "/media/icons/icon.png"
   navbar:
     enable: true
-    blox: "navbar"
+    block: "navbar"
     align: "center"
     fixed_to_top: true
     logo:
       text: "Robert J. Dellinger"
-      filename: "assets/media/icons/logo.png"
+      filename: "icons/logo.png"
     show_theme_chooser: true
     show_search: true
     highlight_active_link: true
@@ -23,8 +49,15 @@ assets:
 features:
   math:
     enable: true
+    katex: true
+    macros: {}
+    copy_tex: true
+    delimiters:
+      block: ["$$","$$"]
+      inline: ["\\(","\\)"]
   diagrams:
     enable: true
+    mermaid: true
   repository:
     url: "https://github.com/robertjdellinger/robertjdellinger.github.io"
     content_dir: "content"
@@ -33,17 +66,34 @@ features:
 footer:
   block: minimal
   copyright:
-    notice: "© {year} Robert J. Dellinger, This work is licensed under {license}"
+    notice: "© {year} Robert J. Dellinger."
     license:
       enable: true
+      name: "CC BY-NC-ND 4.0"
+      uri: "https://creativecommons.org/licenses/by-nc-nd/4.0/"
       allow_derivatives: false
-      share_alike: true
       allow_commercial: false
+      share_alike: false
   show_translations: false
+
+assets:
+  favicon: "/assets/media/icons/icon.png"
+  background_home: "/media/backgrounds/coral-reefs.jpg"
+  avatar: "/assets/media/avatar/avatar.png"
+  icons:
+    icon_svg: "/assets/media/icons/icon.svg"
+    safari_pinned_tab: "/assets/media/icons/safari-pinned-tab.svg"
+    logo_svg: "/assets/media/icons/logo.svg"
 
 seo:
   site_type: "Person"
   org_name: "UCLA Atmospheric and Oceanic Sciences"
+  open_graph:
+    type: "profile"
+    image: "/assets/media/icons/logo.png"
+  twitter_card:
+    card: "summary_large_image"
+    site: "@RJ_Dellinger"
 
 privacy:
   youtube:

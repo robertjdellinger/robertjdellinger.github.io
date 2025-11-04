@@ -1,11 +1,9 @@
 ---
-title: "Robert J. Dellinger"
+title: ""
 type: landing
 summary: "Oceanic and Atmospheric Scientist investigating how physical and social forces shape environmental change, translating science into policy and community action."
 draft: false
 aliases: ["/home/"]
-# TODO: Add background image - media/coral-reefs.jpg currently exists but is a placeholder (4 bytes)
-# Background should reference assets/media/backgrounds/coral-reef.jpg when a proper image is available
 sections:
   - block: hero
     content:
@@ -22,8 +20,12 @@ sections:
         url: "/contact/"
         aria_label: "Contact Information"
     design:
+      background:
+        image:
+          filename: "backgrounds/background.png"
+        image_darken: 0.15
       align: center
       spacing:
-        padding: ["10", "8", "12", "8"]
-      max_width: "lg"
+        padding: ["20", "0", "20", "0"]
+      max_width: "full"
 ---
