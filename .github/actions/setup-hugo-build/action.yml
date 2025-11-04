@@ -16,7 +16,6 @@ runs:
     - name: Setup pnpm
       uses: pnpm/action-setup@v4
       if: hashFiles('package.json') != ''
-      shell: bash
 
     - name: Setup Node.js
       uses: actions/setup-node@v4
@@ -25,7 +24,6 @@ runs:
         node-version: ${{ inputs.node-version }}
         cache: 'pnpm'
         cache-dependency-path: pnpm-lock.yaml
-      shell: bash
 
     - name: Install JS dependencies
       if: hashFiles('package.json') != ''
@@ -39,7 +37,6 @@ runs:
         key: ${{ runner.os }}-hugo-deps-${{ hashFiles('**/go.mod', '**/package-lock.json', '**/pnpm-lock.yaml') }}
         restore-keys: |
           ${{ runner.os }}-hugo-deps-
-      shell: bash
 
     - name: Cache Go modules
       uses: actions/cache@v4
@@ -49,7 +46,6 @@ runs:
         key: ${{ runner.os }}-go-mod-${{ hashFiles('**/go.mod', '**/go.sum') }}
         restore-keys: |
           ${{ runner.os }}-go-mod-
-      shell: bash
 
     - name: Cache Hugo resources
       uses: actions/cache@v4
@@ -58,11 +54,9 @@ runs:
         key: ${{ runner.os }}-hugo-resources-${{ hashFiles('assets/**/*', 'config/**/*', 'hugo.yaml', 'package.json') }}
         restore-keys: |
           ${{ runner.os }}-hugo-resources-
-      shell: bash
 
     - name: Setup Hugo
       uses: peaceiris/actions-hugo@v3
       with:
         hugo-version: ${{ inputs.hugo-version }}
         extended: true
-      shell: bash
