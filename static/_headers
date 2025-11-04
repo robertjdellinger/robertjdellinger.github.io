@@ -1,58 +1,26 @@
-# netlify.toml
+{{/* layouts/partials/head-end.html */}}
+{{ $iconBase := "/media/icons" }}
+{{ $themeColor := or .Site.Params.theme_color "#0f172a" }}
 
-# Global defaults, overridden by more specific blocks below
-[[headers]]
-for = "/*"
-  [headers.values]
-  X-Frame-Options = "DENY"
-  X-Content-Type-Options = "nosniff"
-  Referrer-Policy = "strict-origin-when-cross-origin"
-  # X-XSS-Protection is deprecated, safe to omit, keep only if you need legacy IE behavior
-  # X-XSS-Protection = "1; mode=block"
+<!-- Favicons -->
+<link rel="icon" href="{{ printf "%s/icon-32.png" $iconBase | relURL }}" sizes="32x32" type="image/png">
+<link rel="icon" href="{{ printf "%s/icon-16.png" $iconBase | relURL }}" sizes="16x16" type="image/png">
+<link rel="apple-touch-icon" href="{{ printf "%s/apple-touch-icon.png" $iconBase | relURL }}" sizes="180x180">
 
-  # Permissions Policy, lock everything by default
-  Permissions-Policy = "accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()"
+<!-- SVG favicon and Safari pinned tab -->
+<link rel="icon" href="{{ printf "%s/icon.svg" $iconBase | relURL }}" type="image/svg+xml">
+<link rel="mask-icon" href="{{ printf "%s/safari-pinned-tab.svg" $iconBase | relURL }}" color="#0ea5e9">
 
-  # Content Security Policy, tuned for HugoBlox, KaTeX, Mermaid, Pagefind, and your current snippets
-  # If you add analytics, allow their domains in script-src and connect-src
-  Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://buttons.github.io https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
+<!-- Browser UI theming -->
+<meta name="theme-color" content="{{ $themeColor }}">
+<meta name="msapplication-TileColor" content="{{ $themeColor }}">
 
-  # Long cache by default for static assets, specific overrides below will correct HTML
-  Cache-Control = "public, max-age=31536000, immutable"
-
-# HTML must not be cached long, so users see updates
-[[headers]]
-for = "/*.html"
-  [headers.values]
-  Cache-Control = "public, max-age=0, must-revalidate"
-
-# CSS
-[[headers]]
-for = "/*.css"
-  [headers.values]
-  Cache-Control = "public, max-age=31536000, immutable"
-
-# JS
-[[headers]]
-for = "/*.js"
-  [headers.values]
-  Cache-Control = "public, max-age=31536000, immutable"
-
-# Fonts
-[[headers]]
-for = "/fonts/*"
-  [headers.values]
-  Cache-Control = "public, max-age=31536000, immutable"
-  Access-Control-Allow-Origin = "*"
-
-# Images and icons under /media
-[[headers]]
-for = "/media/*"
-  [headers.values]
-  Cache-Control = "public, max-age=31536000, immutable"
-
-# Your uploads, like PDFs
-[[headers]]
-for = "/uploads/*"
-  [headers.values]
-  Cache-Control = "public, max-age=31536000, immutable"
+{{ with .Site.Params.seo.open_graph.image }}
+  <meta property="og:image" content="{{ . | relURL }}">
+{{ end }}
+{{ with .Site.Params.seo.twitter_card.card }}
+  <meta name="twitter:card" content="{{ . }}">
+{{ end }}
+{{ with .Site.Params.seo.twitter_card.site }}
+  <meta name="twitter:site" content="{{ . }}">
+{{ end }}
