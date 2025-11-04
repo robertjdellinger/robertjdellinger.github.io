@@ -16,23 +16,22 @@ fi
 echo "Creating backup: $BACKUP"
 cp "$INSTRUCTIONS" "$BACKUP"
 
-# Update all references in a single sed command for efficiency
+# Update references:
 # 1. Outreach -> Public Engagement
 # 2. /outreach/ -> /engagement/
 # 3. .github/lychee-allowlist.txt -> .lycheeignore
+# 4. Add note about lychee.toml
+
 echo "Updating references in $INSTRUCTIONS"
 
-# Create newline with proper indentation for insertion
-NEW_LINE="\\t•\\tlychee.toml is the authoritative configuration for accepted status codes and excludes."
+# Use sed for replacements (cross-platform compatible with macOS and Linux)
+sed -i.tmp 's/outreach, \/outreach\//engagement, \/engagement\//g' "$INSTRUCTIONS" && rm -f "${INSTRUCTIONS}.tmp"
+sed -i.tmp 's/"Outreach"/"Public Engagement"/g' "$INSTRUCTIONS" && rm -f "${INSTRUCTIONS}.tmp"
+sed -i.tmp 's/identifier: "outreach"/identifier: "engagement"/g' "$INSTRUCTIONS" && rm -f "${INSTRUCTIONS}.tmp"
+sed -i.tmp 's/\.github\/lychee-allowlist\.txt/\.lycheeignore/g' "$INSTRUCTIONS" && rm -f "${INSTRUCTIONS}.tmp"
 
-sed -i.tmp \
-    -e 's/outreach, \/outreach\//engagement, \/engagement\//g' \
-    -e 's/"Outreach"/"Public Engagement"/g' \
-    -e 's/identifier: "outreach"/identifier: "engagement"/g' \
-    -e 's/\.github\/lychee-allowlist\.txt/\.lycheeignore/g' \
-    -e "/\.lycheeignore/a\\
-$NEW_LINE" \
-    "$INSTRUCTIONS" && rm -f "${INSTRUCTIONS}.tmp"
+# Add note about lychee.toml after .lycheeignore references
+sed -i.tmp '/\.lycheeignore/a\	•	lychee.toml is the authoritative configuration for accepted status codes and excludes.' "$INSTRUCTIONS" && rm -f "${INSTRUCTIONS}.tmp"
 
 echo "Copilot instructions updated successfully"
 echo "Backup saved to: $BACKUP"

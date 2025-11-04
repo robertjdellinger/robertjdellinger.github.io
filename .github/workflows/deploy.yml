@@ -28,14 +28,52 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Setup Hugo build environment
-        uses: ./.github/actions/setup-hugo-build
+      - uses: pnpm/action-setup@v4
+        if: hashFiles('package.json') != ''
+
+      - uses: actions/setup-node@v4
+        if: hashFiles('package.json') != ''
         with:
-          hugo-version: ${{ env.WC_HUGO_VERSION }}
           node-version: ${{ env.NODE_VERSION }}
+          cache: 'pnpm'
+          cache-dependency-path: pnpm-lock.yaml
+
+      - name: Install JS dependencies if applicable
+        if: hashFiles('package.json') != ''
+        run: pnpm install || npm install
+
+      # Cache Hugo build cache
+      - uses: actions/cache@v4
+        with:
+          path: /tmp/hugo_cache_runner/
+          key: ${{ runner.os }}-hugo-deps-${{ hashFiles('**/go.mod', '**/package-lock.json', '**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-hugo-deps-
+
+      # Cache Go modules (when go.mod exists)
+      - uses: actions/cache@v4
+        if: hashFiles('go.mod') != ''
+        with:
+          path: ~/go/pkg/mod
+          key: ${{ runner.os }}-go-mod-${{ hashFiles('**/go.mod', '**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-go-mod-
+
+      # Cache Hugo resources
+      - uses: actions/cache@v4
+        with:
+          path: resources/
+          key: ${{ runner.os }}-hugo-resources-${{ hashFiles('assets/**/*', 'config/**/*', 'hugo.yaml', 'package.json') }}
+          restore-keys: |
+            ${{ runner.os }}-hugo-resources-
 
       - uses: actions/configure-pages@v5
         id: pages
+
+      - uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: ${{ env.WC_HUGO_VERSION }}
+          extended: true
 
       - name: Build with Hugo
         env:
