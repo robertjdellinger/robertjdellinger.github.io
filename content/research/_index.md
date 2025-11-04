@@ -19,11 +19,11 @@ sections:
       text: |
         **Ocean acidification alters thermal performance metrics and increases energetic demand in Tegula funebralis**  
         Dellinger, R. J., Fields, J. B., Silbiger, N. J.  
-        *Journal of Experimental Biology* (2024) — In preparation
+        *Journal of Experimental Biology* (2024) - In preparation
 
         **Facing Physiological Constraints: Interactive Effects of Ocean Acidification and Warming on Energetics of Tegula funebralis**  
         Dellinger, R. J.  
-        *CSUN Thesis* (2024) — [Read thesis](https://github.com/robertjdellinger/CSUN-masters-thesis/blob/main/_book/thesis.pdf)
+        *CSUN Thesis* (2024) - [Read thesis](https://github.com/robertjdellinger/CSUN-masters-thesis/blob/main/_book/thesis.pdf)
 
   - block: markdown
     content:
@@ -41,11 +41,11 @@ sections:
       text: |
         **Where we go from here: harnessing queer perspectives to advance practice in EEB**  
         Eppley, M., Dellinger, R. J., Curtis, L., Estien, C., Forg, L., Jones, A., Swank, A., Lee, A.  
-        (2025) — In submission
+        (2025) - In submission
 
         **There is no consensus on biological sex**  
         Eppley, M., Dellinger, R. J., Lee, A., Swank, A.  
-        *Submitted to Ecology Letters* (2025) — In submission
+        *Submitted to Ecology Letters* (2025) - In submission
 
   - block: markdown
     content:
