@@ -22,12 +22,16 @@ cp "$INSTRUCTIONS" "$BACKUP"
 # 3. .github/lychee-allowlist.txt -> .lycheeignore
 echo "Updating references in $INSTRUCTIONS"
 
+# Create newline with proper indentation for insertion
+NEW_LINE="\\t•\\tlychee.toml is the authoritative configuration for accepted status codes and excludes."
+
 sed -i.tmp \
     -e 's/outreach, \/outreach\//engagement, \/engagement\//g' \
     -e 's/"Outreach"/"Public Engagement"/g' \
     -e 's/identifier: "outreach"/identifier: "engagement"/g' \
     -e 's/\.github\/lychee-allowlist\.txt/\.lycheeignore/g' \
-    -e '/\.lycheeignore/a\	•	lychee.toml is the authoritative configuration for accepted status codes and excludes.' \
+    -e "/\.lycheeignore/a\\
+$NEW_LINE" \
     "$INSTRUCTIONS" && rm -f "${INSTRUCTIONS}.tmp"
 
 echo "Copilot instructions updated successfully"

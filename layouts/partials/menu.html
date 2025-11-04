@@ -16,7 +16,7 @@
     {{- if $page.IsMenuCurrent .Menu . }}
       {{- $attrs = merge $attrs (dict "class" "active" "aria-current" "page") }}
     {{- else if $page.HasMenuCurrent .Menu .}}
-      {{- $attrs = merge $attrs (dict "class" "ancestor" "aria-current" "true") }}
+      {{- $attrs = merge $attrs (dict "class" "ancestor") }}
     {{- end }}
     {{- $name := .Name }}
     {{- with .Identifier }}

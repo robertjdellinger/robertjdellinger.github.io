@@ -19,7 +19,7 @@ The menu template can be called from any Hugo template by passing the menu ID an
 
 - **Recursive rendering** - Automatically handles nested menu structures
 - **Localization support** - Uses translation tables via `T` function for menu identifiers
-- **Accessibility** - Includes proper ARIA attributes (`aria-current`, `aria-label`)
+- **Accessibility** - Includes `aria-current="page"` for active pages and `aria-label` on navigation
 - **Active state tracking** - Uses `IsMenuCurrent` and `HasMenuCurrent` to highlight active pages
 - **Page context access** - Menu entries linked to pages can access page parameters
 
@@ -70,5 +70,7 @@ To use custom parameters defined in menu configuration:
 
 ## Reference
 
-Based on Hugo's official menu template documentation:
+Based on Hugo's official menu template documentation (accessed November 2025):
 https://gohugo.io/templates/menu/
+
+Compatible with Hugo v0.152.1 and later.
