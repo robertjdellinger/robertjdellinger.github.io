@@ -4,6 +4,8 @@ mainSections: ["blog"]
 date_format: "2006-01-02"
 
 header:
+assets:
+  favicon: "/media/icons/icon.png"
   navbar:
     enable: true
     blox: "navbar"
@@ -38,9 +40,6 @@ footer:
       share_alike: true
       allow_commercial: false
   show_translations: false
-
-assets:
-  favicon: "assets/media/icons/icon.png"
 
 seo:
   site_type: "Person"
