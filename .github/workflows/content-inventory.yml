@@ -21,8 +21,20 @@ jobs:
           hugo-version: '0.124.0'
           extended: true
 
+      - name: Fetch Hugo Modules
+        run: |
+          hugo version
+          hugo mod get -u ./...
+          hugo mod download
+        env:
+          GIT_ALLOW_PROTOCOL: https
+
       - name: Build site
         run: hugo --minify
+
+      - name: Debug, list Hugo module graph
+        if: failure()
+        run: hugo mod graph || true
 
       - name: Setup Python
         uses: actions/setup-python@v5

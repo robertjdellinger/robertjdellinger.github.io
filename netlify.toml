@@ -10,6 +10,11 @@
     echo "=== Installing dependencies ==="
     pnpm install --verbose
     
+    echo "=== Fetching Hugo modules ==="
+    export GIT_ALLOW_PROTOCOL=https
+    hugo mod get -u ./...
+    hugo mod download
+    
     echo "=== Running Hugo build ==="
     hugo --gc --minify -b $URL --logLevel debug --printI18nWarnings --printPathWarnings
     
@@ -39,6 +44,10 @@
     echo "=== Deploy Preview Build ==="
     echo "Deploy URL: $DEPLOY_PRIME_URL"
     pnpm install --verbose
+    echo "=== Fetching Hugo modules ==="
+    export GIT_ALLOW_PROTOCOL=https
+    hugo mod get -u ./...
+    hugo mod download
     hugo --gc --minify --buildFuture -b $DEPLOY_PRIME_URL --logLevel debug --printI18nWarnings --printPathWarnings
     pnpm dlx pagefind --source 'public' --verbose
   """
@@ -49,6 +58,10 @@
     echo "=== Branch Deploy Build ==="
     echo "Deploy URL: $DEPLOY_PRIME_URL"
     pnpm install --verbose
+    echo "=== Fetching Hugo modules ==="
+    export GIT_ALLOW_PROTOCOL=https
+    hugo mod get -u ./...
+    hugo mod download
     hugo --gc --minify -b $DEPLOY_PRIME_URL --logLevel debug --printI18nWarnings --printPathWarnings
     pnpm dlx pagefind --source 'public' --verbose
   """
