@@ -97,7 +97,8 @@ Fix broken gallery image path
 --- a/content/gallery/_index.md
 +++ b/content/gallery/_index.md
 @@
-- ![](/media/gallery/meet-francisca.jpg)
+- ![](https://github.com/user-attachments/assets/5e810ed2-253d-47ed-b1d2-723c6ea40abb)
+<!-- Maintenance note: replaced root-relative /media/gallery/meet-francisca.jpg with stable user-attachments URL to avoid link-check failures -->
 + ![](media/gallery/meet-francisca.jpg)  <!-- fixed path, page-bundle relative -->
 
 If the file is missing, comment out the line and add a TODO, then create content/gallery/media/gallery/ and drop a README with the source URL.
