@@ -78,3 +78,7 @@ Desktop.ini
 
 *.log
 npm-debug.log*
+
+# Downloaded binaries and archives
+hugo_*.tar.gz
+hugo_*.zip
