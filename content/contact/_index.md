@@ -1,7 +1,7 @@
 ---
 title: "Contact"
 type: landing
-summary: "Email and mailing address"
+summary: "Get in touch."
 sections:
   - block: markdown
     content:
@@ -9,12 +9,12 @@ sections:
       text: |
         **Email:** [rjdellinger@ucla.edu](mailto:rjdellinger@ucla.edu)
         
+        **Phone:** [+1 310 880 9842](tel:+13108809842)
+        
         **Mailing Address:**  
         UCLA Atmospheric and Oceanic Sciences  
         7127 Math Sciences Building, Box 951565  
-        Los Angeles, CA 90095
-        
-        [Email Robert](mailto:rjdellinger@ucla.edu?subject=Hello%20from%20your%20website)
+        Los Angeles, CA 90095-1565
     design:
-      columns: "1"
+      columns: "2"
 ---
