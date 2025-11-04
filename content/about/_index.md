@@ -7,10 +7,9 @@ image: "assets/media/coral-reef.png"
 sections:
   - block: resume-biography-3
     content:
-      title: "Bio"
+      title: "Robert J. Dellinger"
       username: "admin"
-      text: |
-        I am a Ph.D. student in Atmospheric and Oceanic Sciences at UCLA, investigating how physical and social forces drive environmental change. My research integrates coral biomineralization, multi-proxy geochemistry, and ancient DNA to understand climate variability and coastal land use impacts. I translate science into policy and community action, centering environmental justice in my work.
+      text: "Oceanic and atmospheric scientist"
       connections:
         - label: "Email"
           url: "mailto:rjdellinger@ucla.edu"
@@ -26,39 +25,35 @@ sections:
           url: "https://x.com/RJ_Dellinger"
       button:
         text: "Download CV"
-        url: "/uploads/CV.pdf"
+        url: "static/uploads/CV.pdf"
+      education:
+        - area: "PhD Atmospheric and Oceanic Science"
+          institution: "University of California, Los Angeles (UCLA)"
+          icon: ""
+          date_start: "2024-09-01"
+          date_end: ""
+          summary: |
+            Research Focus: Coral Biomineralization And Symbiont Community Dynamics Under Climate Variability And Coastal Land‑use Change, Integrating Multi‑proxy Geochemistry With Ancient DNA (aDNA). Advised by Dr. Aradhna Tripati.
+        - area: "MS Biological Science"
+          institution: "California State University, Northridge (CSUN)"
+          icon: ""
+          date_start: "2021-09-01"
+          date_end: "2024-08-01"
+          summary: |
+            Research focus: Quantitative marine ecology and biogeochemistry, examining the physiological and energetic responses of marine species to the combined impacts of ocean acidification and warming. Thesis on _Facing Physiological Constraints: The Interactive Effects of Ocean Acidification and Warming_. Advised by Dr. Nyssa Silbiger.
+          button:
+            text: "Thesis PDF"
+            url: "https://scholarworks.calstate.edu/concern/theses/jq085t882"
+        - area: "BS Marine and Coastal Science & BA International Relations"
+          institution: "University of California, Davis (UC Davis)"
+          icon: ""
+          date_start: "2017-09-01"
+          date_end: "2021-06-31"
+          summary: |
+            UC Davis Department of Earth and Planetary Sciences Citation for Outstanding Achievement And Contributions (2021)
     design:
       background:
         color: ""
-
-  - block: resume-experience
-    content:
-      title: "Education"
-      items:
-        - title: "Ph.D. Student, Atmospheric and Oceanic Sciences"
-          company: "University of California, Los Angeles"
-          location: "Los Angeles, CA"
-          date_start: "2024-09-01"
-          date_end: ""
-          description: |
-            Advisors: Dr. Aradhna Tripati, Dr. Robert Eagle  
-            Focus: Coral biomineralization and symbiont community dynamics under climate variability and coastal land use change, integrating multi-proxy geochemistry with ancient DNA
-        - title: "M.S., Biological Sciences"
-          company: "California State University, Northridge"
-          location: "Northridge, CA"
-          date_start: "2021-09-01"
-          date_end: "2024-06-30"
-          description: |
-            Advisor: Dr. Nyssa Silbiger  
-            Focus: Quantitative marine ecology and biogeochemistry, energetic responses to ocean acidification and warming
-        - title: "B.S., Marine & Coastal Science, B.A., International Relations"
-          company: "University of California, Davis"
-          location: "Davis, CA"
-          date_start: "2017-09-01"
-          date_end: "2021-06-15"
-          description: "Study Abroad: Ecological and Social Issues in Lake Atitlan, Guatemala"
-    design:
-      columns: "1"
 
   - block: resume-experience
     content:
@@ -195,34 +190,17 @@ sections:
     design:
       columns: "1"
 
-  - block: markdown
+  - block: resume-skills
     content:
       title: "Skills"
-      text: |
-        **Quantitative & Coding**
-        - R, Python, Matlab, LaTeX, SQL
-        - Data visualization and reproducible workflows
-        - Geospatial modeling and remote sensing
-        
-        **Field & Lab**
-        - Water quality monitoring and EPA methods
-        - Microscopy and image analysis
-        - Experimental design and mesocosms
-        
-        **Communication & Policy**
-        - Scientific writing and teaching
-        - Stakeholder outreach
-        - Science-policy translation
+      username: "admin"
     design:
       columns: "1"
 
-  - block: markdown
+  - block: resume-languages
     content:
       title: "Languages"
-      text: |
-        - **English**: Native
-        - **Spanish**: Professional
-        - **Programming**: R, Python, Matlab, HTML, CSS, JavaScript
+      username: "admin"
     design:
       columns: "1"
 ---

@@ -7,7 +7,7 @@ sections:
     content:
       title: "Notes from the field and beyond"
       text: "Short reflections on methods, data stories, and science communication."
-  
+
   - block: collection
     content:
       filters:

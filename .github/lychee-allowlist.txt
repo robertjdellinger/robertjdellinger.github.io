@@ -22,6 +22,7 @@ instagram\.com
 scholar\.google\.com
 orcid\.org
 researchgate\.net
+scholarworks\.calstate\.edu
 
 # University sites (may block automated checks)
 atmos\.ucla\.edu

@@ -1,2 +1,6 @@
-accept = ["200", "403", "429"]
+# Accepted HTTP status codes
+# Include redirect codes (3xx) to handle URL redirects gracefully
+accept = ["200", "201", "202", "203", "204", "206", "207", "208", "226", "300", "301", "302", "303", "304", "307", "308", "403", "429", "999"]
+
+# Paths to exclude from checking
 exclude_path = [".github"]
