@@ -26,6 +26,6 @@ sections:
         image_darken: 0.15
       align: center
       spacing:
-        padding: ["10", "8", "12", "8"]
-      max_width: "lg"
+        padding: ["20", "0", "20", "0"]
+      max_width: "full"
 ---
