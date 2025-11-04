@@ -14,9 +14,9 @@ main:
       description: "Ongoing and Previous Research Projects, Publications, & Presentations"
 
   - name: "Public Engagement"
-    url: "/outreach/"
+    url: "/engagement/"
     weight: 30
-    identifier: "outreach"
+    identifier: "engagement"
     params:
       description: "Media/Press Features & Public Writing"
 
