@@ -50,6 +50,8 @@ sections:
         Eppley, M., Dellinger, R. J., Curtis, L., Estien, C., Forg, L., Jones, A., Swank, A., and Lee, A. 2025. Where we go from here, harnessing queer perspectives to advance practice in ecology and evolutionary biology. (In submission). 
         
         Eppley, M., Dellinger, R. J., Lee, A., and Swank, A. 2025. There is no consensus on biological sex. Manuscript submitted for publication to Ecology Letters. (In Submission).
+    design:
+      css_class: "js-animate anim-fadeInUp"
 
   - block: collection
     content:
