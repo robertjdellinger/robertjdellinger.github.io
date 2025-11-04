@@ -24,8 +24,7 @@ Copilot should follow this order on every PR that touches content, config, or la
 	•	Missing theme param, add the minimal key in the correct config file.
 
 2) Broken links and missing assets
-	•	Run the link checker workflow. If a link 404s, fix the URL or add a short-term exclude in .lycheeignore with a comment.
-	•	lychee.toml is the authoritative configuration for accepted status codes and excludes.
+	•	Run the link checker workflow. If a link 404s, fix the URL or add a short-term exclude in .github/lychee-allowlist.txt with a comment.
 	•	If an image path is wrong, correct the path to the file that exists, or move the file into the expected location.
 	•	Conventions:
 	•	Single page images, store inside that page bundle, use relative paths.
@@ -34,12 +33,11 @@ Copilot should follow this order on every PR that touches content, config, or la
 3) Navigation, repair rather than block
 	•	Canonical nav lives in .github/canonical/menus.yaml.
 	•	Live nav is config/_default/menus.yaml and must match canonical.
-	•	CI workflows sync canonical into config/_default and fail on drift unless PR title begins with Nav Change Request.
 	•	Ensure these top level entries exist with these attributes, repair drift:
 	•	about, /about/, weight 10
 	•	research, /research/, weight 20
-	•	engagement, /engagement/, weight 30
-	•	gallery, /gallery/, weight 40
+	•	gallery, /gallery/, weight 30
+	•	outreach, /outreach/, weight 40
 	•	blog, /blog/, weight 50
 	•	contact, /contact/, weight 60
 	•	If a PR intends to change labels, order, or slugs, the PR title must begin with Nav Change Request. Otherwise, sync config/_default/menus.yaml back to canonical.
@@ -50,7 +48,6 @@ Copilot should follow this order on every PR that touches content, config, or la
 	•	Posts require date in YYYY-MM-DD.
 	•	Section landing pages should include a sections: array using existing HugoBlox blocks.
 	•	If keys are missing, add safe defaults and a short comment.
-	•	When changing page slugs or URLs, add aliases to the front matter to preserve old URLs and avoid broken links.
 
 5) Footer, enforce by patch
 	•	layouts/partials/footer.html must render a two column layout with dynamic year.
@@ -133,8 +130,7 @@ Fix case of referenced assets
 Validation checks Copilot should satisfy
 	•	Build passes with hugo --minify.
 	•	config/_default/menus.yaml matches .github/canonical/menus.yaml, or PR is titled Nav Change Request.
-	•	Link check is clean, or noisy externals added to .lycheeignore with a short comment.
-	•	lychee.toml is the authoritative configuration for accepted status codes and excludes.
+	•	Link check is clean, or noisy externals added to .github/lychee-allowlist.txt with a short comment.
 	•	Footer required links present, dynamic year in use.
 	•	Alt text present for changed images.
 
@@ -189,10 +185,10 @@ main:
     identifier: "gallery"
     params: { description: "Photography and Art Gallery" }
 
-  - name: "Public Engagement"
-    url: "/engagement/"
+  - name: "Outreach"
+    url: "/outreach/"
     weight: 40
-    identifier: "engagement"
+    identifier: "outreach"
     params: { description: "Media/Press Engagement & Writing" }
 
   - name: "Blog"

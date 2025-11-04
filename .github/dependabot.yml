@@ -1,21 +1,29 @@
-# To get started with Dependabot version updates, you'll need to specify which
-# package ecosystems to update and where the package manifests are located.
-# Please see the documentation for all configuration options:
-# https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
-
 version: 2
+
+# Dependabot configuration for a static personal website.
+# - Keep GitHub Actions up-to-date if you use Actions for CI/Pages/Netlify.
+# - Check git submodules (e.g., themes) if you use them.
+# - If you add a package.json later, uncomment the npm entry below.
+
 updates:
+  # Keep GitHub Actions workflow actions up-to-date
   - package-ecosystem: "github-actions"
-    directory: "/" # location of workflow files
+    directory: "/"  # Location of workflows
     schedule:
       interval: "weekly"
-    # optionals:
-    # open-pull-requests-limit: 5
-    # allow:
-    #   - dependency-type: "direct"
-#
-# If you later add a package.json or use a JS toolchain, enable npm like:
-#  - package-ecosystem: "npm"
-#    directory: "/"
-#    schedule:
-#      interval: "weekly"
+    open-pull-requests-limit: 5
+    # optional: allow/ignore config can be added here
+
+  # Update git submodules (useful if your theme is a submodule)
+  - package-ecosystem: "submodules"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 3
+
+  # If you start using node (package.json), enable this block by removing the leading '#'
+  # - package-ecosystem: "npm"
+  #   directory: "/"
+  #   schedule:
+  #     interval: "weekly"
+  #   open-pull-requests-limit: 5
