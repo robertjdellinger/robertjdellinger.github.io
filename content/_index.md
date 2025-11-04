@@ -1,5 +1,5 @@
 ---
-title: ""
+title: "Robert J. Dellinger"
 type: landing
 summary: "Oceanic and Atmospheric Scientist investigating how physical and social forces shape environmental change, translating science into policy and community action."
 draft: false
