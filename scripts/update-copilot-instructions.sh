@@ -24,14 +24,14 @@ cp "$INSTRUCTIONS" "$BACKUP"
 
 echo "Updating references in $INSTRUCTIONS"
 
-# Use sed for replacements
-sed -i 's/outreach, \/outreach\//engagement, \/engagement\//g' "$INSTRUCTIONS"
-sed -i 's/"Outreach"/"Public Engagement"/g' "$INSTRUCTIONS"
-sed -i 's/identifier: "outreach"/identifier: "engagement"/g' "$INSTRUCTIONS"
-sed -i 's/\.github\/lychee-allowlist\.txt/\.lycheeignore/g' "$INSTRUCTIONS"
+# Use sed for replacements (cross-platform compatible with macOS and Linux)
+sed -i.tmp 's/outreach, \/outreach\//engagement, \/engagement\//g' "$INSTRUCTIONS" && rm -f "${INSTRUCTIONS}.tmp"
+sed -i.tmp 's/"Outreach"/"Public Engagement"/g' "$INSTRUCTIONS" && rm -f "${INSTRUCTIONS}.tmp"
+sed -i.tmp 's/identifier: "outreach"/identifier: "engagement"/g' "$INSTRUCTIONS" && rm -f "${INSTRUCTIONS}.tmp"
+sed -i.tmp 's/\.github\/lychee-allowlist\.txt/\.lycheeignore/g' "$INSTRUCTIONS" && rm -f "${INSTRUCTIONS}.tmp"
 
 # Add note about lychee.toml after .lycheeignore references
-sed -i '/\.lycheeignore/a\	•	lychee.toml is the authoritative configuration for accepted status codes and excludes.' "$INSTRUCTIONS"
+sed -i.tmp '/\.lycheeignore/a\	•	lychee.toml is the authoritative configuration for accepted status codes and excludes.' "$INSTRUCTIONS" && rm -f "${INSTRUCTIONS}.tmp"
 
 echo "Copilot instructions updated successfully"
 echo "Backup saved to: $BACKUP"
