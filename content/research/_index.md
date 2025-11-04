@@ -1,135 +1,91 @@
 ---
 title: "Research"
 type: landing
-summary: "Physical and social drivers of environmental change, early research, and scholarly exchange."
+design:
+  spacing: "5rem"
 sections:
   - block: markdown
     content:
-      title: "Physical Drivers of Environmental Change"
-      text: "Biogeochemistry and paleogenomics, quantitative ecology, organism to ecosystem scales."
-  
-  - block: collection
-    content:
-      title: "Biogeochemistry & Paleogenomics"
-      filters:
-        folders: ["research/physical-drivers/biogeochemistry-paleogenomics"]
-      sort_by: "Date"
-      order: "desc"
-      count: 12
+      text: |
+        Page Title: Research (https://robertjdellinger.github.io/research/) 
+        "The more clearly we can focus our attention on the wonders and realities of the universe about us, the less taste we shall have for destruction." ― Rachel Carson
     design:
-      view: "card"
-  
-  - block: collection
-    content:
-      title: "Quantitative Ecology"
-      filters:
-        folders: ["research/physical-drivers/quantitative-ecology"]
-      sort_by: "Date"
-      order: "desc"
-      count: 12
-    design:
-      view: "card"
-  
-  - block: collection
-    content:
-      title: "Selected Publications, Physical Drivers"
-      filters:
-        page_type: "publication"
-        tags: ["biogeochemistry", "coral", "paleogenomics"]
-      sort_by: "Date"
-      order: "desc"
-      count: 6
-    design:
-      view: "card"
-      columns: "3"
-  
+      css_class: "js-animate anim-fadeInUp"
+
   - block: markdown
     content:
-      title: "Social Drivers of Environmental Change"
-      text: "Critical ecology, policy driven science, environmental justice, legacies and futures."
-  
+      text: |
+        Section Title: Biophysical Drivers of Environmental Change 
+        subtitle: Biogeochemistry & Paleogenomics Research
+        My current research focuses on how coral biomineralization and symbiotic community structure respond to long-term climate variability and anthropogenic land-use change. My research integrates sub-annual coral geochemistry (Sr/Ca, δ¹⁸O, δ¹¹B, Ba/Ca, Δ¹⁴C) with ancient DNA (coraDNA) metabarcoding of coral symbionts to reconstruct the centennial-scale impacts of warming, ocean acidification, and nutrient loading in the Banda Islands, Indonesia. This study represents the first high-resolution paleoclimate reconstruction to directly link centennial-scale environmental change to shifts in Symbiodiniaceae community composition in response to climate variability and coastal disturbance
+        subtitle: Quantitative Ecology Research
+        My previous research examined how ocean warming and acidification interact to influence the physiological energetics of black turban snails (Tegula funebralis), a common intertidal sea snail. Along the Pacific West Coast, turban snails are highly abundant and play a key ecological role as macroalgal grazers; facilitating energy transfer from primary producers to higher trophic levels and sustaining energy flow throughout marine food webs. In dynamic intertidal zones, turban snails experience substantial seasonal and diurnal environmental fluctuations that directly influence metabolic rates (e.g., increased temperatures, elevated grazing activity) and physiology. As oceans continue to warm and acidify due to climate change, understanding how these co-occurring stressors affect the metabolic performance of key herbivores is essential for predicting broader ecosystem responses. Therefore, my research asked: How does ocean acidification interact with temperature to impact energetic expenditure?
+        Sub-Section Title: Selected Publications
+        Dellinger, R.J., Fields, J.B., & Silbiger, N.J. (2024). Ocean acidification alters thermal performance metrics & increases energetic demand in the intertidal gastropod, Tegula funebralis. Journal of Experimental Biology. (In preparation).
+        Dellinger, R. J. (2024). Facing Physiological Constraints: The Interactive Effects of Ocean Acidification and Warming on the Energetics of an Intertidal Gastropod, Tegula Funebralis (Masters dissertation, California State University, Northridge).
+        PDF download link: https://github.com/robertjdellinger/CSUN-masters-thesis/blob/main/_book/thesis.pdf
+    design:
+      css_class: "js-animate anim-fadeInUp"
+
   - block: collection
     content:
-      title: "Critical Ecology"
       filters:
-        folders: ["research/social-drivers/critical-ecology"]
-      sort_by: "Date"
-      order: "desc"
+        folders: ["research/physical-drivers"]
       count: 12
-    design:
-      view: "card"
-  
-  - block: collection
-    content:
-      title: "Policy-Driven Scientific Research"
-      filters:
-        folders: ["research/social-drivers/policy-driven-science"]
       sort_by: "Date"
       order: "desc"
-      count: 12
     design:
       view: "card"
-  
-  - block: collection
-    content:
-      title: "Selected Publications, Social Drivers"
-      filters:
-        page_type: "publication"
-        tags: ["environmental justice", "policy", "air pollution"]
-      sort_by: "Date"
-      order: "desc"
-      count: 6
-    design:
-      view: "card"
-      columns: "3"
-  
+
   - block: markdown
     content:
-      title: "Early Career Research"
-      text: "Paired systems and methods, scaffolding a long practice."
-  
+      text: |
+        Section Title: Social Drivers of Environmental Change 
+        subtitle: Critical Ecology Research
+        Air pollution is not placed randomly; its sources follow geographies of exclusion, marked by notions of race and class, and sedimented through decades of policy decisions. As a researcher with the Critical Ecology Lab and the Hubbard Brook Experimental Forest (NSF LTER), this project examined how structural inequality has shaped the origins of acid rain by analyzing whether historical segregation and present-day social vulnerability influence the spatial distribution of polluting facilities in states that contribute disproportionately to acid rain. Geospatial analysis assessed whether these facilities were disproportionately located in formerly redlined neighborhoods, as designated by the U.S. Home Owners' Loan Corporation (HOLC), and whether current emissions were concentrated in areas with elevated vulnerability, based on the CDC Social Vulnerability Index. These findings illustrate how land-use legacies and exclusionary planning practices continue to shape the geography of environmental harm. The results also elucidate that addressing inequality is not only a matter of justice but a necessary intervention in the very places where pollution is most concentrated; in other words, redressing social and spatial inequities can simultaneously challenge the structural conditions that produce both social and environmental harm. Consequently, by linking spatial emissions data to indicators of inequality, this project contributes to broader efforts to understand how long-term ecological change is shaped by political and economic power.
+        subtitle: Policy-Driven Scientific Research
+        My work at the science-policy interface focuses on translating environmental research into actionable insights, particularly in service of communities disproportionately burdened by environmental harm. Across federal agencies, private environmental firms, and interdisciplinary research programs, I have contributed to applied research that informs environmental regulation, restoration, and ecosystem-based management. As an environmental technician with Eco-Alpha Environmental Services, I conducted field-based water quality monitoring across municipal and industrial sites in California, sampling for nutrients, heavy metals, and microbial contaminants in compliance with the Clean Water Act. I also produced technical reports and contributed to regulatory planning documents used by the California State Water Resources Control Board, including materials aligned with CEQA (California Environmental Quality Act) guidelines. As an intern at the National Oceanic and Atmospheric Administration, I contributed to a Natural Resource Damage Assessment (NRDA) for the Passaic River Superfund site by conducting histopathological analyses of white perch (Morone americana) to quantify ecological injury from industrial pollutants. These efforts assisted in supporting a legal case against over 70 corporate polluters and informed remediation strategies grounded in environmental and community health outcomes. As a fellow in the NSF Sustainable Oceans: From Policy to Science to Decisions Research Traineeship, I engaged in a program that integrates policy relevance into the earliest stages of scientific inquiry. Through interdisciplinary coursework, stakeholder workshops, and guided discussions spanning academic, governmental, and private sectors, scholars were trained to design "use-informed" projects in active dialogue with coastal communities, resource managers, and policymakers , centering the co-production of knowledge to bridge marine science with the social, ecological, and political realities of environmental decision-making.
+        Sub-Section Title: Selected Publications
+        Eppley, M., Dellinger, R. J., Curtis, L., Estien, C., Forg, L., Jones, A., Swank, A., and Lee, A. 2025. Where we go from here, harnessing queer perspectives to advance practice in ecology and evolutionary biology. (In submission). 
+        Eppley, M., Dellinger, R. J., Lee, A., and Swank, A. 2025. There is no consensus on biological sex. Manuscript submitted for publication to Ecology Letters. (In Submission).
+
   - block: collection
     content:
-      title: "Bay Lab, Population Genomics & Coral Adaptation"
       filters:
-        folders: ["research/early-career/bay-lab"]
+        folders: ["research/social-drivers"]
+      count: 12
       sort_by: "Date"
       order: "desc"
-      count: 9
     design:
       view: "card"
-  
+
+  - block: markdown
+    content:
+      text: |
+        Section Title: Early Career Research
+
   - block: collection
     content:
-      title: "Bodega Marine Laboratory, Gold Lab, Ecotoxicology & Geobiology"
       filters:
-        folders: ["research/early-career/bodega-marine-lab"]
+        folders: ["research/early-career"]
+      count: 12
       sort_by: "Date"
       order: "desc"
-      count: 9
     design:
       view: "card"
-  
+
+  - block: markdown
+    content:
+      text: |
+        Section Title: Academic Conferences & Colloquia
+
   - block: collection
     content:
-      title: "Study Abroad, Wetland Ecology & Community Science"
-      filters:
-        folders: ["research/early-career/study-abroad"]
-      sort_by: "Date"
-      order: "desc"
-      count: 9
-    design:
-      view: "card"
-  
-  - block: collection
-    content:
-      title: "Academic Conferences & Colloquia, Presentations and Posters"
       filters:
         folders: ["research/conferences"]
+      count: 20
       sort_by: "Date"
       order: "desc"
-      count: 20
     design:
       view: "card"
-      columns: "3"
 ---
