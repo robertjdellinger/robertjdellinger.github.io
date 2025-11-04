@@ -2,6 +2,7 @@
 title: "Public Engagement"
 type: landing
 summary: "Engagement with Media/Press and Writing for the Public "
+aliases: ["/engagement/"]
 sections:
   - block: markdown
     content:
