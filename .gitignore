@@ -78,3 +78,4 @@ Desktop.ini
 
 *.log
 npm-debug.log*
+hugo_extended_*.tar.gz

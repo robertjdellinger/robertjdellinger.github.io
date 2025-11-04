@@ -2,6 +2,12 @@
 description: "Oceanic and Atmospheric Scientist, investigating the physical and social drivers of environmental change"
 mainSections: ["blog"]
 date_format: "2006-01-02"
+email: "rjdellinger@ucla.edu"
+phone: "+1 310 880 9842"
+address: "UCLA Atmospheric and Oceanic Sciences<br>7127 Math Sciences Building, Box 951565<br>Los Angeles, CA 90095"
+
+appearance:
+  mode: light
 
 header:
   navbar:
@@ -12,7 +18,7 @@ header:
     logo:
       text: "Robert J. Dellinger"
       filename: "assets/media/icons/logo.png"
-    show_theme_chooser: true
+    show_theme_chooser: false
     show_search: true
     highlight_active_link: true
     show_translations: false

@@ -10,7 +10,7 @@ sections:
       title: "Bio"
       username: "admin"
       text: |
-        Insert bio here.
+        I am a PhD student in Atmospheric and Oceanic Sciences at UCLA, where I investigate how physical and social forces shape environmental change. My research integrates multi-proxy geochemistry with ancient DNA to understand coral biomineralization and symbiont community dynamics under climate variability and coastal land use change. I am committed to translating science into policy and community action, centering justice-oriented perspectives in environmental research.
       connections:
         - label: "Email"
           url: "mailto:rjdellinger@ucla.edu"
