@@ -3,18 +3,11 @@ title: "Contact"
 type: landing
 summary: "Get in touch."
 sections:
-  - block: markdown
+  - block: contact
     content:
       title: "Get in touch"
       text: |
-        **Email:** [rjdellinger@ucla.edu](mailto:rjdellinger@ucla.edu)
-        
-        **Phone:** [+1 310 880 9842](tel:+13108809842)
-        
-        **Mailing Address:**  
-        UCLA Atmospheric and Oceanic Sciences  
-        7127 Math Sciences Building, Box 951565  
-        Los Angeles, CA 90095-1565
+        Feel free to reach out via email or phone. I'm happy to discuss research collaborations, science communication, or community engagement opportunities.
     design:
-      columns: "2"
+      columns: "1"
 ---

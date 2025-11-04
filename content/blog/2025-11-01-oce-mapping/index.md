@@ -8,4 +8,4 @@ featured: false
 draft: true
 ---
 
-PASTE_RMD_SNIPPET_OR_LINK_TO_RMD_HERE
+<!-- TODO: Add R Markdown snippet or link to RMD file for satellite data mapping tutorial -->
