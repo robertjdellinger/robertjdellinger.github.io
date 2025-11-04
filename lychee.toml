@@ -1,0 +1,2 @@
+accept = { status = [200, 403, 429] }
+exclude_path = [".github"]
