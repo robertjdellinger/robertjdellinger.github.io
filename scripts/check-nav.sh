@@ -4,20 +4,26 @@
 
 set -euo pipefail
 
-# Source common navigation variables and functions
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-source "$SCRIPT_DIR/nav-common.sh"
+CANONICAL=".github/canonical/menus.yaml"
+LIVE="config/_default/menus.yaml"
 
-# Validate navigation files exist
-validate_nav_files || exit 1
+if [ ! -f "$CANONICAL" ]; then
+    echo "Error: Canonical nav file not found at $CANONICAL"
+    exit 1
+fi
 
-if cmp -s "$NAV_CANONICAL" "$NAV_LIVE"; then
+if [ ! -f "$LIVE" ]; then
+    echo "Error: Live nav file not found at $LIVE"
+    exit 1
+fi
+
+if cmp -s "$CANONICAL" "$LIVE"; then
     echo "✓ Navigation in sync"
     exit 0
 else
     echo "✗ Navigation drift detected"
-    echo "Canonical: $NAV_CANONICAL"
-    echo "Live: $NAV_LIVE"
+    echo "Canonical: $CANONICAL"
+    echo "Live: $LIVE"
     echo ""
     echo "Run scripts/sync-nav.sh to sync or ensure PR title begins with 'Nav Change Request'"
     exit 1
