@@ -1,0 +1,215 @@
+/* Custom article header overlay styles for Hugo Blox site */
+
+/* Article header with overlay background and gradient */
+.article-header-overlay {
+  position: relative;
+  background-color: #203028;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.article-header-overlay::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(34, 139, 87, .4), rgba(139, 34, 139, .4));
+  z-index: 1;
+}
+
+.article-header-overlay .hero-content,
+.article-header-overlay .article-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Page header with gradient background */
+.header-gradient-green-purple {
+  background: linear-gradient(135deg, rgb(34, 139, 87), rgb(139, 34, 139));
+}
+
+/* Dark theme text for overlay headers */
+.header-theme-dark,
+.header-theme-dark h1,
+.header-theme-dark h2,
+.header-theme-dark h3,
+.header-theme-dark h4,
+.header-theme-dark h5,
+.header-theme-dark h6,
+.header-theme-dark p,
+.header-theme-dark a {
+  color: #ffffff;
+}
+
+.header-theme-dark a:hover {
+  color: #f0f0f0;
+  text-decoration: underline;
+}
+
+/* Hero blocks with overlay styling */
+.hero-overlay {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-overlay .hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.hero-overlay .hero-background::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(34, 139, 87, .4), rgba(139, 34, 139, .4));
+}
+
+.hero-overlay .hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Smooth animations for scroll elements */
+.js-animate {
+  transition: opacity 0.3s ease-in-out;
+}
+
+.js-animate.animate__animated {
+  animation-duration: 0.8s;
+  animation-timing-function: ease-out;
+}
+
+/* Ensure images in articles have proper spacing */
+article img,
+.article-content img {
+  max-width: 100%;
+  height: auto;
+  margin: 1.5rem 0;
+  border-radius: 8px;
+}
+
+/* Gallery improvements */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+/* Lazy loading blur-up effect */
+.blur-up {
+  filter: blur(12px);
+  transform: scale(1.02);
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.blur-up.lazyloaded {
+  filter: blur(0);
+  transform: scale(1);
+}
+
+/* Contact widget enhancements */
+.contact-widget {
+  padding: 2rem 0;
+}
+
+.contact-widget .section-heading {
+  margin-bottom: 2rem;
+}
+
+.contact-widget ul.fa-ul {
+  margin-left: 2rem;
+}
+
+.contact-widget ul.fa-ul li {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+  .gallery {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+  
+  .article-header-overlay {
+    min-height: 300px;
+  }
+  
+  .hero-overlay .hero-content {
+    padding: 2rem 1rem;
+  }
+}
+
+/* Accessibility improvements */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Focus states for better keyboard navigation */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus {
+  outline: 2px solid #228b57;
+  outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+  .header-gradient-green-purple,
+  .article-header-overlay::before,
+  .hero-overlay .hero-background::after {
+    background: none !important;
+  }
+  
+  .header-theme-dark,
+  .header-theme-dark h1,
+  .header-theme-dark h2,
+  .header-theme-dark p {
+    color: #000000 !important;
+  }
+}
