@@ -1,3 +1,6 @@
+##########################
+# Build Configuration
+##########################
 [build]
   command = """
     set -e
@@ -53,7 +56,9 @@
     pnpm dlx pagefind --source 'public' --verbose
   """
 
-# Post-processing optimizations
+##########################
+# Post-Processing Optimizations
+##########################
 [build.processing]
   skip_processing = false
 
@@ -76,14 +81,58 @@
   [plugins.inputs]
     debug = true
 
-# Headers are defined in static/_headers file
-# Redirects configuration
+##########################
+# Security & Performance Headers
+##########################
+[[headers]]
+for = "/*"
+  [headers.values]
+  X-Frame-Options = "DENY"
+  X-Content-Type-Options = "nosniff"
+  Referrer-Policy = "strict-origin-when-cross-origin"
+  Permissions-Policy = "accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()"
+  Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://buttons.github.io https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
+  Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+for = "/*.html"
+  [headers.values]
+  Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+for = "/*.css"
+  [headers.values]
+  Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+for = "/*.js"
+  [headers.values]
+  Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+for = "/fonts/*"
+  [headers.values]
+  Cache-Control = "public, max-age=31536000, immutable"
+  Access-Control-Allow-Origin = "*"
+
+[[headers]]
+for = "/media/*"
+  [headers.values]
+  Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+for = "/uploads/*"
+  [headers.values]
+  Cache-Control = "public, max-age=31536000, immutable"
+
+##########################
+# Redirects
+##########################
 [[redirects]]
   from = "/author/robert-j.-dellinger"
   to = "/"
   status = 301
 
-# Research content moved to early-career subfolder
 [[redirects]]
   from = "/research/bay-lab/*"
   to = "/research/early-career/bay-lab/:splat"
@@ -99,9 +148,7 @@
   to = "/research/early-career/lake-atitlan/:splat"
   status = 301
 
-# Default 404 page
 [[redirects]]
   from = "/*"
   to = "/404.html"
   status = 404
-
