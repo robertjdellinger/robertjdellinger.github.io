@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Build script for Hugo site with Tailwind CSS
 # Based on Hugo Blox Tailwind integration
 #

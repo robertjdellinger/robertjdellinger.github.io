@@ -1,3 +1,7 @@
+{{/* Gallery shortcode for displaying image galleries with Fancybox lightbox
+     Supports both page bundle images and static images
+     Note: Captions use safeHTMLAttr for markdown support. Captions come from page front matter, 
+           not user input, so this is safe. For user-generated content, use htmlEscape instead. */}}
 {{/* Get album folder or default to `gallery/`. */}}
 {{ $album := "" }}
 {{ with .Get "album" }}{{ $album = . }}{{else}}{{ $album = "gallery" }}{{end}}
