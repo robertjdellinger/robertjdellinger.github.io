@@ -4,21 +4,23 @@
 
 set -euo pipefail
 
-CANONICAL=".github/canonical/menus.yaml"
-LIVE="config/_default/menus.yaml"
+# Source common navigation variables and functions
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "$SCRIPT_DIR/nav-common.sh"
 
-if [ ! -f "$CANONICAL" ]; then
-    echo "Error: Canonical nav file not found at $CANONICAL"
+# Validate canonical file exists
+if [ ! -f "$NAV_CANONICAL" ]; then
+    echo "Error: Canonical nav file not found at $NAV_CANONICAL"
     exit 1
 fi
 
 # Create config directory if it doesn't exist
-mkdir -p "$(dirname "$LIVE")"
+mkdir -p "$(dirname "$NAV_LIVE")"
 
 # Copy if different or if live doesn't exist
-if [ ! -f "$LIVE" ] || ! cmp -s "$CANONICAL" "$LIVE"; then
-    echo "Syncing navigation: $CANONICAL -> $LIVE"
-    cp "$CANONICAL" "$LIVE"
+if [ ! -f "$NAV_LIVE" ] || ! cmp -s "$NAV_CANONICAL" "$NAV_LIVE"; then
+    echo "Syncing navigation: $NAV_CANONICAL -> $NAV_LIVE"
+    cp "$NAV_CANONICAL" "$NAV_LIVE"
     echo "Navigation synced successfully"
 else
     echo "Navigation already in sync"
