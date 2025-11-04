@@ -22,7 +22,7 @@ sections:
     design:
       background:
         image:
-          filename: "backgrounds/background.svg"
+          filename: "backgrounds/background.png"
         image_darken: 0.15
       align: center
       spacing:
