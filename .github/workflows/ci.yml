@@ -2,17 +2,8 @@ name: CI
 
 on:
   pull_request:
-    branches: [main, netlify]
-    paths-ignore:
-      - '**/*.md'
-      - 'README*'
-      - 'LICENSE*'
   push:
-    branches: [main, netlify]
-    paths-ignore:
-      - '**/*.md'
-      - 'README*'
-      - 'LICENSE*'
+    branches: [ main ]
 
 permissions:
   contents: read
@@ -23,10 +14,20 @@ concurrency:
 
 jobs:
   build:
-    name: build
     runs-on: ubuntu-latest
-    timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
-      - name: Ensure site entry exists
-        run: test -f index.html || test -d public || test -d content || (echo "No site entry found" && exit 1)
+      - uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.152.2'
+          extended: true
+      - name: Sync canonical nav
+        run: bash scripts/sync-nav.sh
+      - name: Check nav
+        run: bash scripts/check-nav.sh
+      - name: Build
+        run: hugo --gc --minify
+      - name: Link check
+        uses: lycheeverse/lychee-action@v1
+        with:
+          args: --config .lychee.toml --verbose public

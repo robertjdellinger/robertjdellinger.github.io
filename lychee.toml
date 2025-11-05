@@ -1,2 +1,5 @@
-accept = ["200", "403", "429"]
-exclude_path = [".github"]
+verbose = true
+timeout = 20
+exclude = ["^mailto:", "^tel:"]
+# Allow list noisy externals if needed
+accept = ["200..299", "403", "429"]

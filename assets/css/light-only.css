@@ -1,0 +1,4 @@
+:root { color-scheme: light; }
+html { --appearance: light; }
+.theme-toggle, [data-theme-toggle] { display: none !important; }
+[data-theme="dark"] { background: #fff !important; color: #111 !important; }

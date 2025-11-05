@@ -13,6 +13,12 @@ params:
   short_title: "Robert J. Dellinger"
   short_description: "Oceanic & Atmospheric Scientist"
   description_long: "Investigating how physical and social forces drive environmental change, translating science into policy and community action."
+  appearance: "light"
+  show_theme_toggle: false
+  disableThemeToggle: true
+  theme_default: "light"
+  custom_css:
+    - "css/light-only.css"
   show_reading_time: true
   social:
     twitter:

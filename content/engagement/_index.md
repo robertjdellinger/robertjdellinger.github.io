@@ -2,7 +2,7 @@
 title: "Public Engagement"
 type: landing
 summary: "Media and press features, op eds, essays, and guest posts."
-aliases: ["/outreach/"]
+aliases: ["/engagement/"]
 sections:
   - block: markdown
     content:

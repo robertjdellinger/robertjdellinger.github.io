@@ -8,6 +8,5 @@ require (
 )
 
 require (
-	github.com/HugoBlox/hugo-blox-builder v4.8.0+incompatible // indirect
 	github.com/HugoBlox/hugo-blox-builder/modules/blox-analytics v0.2.0 // indirect
 )

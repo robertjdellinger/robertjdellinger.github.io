@@ -14,6 +14,12 @@ updates:
     open-pull-requests-limit: 5
     # optional: allow/ignore config can be added here
 
+  # Update Go modules
+  - package-ecosystem: "gomod"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+
   # Update git submodules (useful if your theme is a submodule)
   - package-ecosystem: "submodules"
     directory: "/"

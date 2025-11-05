@@ -24,6 +24,10 @@ removePathAccents: true
 ############################
 
 module:
+  imports:
+    - path: github.com/HugoBlox/hugo-blox-builder/modules/blox-plugin-netlify
+    - path: github.com/HugoBlox/hugo-blox-builder/modules/blox-tailwind
+    - path: github.com/HugoBlox/hugo-blox-builder/modules/blox-analytics
   hugoVersion:
     extended: true
     min: "0.152.0"
@@ -48,6 +52,8 @@ imaging:
   anchor: smart
   hint: picture
 timeout: 600000
+permalinks:
+  engagement: /outreach/:slug/
 taxonomies:
   author: authors
   tag: tags

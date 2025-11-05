@@ -8,8 +8,9 @@ organizations:
 email: "rjdellinger@ucla.edu"
 # avatar photo, place at assets/media/avatar.jpg or change the path
 avatar:
-   src: "assets/media/avatar/avatar.png"
-   alt: "Portrait of Robert J. Dellinger"
+  image: "media/avatar/avatar.png"
+  alt: "Headshot of Robert J. Dellinger"
+  shape: "circle"
 social:
   - icon: github
     icon_pack: fab

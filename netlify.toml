@@ -2,84 +2,13 @@
 # Build Configuration
 ##########################
 [build]
-  command = """
-    set -e
-    echo "=== Starting Blog build process ==="
-    echo "Node version: $(node --version)"
-    echo "pnpm version: $(pnpm --version)"
-    echo "Hugo version: $(hugo version)"
-    echo "Go version: $(go version || echo 'Go not available')"
-    
-    echo "=== Installing dependencies ==="
-    pnpm install --verbose
-    
-    echo "=== Running Hugo build ==="
-    hugo --gc --minify -b $URL --logLevel debug --printI18nWarnings --printPathWarnings
-    
-    echo "=== Running Pagefind indexing ==="
-    pnpm dlx pagefind --source 'public' --verbose
-    
-    echo "=== Build completed successfully ==="
-  """
+  command = "hugo --gc --minify"
   publish = "public"
 
 [build.environment]
-  HUGO_VERSION = "0.152.1"
-  GO_VERSION = "1.21.5"
-  NODE_VERSION = "22"
-  HUGO_ENABLEGITINFO = "true"
-  HUGO_LOG_I18N_WARNINGS = "true"
-  HUGO_LOG_WARNINGS = "true"
-  FORCE_COLOR = "1"
-  PNPM_LOG_LEVEL = "debug"
-
-[context.production.environment]
+  HUGO_VERSION = "0.152.2"
   HUGO_ENV = "production"
-
-[context.deploy-preview]
-  command = """
-    set -e
-    echo "=== Deploy Preview Build ==="
-    echo "Deploy URL: $DEPLOY_PRIME_URL"
-    pnpm install --verbose
-    hugo --gc --minify --buildFuture -b $DEPLOY_PRIME_URL --logLevel debug --printI18nWarnings --printPathWarnings
-    pnpm dlx pagefind --source 'public' --verbose
-  """
-
-[context.branch-deploy]
-  command = """
-    set -e
-    echo "=== Branch Deploy Build ==="
-    echo "Deploy URL: $DEPLOY_PRIME_URL"
-    pnpm install --verbose
-    hugo --gc --minify -b $DEPLOY_PRIME_URL --logLevel debug --printI18nWarnings --printPathWarnings
-    pnpm dlx pagefind --source 'public' --verbose
-  """
-
-##########################
-# Post-Processing Optimizations
-##########################
-[build.processing]
-  skip_processing = false
-
-[build.processing.css]
-  bundle = true
-  minify = true
-
-[build.processing.js]
-  bundle = true
-  minify = true
-
-[build.processing.html]
-  pretty_urls = true
-
-[build.processing.images]
-  compress = true
-
-[[plugins]]
-  package = "netlify-plugin-hugo-cache-resources"
-  [plugins.inputs]
-    debug = true
+  HUGO_ENABLEGITINFO = "true"
 
 ##########################
 # Security & Performance Headers
@@ -87,47 +16,20 @@
 [[headers]]
 for = "/*"
   [headers.values]
-  X-Frame-Options = "DENY"
-  X-Content-Type-Options = "nosniff"
   Referrer-Policy = "strict-origin-when-cross-origin"
-  Permissions-Policy = "accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()"
-  Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://buttons.github.io https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
-  Cache-Control = "public, max-age=31536000, immutable"
-
-[[headers]]
-for = "/*.html"
-  [headers.values]
-  Cache-Control = "public, max-age=0, must-revalidate"
-
-[[headers]]
-for = "/*.css"
-  [headers.values]
-  Cache-Control = "public, max-age=31536000, immutable"
-
-[[headers]]
-for = "/*.js"
-  [headers.values]
-  Cache-Control = "public, max-age=31536000, immutable"
-
-[[headers]]
-for = "/fonts/*"
-  [headers.values]
-  Cache-Control = "public, max-age=31536000, immutable"
-  Access-Control-Allow-Origin = "*"
-
-[[headers]]
-for = "/media/*"
-  [headers.values]
-  Cache-Control = "public, max-age=31536000, immutable"
-
-[[headers]]
-for = "/uploads/*"
-  [headers.values]
-  Cache-Control = "public, max-age=31536000, immutable"
+  X-Content-Type-Options = "nosniff"
+  X-Frame-Options = "DENY"
+  Permissions-Policy = "geolocation=(), microphone=(), camera=()"
 
 ##########################
 # Redirects
 ##########################
+[[redirects]]
+  from = "/engagement/*"
+  to = "/outreach/:splat"
+  status = 301
+  force = true
+
 [[redirects]]
   from = "/author/robert-j.-dellinger"
   to = "/"
