@@ -40,7 +40,7 @@ header:
     logo:
       text: "Robert J. Dellinger"
       filename: "icons/logo.png"
-    show_theme_chooser: true
+    show_theme_chooser: false
     show_search: true
     highlight_active_link: true
     show_translations: false
