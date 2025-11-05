@@ -1,13 +1,6 @@
-/* Hide navbar & footer on every page (handles Wowchemy/HugoBlox variants) */
-.navbar, .site-footer, .footer, .header, .wc-navbar, header.site-header, footer.site-footer {
+/* Hide footer on every page (handles Wowchemy/HugoBlox variants) */
+.site-footer, .footer, footer.site-footer, footer.footer, footer[role="contentinfo"] {
   display: none !important;
-}
-
-/* Remove any top spacing the theme adds for a missing navbar */
-:root { --wc-navbar-height: 0 !important; --wb-navbar-height: 0 !important; }
-main, #content, .page-body {
-  padding-top: 0 !important;
-  margin-top: 0 !important;
 }
 
 /* Make hero blocks truly full-viewport */
