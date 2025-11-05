@@ -11,33 +11,6 @@ design:
 sections:
   - block: resume-biography-3
     content:
-      # Choose a user profile to display (a folder name within `content/authors/`)
-      username: admin
-      text: ''
-      # Show a call-to-action button under your biography? (optional)
-      button:
-        text: Download CV
-        url: uploads/resume.pdf
-    design:
-      # Apply a gradient background
-      css_class: hbx-bg-gradient
-      # Avatar customization
-      avatar:
-        src: "assets/media/avatar/avatar.png"
-        alt: "Portrait of Robert J. Dellinger"
-        size: medium # Options: small (150px), medium (200px, default), large (320px), xl (400px), xxl (500px)
-        shape: circle # Options: circle (default), square, rounded
-
-interests:
-  - Large Language Models
-  - Computer Vision
-  - Reinforcement Learning
-  - AI Ethics
-  
-image: "assets/media/coral-reef.png"
-sections:
-  - block: resume-biography-3
-    content:
       title: "Robert J. Dellinger"
       username: "admin"
       text: "Robert J. Dellinger (he/they) is an oceanic and atmospheric scientist whose work spans marine and terrestrial systems, with an interest in investigating how ecosystems patterns, processes, and and outcomes are shaped by both physical (e.g. changes in temperature) and social (e.g. policy decisions) drivers of environmental change. As a Ph.D student in Atmospheric and Oceanic Sciences at UCLA, Robert's research integrates biogeochemical proxies and ancient DNA to reconstruct long term environmental change and quantify shifts in community composition through time. Drawing on ecology and biogeochemistry through a critical theory lens, his research aims are to investigate how social systems and power shape ecosystem processes and, in turn, how changing environments will impact society. Robert previously attained an M.S. in Biology, a B.A. in International Relations, and a B.S. in Marine and Coastal Science, with training that emphasizes interdisciplinary methods and policy-informed research. He is currently a National Science Foundation Graduate Research Fellow, a UCLA Center for Diverse Leadership Fellow, and a NSF Science-Policy National Research Trainee. Additionally, Robert is committed to expanding access to academia for historically excluded communities and believes the pursuit of knowledge should be accessible to anyone guided by curiosity and wonder. As a researcher and educator, he is guided by an ethic of stewardship that insists we leave environments, academic and natural alike, better than we found them."
@@ -68,7 +41,8 @@ sections:
           icon: ""
           date_start: 2021-09-01
           date_end: 2024-08-01
-          summary: | Research focus: Quantitative marine ecology and biogeochemistry, examining the physiological and energetic responses of marine species to the combined impacts of ocean acidification and warming. Thesis on _Facing Physiological Constraints: The Interactive Effects of Ocean Acidification and Warming_. Advised by Dr. Nyssa Silbiger. 
+          summary: |
+            Research focus: Quantitative marine ecology and biogeochemistry, examining the physiological and energetic responses of marine species to the combined impacts of ocean acidification and warming. Thesis on _Facing Physiological Constraints: The Interactive Effects of Ocean Acidification and Warming_. Advised by Dr. Nyssa Silbiger. 
           button:
             text: 'Thesis PDF'
             url: 'https://scholarworks.calstate.edu/concern/theses/jq085t882'
@@ -150,8 +124,8 @@ sections:
           location: "Kumeyaay Territory, San Diego, CA"
           date_start: "2023-06-01"
           date_end: ""
-          description: " Queer and Indigenous-led initiative (2SLGBTQIA+) designed to strengthen community healing and connection to the land for QTBIPOC communities."
-          - title: "President"
+          description: "Queer and Indigenous-led initiative (2SLGBTQIA+) designed to strengthen community healing and connection to the land for QTBIPOC communities."
+        - title: "President"
           company: "Marine Biology Graduate Student Association"
           location: "CSUN"
           date_start: "2022-09-01"
@@ -186,35 +160,30 @@ sections:
 
   - block: resume-awards
     content:
-      title: Awards & Distinctions
-      username: admin
-
-  - block: resume-awards
-    content:
       title: "Awards & Distinctions"
       items:
         - title: "UCLA Eugene V. Cota-Robles Fellowship"
-          date: "2024 to 2029"
+          date: "2024-09-01"
           awarder: "UCLA"
-          summary: "Multi-year doctoral fellowship supporting research, mentorship, and leadership"
+          summary: "Multi-year doctoral fellowship supporting research, mentorship, and leadership (2024-2029)"
         - title: "NSF Graduate Research Fellowship"
-          date: "2022 to 2026"
+          date: "2022-09-01"
           awarder: "National Science Foundation"
-          summary: "Prestigious national fellowship recognizing early career potential"
+          summary: "Prestigious national fellowship recognizing early career potential (2022-2026)"
         - title: "UCLA Center for Diverse Leadership in Science Fellowship"
-          date: "2021 to 2026"
+          date: "2021-09-01"
           awarder: "UCLA"
-          summary: "Support for diverse leaders engaged in scholarship and community building"
+          summary: "Support for diverse leaders engaged in scholarship and community building (2021-2026)"
         - title: "Department Citation for Outstanding Achievement and Contributions"
-          date: "2021"
+          date: "2021-06-01"
           awarder: "UC Davis EPS"
           summary: ""
         - title: "GeMS Scholarship"
-          date: "2021"
+          date: "2021-06-01"
           awarder: "UC Davis EPS"
           summary: ""
         - title: "Bodega Marine Laboratory Ambassador Award"
-          date: "2019"
+          date: "2019-06-01"
           awarder: "UC Davis CMSI"
           summary: ""
     design:

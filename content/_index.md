@@ -9,7 +9,7 @@ sections:
     content:
       title: "Robert J. Dellinger"
       text: |
-        Oceanic & Atmospheric Scientist  
+        Oceanic & Atmospheric Scientist
         Investigating the physical and social drivers of environmental change
       primary_action:
         text: "About"

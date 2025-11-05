@@ -23,11 +23,11 @@ highlight_name: true
 role: "Oceanic & Atmospheric Scientist"
 tagline: "Investigating the Physical and Social Drivers of Environmental Change"
 
-# organization: 
+# organization:
 organizations:
   - name: "Ph.D. Student, UCLA Department of Oceanic & Atmospheric Science"
     url: https://atmos.ucla.edu/
-    
+
 email: "rjdellinger@ucla.edu"
 
 # Social network links
@@ -43,7 +43,7 @@ social:
     link: "https://scholar.google.com/citations?user=lxtnDm4AAAAJ&hl"
   - icon: academicons/orcid
     link: "https://orcid.org/0009-0009-3524-4041"
-    
+
 interests:
   - Global Change Biology
   - Quantitative Ecology
@@ -53,30 +53,30 @@ interests:
 
 awards:
   - title: "UCLA Eugene V. Cota-Robles Fellowship"
-    date: "2024 to 2029"
+    date: "2024-09-01"
     awarder: "UCLA"
-    summary: "Multi-year doctoral fellowship supporting research, mentorship, and leadership"
+    summary: "Multi-year doctoral fellowship supporting research, mentorship, and leadership (2024-2029)"
   - title: "NSF Graduate Research Fellowship"
-    date: "2022 to 2026"
+    date: "2022-09-01"
     awarder: "National Science Foundation"
-    summary: "Prestigious national fellowship recognizing early career potential"
+    summary: "Prestigious national fellowship recognizing early career potential (2022-2026)"
   - title: "UCLA Center for Diverse Leadership in Science Fellowship"
-    date: "2021 to 2026"
+    date: "2021-09-01"
     awarder: "UCLA"
-    summary: "Support for diverse leaders engaged in scholarship and community building"
+    summary: "Support for diverse leaders engaged in scholarship and community building (2021-2026)"
   - title: "Department Citation for Outstanding Achievement and Contributions"
-    date: "2021"
+    date: "2021-06-01"
     awarder: "UC Davis EPS"
     summary: ""
   - title: "GeMS Scholarship"
-    date: "2021"
+    date: "2021-06-01"
     awarder: "UC Davis EPS"
     summary: ""
   - title: "Bodega Marine Laboratory Ambassador Award"
-    date: "2019"
+    date: "2019-06-01"
     awarder: "UC Davis CMSI"
     summary: ""
-      
+
 # Skills
 skills:
   - name: Technical Skills
@@ -102,5 +102,5 @@ languages:
     percent: 100
   - name: Spanish
     percent: 100
-    
+
 ---
