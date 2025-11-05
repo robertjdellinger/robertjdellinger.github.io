@@ -28,7 +28,7 @@ sections:
     content:
       title: "Media & Press"
       filters:
-        folders: ["outreach/media-press"]
+        folders: ["engagement/media-press"]
       count: 12
       sort_by: "Date"
       order: "desc"
@@ -38,7 +38,7 @@ sections:
     content:
       title: "Writing"
       filters:
-        folders: ["outreach/writing"]
+        folders: ["engagement/writing"]
       count: 12
       sort_by: "Date"
       order: "desc"

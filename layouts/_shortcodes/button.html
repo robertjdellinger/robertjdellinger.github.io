@@ -23,6 +23,6 @@
 {{- /* Build class names */ -}}
 {{- $classNames = delimit $classNames " " -}}
 {{- /* Output */ -}}
-<a href="{{ $href }}" class="{{ $classNames }}" {{ if hasPrefix $href "http" }} target="_blank" rel="noopener"{{ end }}>
+<a href="{{ $href }}" class="{{ $classNames }}" {{ if hasPrefix $href "http" }} target="_blank" rel="noopener noreferrer"{{ end }}>
   {{ .Inner | $.Page.RenderString }}
 </a>{{ "" -}}
