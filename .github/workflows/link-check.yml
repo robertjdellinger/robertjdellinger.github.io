@@ -81,21 +81,22 @@ jobs:
           echo "⚠ Site did not respond after $MAX_ATTEMPTS attempts"
           echo "Proceeding with link check anyway..."
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
       - name: Install lychee
-        run: npm install -g @lycheeverse/lychee
+        run: |
+          # Download and install lychee binary
+          LYCHEE_VERSION="0.17.0"
+          curl -sLO "https://github.com/lycheeverse/lychee/releases/download/v${LYCHEE_VERSION}/lychee-v${LYCHEE_VERSION}-x86_64-unknown-linux-gnu.tar.gz"
+          tar -xzf "lychee-v${LYCHEE_VERSION}-x86_64-unknown-linux-gnu.tar.gz"
+          sudo mv lychee /usr/local/bin/
+          rm "lychee-v${LYCHEE_VERSION}-x86_64-unknown-linux-gnu.tar.gz"
 
       - name: Link Checker
         continue-on-error: true
         run: |
-          npx --no-install lychee --exclude-path ./resources \
-                                   --exclude-path ./node_modules \
-                                   --exclude-file .github/lychee-allowlist.txt \
-                                   '**/*.md' '**/*.html' '**/*.txt' || exit 0
+          lychee --exclude-path ./resources \
+                 --exclude-path ./node_modules \
+                 --exclude-file .github/lychee-allowlist.txt \
+                 '**/*.md' '**/*.html' '**/*.txt' || exit 0
 
       - name: Create Issue From File
         if: failure() && github.event_name == 'schedule'
