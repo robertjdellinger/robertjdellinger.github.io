@@ -2,6 +2,8 @@
 title: "Robert J. Dellinger"
 role: "Oceanic & Atmospheric Scientist"
 bio: "Ph.D. Student Researching Climate Change Impacts on Ecosystem Processes."
+avatar:
+    filename: "assets/media/avatar/avatar.png"
 organizations:
   - name: "UCLA Atmospheric and Oceanic Sciences"
     url: "https://atmos.ucla.edu/"
