@@ -132,4 +132,17 @@ sections:
     design:
       view: "card"
       columns: "3"
+  
+  - block: collection
+    content:
+      title: "Publications"
+      filters:
+        folders: ["publications"]
+        page_type: "publication"
+      sort_by: "Date"
+      order: "desc"
+      count: 50
+    design:
+      view: "card"
+      columns: "2"
 ---

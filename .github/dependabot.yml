@@ -21,9 +21,9 @@ updates:
       interval: "weekly"
     open-pull-requests-limit: 3
 
-  # If you start using node (package.json), enable this block by removing the leading '#'
-  # - package-ecosystem: "npm"
-  #   directory: "/"
-  #   schedule:
-  #     interval: "weekly"
-  #   open-pull-requests-limit: 5
+  # NPM dependencies (package.json is now in use)
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
