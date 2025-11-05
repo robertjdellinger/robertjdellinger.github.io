@@ -20,7 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Enabled canonifyURLs for better SEO
 - Improved repository organization and documentation
 
-## [1.0.0] - 2025-11-05
+## [1.0.0] - 2025-11-01
 
 ### Initial Release
 - Hugo-based academic website using HugoBlox template
