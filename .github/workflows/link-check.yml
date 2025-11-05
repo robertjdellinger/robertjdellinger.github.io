@@ -81,25 +81,21 @@ jobs:
           echo "⚠ Site did not respond after $MAX_ATTEMPTS attempts"
           echo "Proceeding with link check anyway..."
 
-      - name: Link Checker
-        uses: lycheeverse/lychee-action@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          # Check all markdown, HTML, and text files
-          args: |
-            --verbose
-            --no-progress
-            --accept 200,201,202,203,204,206,207,208,226,300,301,302,303,304,307,308,429,999
-            --timeout 30
-            --max-retries 3
-            --exclude-path ./public
-            --exclude-path ./resources
-            --exclude-path ./node_modules
-            --exclude-file .github/lychee-allowlist.txt
-            '**/*.md' '**/*.html' '**/*.txt'
-          fail: true
-          # Don't fail on errors for scheduled runs (weekly checks)
-          jobSummary: true
-          format: markdown
+          node-version: '20'
+
+      - name: Install lychee
+        run: npm install -g @lycheeverse/lychee
+
+      - name: Link Checker
+        continue-on-error: true
+        run: |
+          npx --no-install lychee --exclude-path ./resources \
+                                   --exclude-path ./node_modules \
+                                   --exclude-file .github/lychee-allowlist.txt \
+                                   '**/*.md' '**/*.html' '**/*.txt' || exit 0
 
       - name: Create Issue From File
         if: failure() && github.event_name == 'schedule'

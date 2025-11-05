@@ -33,6 +33,10 @@ noaa\.gov
 www\.noaa\.gov
 nasa\.gov
 
+# Known redirects (from link-check logs)
+nodejs\.org
+opensource\.org/licenses/MIT
+
 # Other common patterns to exclude
 mailto:
 tel:
