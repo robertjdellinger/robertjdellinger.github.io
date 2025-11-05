@@ -1,0 +1,118 @@
+{{/* layouts/shortcodes/contact_widget.html */}}
+{{ $page := .Page }}
+{{ $autolink := default true $page.Params.autolink }}
+
+<div class="row contact-widget">
+  <div class="col-12 text-center section-heading">
+    <h1>{{ with $page.Title }}{{ . | markdownify }}{{ end }}</h1>
+    {{ with $page.Params.subtitle }}<p>{{ . | markdownify }}</p>{{ end }}
+  </div>
+
+  {{ with $page.Content }}
+  <div class="col-12">
+    <p>{{ . | markdownify }}</p>
+  </div>
+  {{ end }}
+
+  <div class="col-md-6">
+    {{/* Form handling, choose Netlify or Formspree via front matter */}}
+    {{ $provider := $page.Params.email_form.provider | default "" }}
+    {{ if eq $provider "netlify" }}
+      <div class="mb-3">
+        <form name="{{ $page.Params.email_form.form_name | default "contact" }}" method="POST" data-netlify="true">
+          <input type="hidden" name="form-name" value="{{ $page.Params.email_form.form_name | default "contact" }}">
+          <div class="form-group form-inline">
+            <label class="sr-only" for="inputName">Name</label>
+            <input type="text" name="name" class="form-control rounded-0 w-100" id="inputName" placeholder="Name" required>
+          </div>
+          <div class="form-group form-inline">
+            <label class="sr-only" for="inputEmail">Email</label>
+            <input type="email" name="email" class="form-control rounded-0 w-100" id="inputEmail" placeholder="Email" required>
+          </div>
+          <div class="form-group">
+            <label class="sr-only" for="inputMessage">Message</label>
+            <textarea name="message" class="form-control rounded-0" id="inputMessage" rows="5" placeholder="Message" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-outline-primary px-3 py-2">Send</button>
+        </form>
+      </div>
+    {{ else if eq $provider "formspree" }}
+      {{ $fid := $page.Params.email_form.formspree_id | default "" }}
+      {{ if not $fid }}{{ errorf "Set email_form.formspree_id in contact front matter when using Formspree." }}{{ end }}
+      <div class="mb-3">
+        <form method="POST" action="https://formspree.io/f/{{ $fid }}">
+          <div class="form-group form-inline">
+            <label class="sr-only" for="fsName">Name</label>
+            <input type="text" name="name" class="form-control rounded-0 w-100" id="fsName" placeholder="Name" required>
+          </div>
+          <div class="form-group form-inline">
+            <label class="sr-only" for="fsEmail">Email</label>
+            <input type="email" name="email" class="form-control rounded-0 w-100" id="fsEmail" placeholder="Email" required>
+          </div>
+          <div class="form-group">
+            <label class="sr-only" for="fsMessage">Message</label>
+            <textarea name="message" class="form-control rounded-0" id="fsMessage" rows="5" placeholder="Message" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-outline-primary px-3 py-2">Send</button>
+        </form>
+      </div>
+    {{ end }}
+  </div>
+
+  <div class="col-md-6">
+    <ul class="fa-ul" itemscope>
+      {{ with .Site.Params.email }}
+      <li>
+        <i class="fa-li fas fa-envelope mt-2" aria-hidden="true"></i>
+        <span id="person-email" itemprop="email">
+          {{- if $autolink }}<a href="mailto:{{ . }}">{{ . }}</a>{{ else }}{{ . }}{{ end -}}
+        </span>
+      </li>
+      {{ end }}
+
+      {{ with .Site.Params.phone }}
+      <li>
+        <i class="fa-li fas fa-phone mt-2" aria-hidden="true"></i>
+        <span id="person-telephone" itemprop="telephone">
+          {{- if $autolink }}<a href="tel:{{ . }}">{{ . }}</a>{{ else }}{{ . }}{{ end -}}
+        </span>
+      </li>
+      {{ end }}
+
+      {{ with .Site.Params.address }}
+      <li>
+        <i class="fa-li fas fa-map-marker-alt mt-2" aria-hidden="true"></i>
+        <span id="person-address" itemprop="address">{{ . | markdownify | emojify }}</span>
+      </li>
+      {{ end }}
+
+      {{ with .Site.Params.office_hours }}
+      <li>
+        <i class="fa-li fas fa-clock mt-2" aria-hidden="true"></i>
+        <span>{{ . | markdownify | emojify }}</span>
+      </li>
+      {{ end }}
+
+      {{ with .Site.Params.appointment_url }}
+      <li>
+        <i class="fa-li fas fa-calendar-check mt-2" aria-hidden="true"></i>
+        <a href="{{ . }}" target="_blank" rel="noopener">Book an appointment</a>
+      </li>
+      {{ end }}
+    </ul>
+  </div>
+
+  {{ if .Site.Params.map }}
+  <div class="col-12">
+    <div class="d-none">
+      <input id="map-provider" value="{{ .Site.Params.map }}">
+      <input id="map-lat" value="{{ .Site.Params.latitude }}">
+      <input id="map-lng" value="{{ .Site.Params.longitude }}">
+      <input id="map-dir" value="{{ .Site.Params.address }}">
+      <input id="map-zoom" value="{{ .Site.Params.zoom | default "15" }}">
+      <input id="map-api-key" value="{{ .Site.Params.map_api_key }}">
+    </div>
+    <div id="map"></div>
+  </div>
+  {{ end }}
+</div>

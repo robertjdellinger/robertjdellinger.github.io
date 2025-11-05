@@ -7,10 +7,6 @@
 localhost
 127\.0\.0\.1
 
-# Example/placeholder domains
-example\.com
-example\.org
-
 # Social media platforms (often block automated checks)
 twitter\.com
 x\.com
@@ -33,6 +29,26 @@ soest\.hawaii\.edu
 noaa\.gov
 www\.noaa\.gov
 nasa\.gov
+
+# External sites with rate limiting or network issues
+gohugo\.io  # Network timeouts in CI
+hugoblox\.com  # Rate limiting
+docs\.github\.com  # Rate limiting
+app\.netlify\.com  # Requires authentication
+docs\.netlify\.com  # Rate limiting
+climatefutures\.art  # Network timeouts
+possibilities\.news  # Network timeouts
+mirjamglessmer\.com  # Network timeouts
+davispoliticalreview\.com  # Network timeouts
+baylab\.github\.io  # Network timeouts
+user-attachments  # GitHub user content, often flaky
+
+# Self-references (will be valid once deployed)
+robertjdellinger\.github\.io
+
+# other links
+https://gohugo.io/installation/macos/
+https://img.shields.io/badge/go%20report-A+-brightgreen.svg?styl
 
 # Other common patterns to exclude
 mailto:

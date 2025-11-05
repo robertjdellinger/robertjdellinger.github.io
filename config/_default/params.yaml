@@ -7,6 +7,7 @@ date_format: "2006-01-02"
 email: "rjdellinger@ucla.edu"
 phone: "+1 310 880 9842"
 address: "UCLA Atmospheric and Oceanic Sciences  \n7127 Math Sciences Building, Box 951565  \nLos Angeles, CA 90095-1565"
+office_hours: "By appointment"
 
 params:
   author:

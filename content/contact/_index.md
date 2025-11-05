@@ -3,11 +3,11 @@ title: "Contact"
 type: landing
 summary: "Get in touch."
 sections:
-  - block: contact
+  - block: markdown
     content:
-      title: "Get in touch"
-      text: |
-        Feel free to reach out via email or phone. I'm happy to discuss research collaborations, science communication, or community engagement opportunities.
+      title: "Say hello"
+      text: '{{< contact_widget >}}'
     design:
       columns: "1"
+      css_class: "js-animate anim-fadeInUp"
 ---

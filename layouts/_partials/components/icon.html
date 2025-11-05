@@ -1,0 +1,31 @@
+{{/*
+@example {{ partial "components/icon" (dict "name" $name "variant" $variant "size" $size "class" $class) }}
+*/}}
+{{ $src := printf "/assets/icons/%s.svg" .name }}
+{{ $result := "" }}
+{{ if fileExists $src }}
+  {{ $svg := readFile $src | htmlUnescape }}
+  {{ $classNames := slice "icon" }}
+  {{/* Get variant */}}
+  {{ if or (eq .variant "primary") (eq .variant "secondary") (eq .variant "info") (eq .variant "success") (eq .variant "warning") (eq .variant "error") (eq .variant "current") }}
+    {{ $classNames = $classNames | append (printf "icon--%s" .variant) }}
+  {{ end }}
+  {{/* Get size */}}
+  {{ if or (eq .size "small") (eq .size "medium") (eq .size "large") }}
+    {{ $classNames = $classNames | append (printf "icon--%s" .size) }}
+  {{ end }}
+  {{/* Get additional class name */}}
+  {{ if .class }}
+    {{ $classNames = $classNames | append .class }}
+  {{ end }}
+  {{/* Build class names */}}
+  {{ $classNames = delimit $classNames " " }}
+  {{/* Output */}}
+  {{ $result = $svg | replaceRE "<svg " (printf "<svg class=%q " $classNames) | chomp }}
+{{ end }}
+{{/* Return result */}}
+{{ if ne $result "" }}
+  {{ return ($result | safeHTML) }}
+{{ else }}
+  {{ errorf "Unable to get icon %q" $src }}
+{{ end }}
