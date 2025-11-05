@@ -10,7 +10,7 @@ ORCID: 0009-0009-3524-4041
 Language: English
 Standards: HTML5, CSS3, RSS
 Components: Hugo, HugoBlox, Tailwind CSS, Preact
-Software: Hugo v0.152.1, Node.js, pnpm
+Software: Hugo (see config), Node.js, pnpm
 
 /* HOSTING */
 Platform: GitHub Pages / Netlify
