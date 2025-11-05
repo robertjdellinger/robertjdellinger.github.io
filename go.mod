@@ -7,4 +7,7 @@ require (
 	github.com/HugoBlox/hugo-blox-builder/modules/blox-tailwind v0.9.0
 )
 
-require github.com/HugoBlox/hugo-blox-builder/modules/blox-analytics v0.2.0 // indirect
+require (
+	github.com/HugoBlox/hugo-blox-builder v4.8.0+incompatible // indirect
+	github.com/HugoBlox/hugo-blox-builder/modules/blox-analytics v0.2.0 // indirect
+)
