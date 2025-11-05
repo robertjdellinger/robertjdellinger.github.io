@@ -4,6 +4,9 @@ mainSections: ["blog"]
 date_format: "2006-01-02"
 
 params:
+  css:
+    additional:
+      - "/css/custom.css"
   author:
     name: "Robert J. Dellinger"
     affiliation: "UCLA Atmospheric and Oceanic Sciences"
