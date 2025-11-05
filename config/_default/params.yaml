@@ -34,7 +34,7 @@ params:
 
 header:
   assets:
-    favicon: "/media/icons/icon.png"
+    favicon: "/media/icons/logo.png"
   navbar:
     enable: true
     block: "navbar"
@@ -65,19 +65,6 @@ features:
     url: "https://github.com/robertjdellinger/robertjdellinger.github.io"
     content_dir: "content"
     branch: "main"
-
-footer:
-  block: minimal
-  copyright:
-    notice: "© {year} Robert J. Dellinger."
-    license:
-      enable: true
-      name: "CC BY-NC-ND 4.0"
-      uri: "https://creativecommons.org/licenses/by-nc-nd/4.0/"
-      allow_derivatives: false
-      allow_commercial: false
-      share_alike: false
-  show_translations: false
 
 assets:
   favicon: "/assets/media/icons/icon.png"
