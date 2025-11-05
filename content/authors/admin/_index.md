@@ -23,11 +23,11 @@ highlight_name: true
 role: "Oceanic & Atmospheric Scientist"
 tagline: "Investigating the Physical and Social Drivers of Environmental Change"
 
-# organization: 
+# organization:
 organizations:
   - name: "Ph.D. Student, UCLA Department of Oceanic & Atmospheric Science"
     url: https://atmos.ucla.edu/
-    
+
 email: "rjdellinger@ucla.edu"
 
 # Social network links
@@ -43,7 +43,7 @@ social:
     link: "https://scholar.google.com/citations?user=lxtnDm4AAAAJ&hl"
   - icon: academicons/orcid
     link: "https://orcid.org/0009-0009-3524-4041"
-    
+
 interests:
   - Global Change Biology
   - Quantitative Ecology
@@ -76,7 +76,7 @@ awards:
     date: "2019-06-01"
     awarder: "UC Davis CMSI"
     summary: ""
-      
+
 # Skills
 skills:
   - name: Technical Skills
@@ -102,5 +102,5 @@ languages:
     percent: 100
   - name: Spanish
     percent: 100
-    
+
 ---

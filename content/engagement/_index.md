@@ -5,7 +5,7 @@ summary: "Dialogues, interviews, and features connecting science with broader pu
 design:
   spacing: "3rem"
   css_class: "js-animate anim-fadeInUp"
-  
+
 sections:
   - block: markdown
     content:
@@ -16,13 +16,13 @@ sections:
     content:
       title: "Imagining Climate Futures, Volume II"
       text: |
-        View the Volume II anthology  
+        View the Volume II anthology
         [Open Volume II](https://climatefutures.art/volume-ii)
   - block: markdown
     content:
       title: "Imagining Climate Futures, Volume I"
       text: |
-        Click below to view Anthology I of Imagining Climate Futures  
+        Click below to view Anthology I of Imagining Climate Futures
         [Open Volume I](https://climatefutures.art/volume-i)
   - block: collection
     content:
