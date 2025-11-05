@@ -13,8 +13,8 @@ main:
     params:
       description: "Ongoing and Previous Research Projects, Publications, & Presentations"
 
-  - name: "Public Engagement"
-    url: "/engagement/"
+  - name: "Outreach"
+    url: "/outreach/"
     weight: 30
     identifier: "engagement"
     params:
