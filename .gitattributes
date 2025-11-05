@@ -1,0 +1,160 @@
+# ============================================================================
+# Git Attributes Configuration
+# ============================================================================
+# This file ensures consistent handling of files across different platforms
+# See: https://git-scm.com/docs/gitattributes
+
+# ============================================================================
+# Auto-detect text files and normalize line endings to LF
+# ============================================================================
+* text=auto eol=lf
+
+# ============================================================================
+# Source Code
+# ============================================================================
+*.css text
+*.html text
+*.js text
+*.json text
+*.md text
+*.toml text
+*.yaml text
+*.yml text
+*.sh text eol=lf
+*.go text
+
+# ============================================================================
+# Hugo/Static Site Files
+# ============================================================================
+*.tmpl text
+*.tpl text
+*.html.tmpl text
+
+# ============================================================================
+# Documentation
+# ============================================================================
+*.markdown text
+*.mdown text
+*.txt text
+AUTHORS text
+CHANGELOG text
+CHANGES text
+CONTRIBUTING text
+COPYING text
+copyright text
+*COPYRIGHT* text
+INSTALL text
+license text
+LICENSE text
+NEWS text
+readme text
+*README* text
+TODO text
+
+# ============================================================================
+# Configuration Files
+# ============================================================================
+*.cnf text
+*.conf text
+*.config text
+.editorconfig text
+.gitattributes text
+.gitconfig text
+.htaccess text
+*.lock text
+*.npmignore text
+*.nvmrc text
+*.properties text
+
+# ============================================================================
+# Graphics
+# ============================================================================
+*.ai binary
+*.bmp binary
+*.eps binary
+*.gif binary
+*.gifv binary
+*.ico binary
+*.jng binary
+*.jp2 binary
+*.jpg binary
+*.jpeg binary
+*.jpx binary
+*.jxr binary
+*.pdf binary
+*.png binary
+*.psb binary
+*.psd binary
+*.svg text
+*.svgz binary
+*.tif binary
+*.tiff binary
+*.wbmp binary
+*.webp binary
+
+# ============================================================================
+# Audio
+# ============================================================================
+*.kar binary
+*.m4a binary
+*.mid binary
+*.midi binary
+*.mp3 binary
+*.ogg binary
+*.ra binary
+
+# ============================================================================
+# Video
+# ============================================================================
+*.3gpp binary
+*.3gp binary
+*.as binary
+*.asf binary
+*.asx binary
+*.avi binary
+*.fla binary
+*.flv binary
+*.m4v binary
+*.mng binary
+*.mov binary
+*.mp4 binary
+*.mpeg binary
+*.mpg binary
+*.ogv binary
+*.swc binary
+*.swf binary
+*.webm binary
+
+# ============================================================================
+# Archives
+# ============================================================================
+*.7z binary
+*.gz binary
+*.jar binary
+*.rar binary
+*.tar binary
+*.zip binary
+
+# ============================================================================
+# Fonts
+# ============================================================================
+*.eot binary
+*.otf binary
+*.ttf binary
+*.woff binary
+*.woff2 binary
+
+# ============================================================================
+# Executables
+# ============================================================================
+*.exe binary
+*.pyc binary
+
+# ============================================================================
+# Export Ignore
+# ============================================================================
+# These files should not be included in archives (e.g., GitHub releases)
+.editorconfig export-ignore
+.gitattributes export-ignore
+.github export-ignore
+.gitignore export-ignore

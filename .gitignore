@@ -78,3 +78,6 @@ Desktop.ini
 
 *.log
 npm-debug.log*
+*.bak
+*.swp
+*.swo
