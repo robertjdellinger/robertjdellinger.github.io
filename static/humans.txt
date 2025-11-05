@@ -7,7 +7,6 @@ Twitter: @RJ_Dellinger
 ORCID: 0009-0009-3524-4041
 
 /* SITE */
-Last update: 2025/11/05
 Language: English
 Standards: HTML5, CSS3, RSS
 Components: Hugo, HugoBlox, Tailwind CSS, Preact

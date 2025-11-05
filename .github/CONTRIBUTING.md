@@ -36,10 +36,10 @@ git clone https://github.com/YOUR_USERNAME/robertjdellinger.github.io.git
 cd robertjdellinger.github.io
 
 # Install dependencies
-npm install -g pnpm@10.14.0
+npm install -g pnpm@10.14.0  # Or pnpm version from package.json
 pnpm install
 
-# Install Hugo (requires v0.152.1 extended)
+# Install Hugo Extended v0.152.0+
 # See: https://gohugo.io/installation/
 
 # Run development server
